@@ -229,6 +229,11 @@ void HpCharaInst::playAniByName(const char *p_ani_name, float frm)
     this->playAniByName(p_ani_name, frm, s_default_fps, false);
 }
 
+void HpCharaInst::playEffectByName(const char *p_ani_name)
+{
+    this->playAniByName(p_ani_name, 0, s_default_fps, 1, true);
+}
+
 void HpCharaInst::draw(){
     
     if(m_atlas_list->count() == 0)
@@ -383,7 +388,6 @@ void HpCharaInst::onAnimationEnd(bool destroy){
     if(destroy){
         this->removeFromParent();
     }
-    
 }
 
 void HpCharaInst::onCustomEvent(CCString* p_event){

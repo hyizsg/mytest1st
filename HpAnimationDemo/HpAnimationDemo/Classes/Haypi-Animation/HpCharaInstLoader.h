@@ -25,8 +25,12 @@ public:
     virtual ~HpCharaInstLoader() {};
     CCB_STATIC_NEW_AUTORELEASE_OBJECT_METHOD(HpCharaInstLoader, loader);
     
+    
+    virtual void onHandlePropTypeString(CCNode * pNode, CCNode * pParent, const char * pPropertyName, const char * pString, CCBReader * pCCBReader);
+    
 protected:
     CCB_VIRTUAL_NEW_AUTORELEASE_CREATECCNODE_METHOD(HpCharaInst);
+    
 };
 
 NS_HPAM_END

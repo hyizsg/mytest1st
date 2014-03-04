@@ -43,6 +43,7 @@ bool HelloWorld::init()
     addChild(inst);
     
     inst->playAniByName("动画   0", true);
+    inst->playEffectByName("动画   0");
     
     return true;
 }
