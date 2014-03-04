@@ -10,7 +10,7 @@
 #include "HpAnimaStatus.h"
 #include "HpTextureAtlasShader.h"
 
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
 NS_HPAM_BEGIN

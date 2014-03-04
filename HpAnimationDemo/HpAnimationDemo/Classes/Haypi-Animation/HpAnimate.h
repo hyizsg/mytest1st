@@ -9,7 +9,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpAnimate : public CCActionInterval{
 private:
@@ -32,6 +32,7 @@ public:
     void setAnima(HpAnimation* p_anima);
 
 };
-}
+
+NS_HPAM_END
 
 #endif // HPANIMATE_H

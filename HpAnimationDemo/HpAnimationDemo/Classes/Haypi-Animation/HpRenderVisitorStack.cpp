@@ -2,7 +2,8 @@
 
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
+
 HpAffineTransformStack::HpAffineTransformStack(int capacity){
     m_capacity = MAX(1, capacity);
     m_top = 0;
@@ -89,4 +90,6 @@ void HpColorStack::push (ccColor4F* p_color){
         resize(2 * m_capacity);
     m_array[m_top ++] = *p_color;
 }
-}
+
+
+NS_HPAM_END

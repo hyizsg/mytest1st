@@ -1,7 +1,7 @@
 #include "HpAttachPoint.h"
 #include "HpTransformProtocol.h"
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 HpAttachPoint::HpAttachPoint(){
@@ -69,3 +69,5 @@ void HpAttachPoint::apply(const CCAffineTransform& m, const ccColor4F& color)
         }
     }
 }
+
+NS_HPAM_END

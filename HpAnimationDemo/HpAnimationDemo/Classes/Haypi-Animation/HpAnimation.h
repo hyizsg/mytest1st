@@ -6,13 +6,12 @@
 #ifndef HPANIMATION_H
 #define HPANIMATION_H
 
-
-//#include "HpKeyframe.h"
-
 #include "cocos2d.h"
+#include "Hpheaders.h"
+
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpLayer;
 class HpContentKeyframe;
@@ -38,6 +37,6 @@ private:
     int findLayerByName(CCString* p_name);
 
 };
-}
+NS_HPAM_END
 
 #endif // HPANIMATION_H

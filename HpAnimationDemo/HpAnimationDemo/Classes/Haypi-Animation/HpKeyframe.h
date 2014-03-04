@@ -20,7 +20,7 @@
 USING_NS_CC;
 using namespace std;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 //class HpInterpHolder;
 
@@ -78,6 +78,7 @@ public:
     virtual HpContentKeyframe* clone() = 0;
 };
 
-}
+
+NS_HPAM_END
 
 #endif // HPKEYFRAME_H

@@ -6,7 +6,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpCharaInst;
 class HpAnimation;
@@ -16,6 +16,7 @@ public:
     virtual void actionOnAnimationEnd(HpAnimation* p_ani, HpCharaInst* p_sender) = 0;
     virtual void actionOnCustomEvent(CCString* p_event, HpCharaInst* p_sender) = 0;
 };
-}
+
+NS_HPAM_END
 
 #endif // HPCHARAINSTOBSERVER_H

@@ -1,7 +1,7 @@
 #include "HpCharactor.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 HpCharactor::HpCharactor(){
     this->m_plist_array = new CCArray;
@@ -32,3 +32,6 @@ void HpCharactor::build(){
 
     visitor->end();
 }
+
+
+NS_HPAM_END

@@ -20,7 +20,30 @@
 
 #include "cocos2d.h"
 
+
+#define NS_HPAM_BEGIN           namespace haypi_animation{
+#define NS_HPAM_END             }
+
+NS_HPAM_BEGIN
+
+/** For android ECT Texture with a same name Alpha texture.
+ * To suport it, you must define HP_ENABLE_ALPHA_TEXTURE;
+ * And modify CCTexture ori source to add a mothed [CCTexture* getAlphaTexture()]
+ * Or modify the define [getAlphaTexture(p)] to return a right texture
+ */
+// zg to do ...
+
+
 //#define HP_ANI_DEBUG
+//#define HP_ENABLE_ALPHA_TEXTURE
+
+
+#ifdef HP_ENABLE_ALPHA_TEXTURE
+#define getAlphaTexture(p) ((p)->getAlphaTexture())
+#else
+#define getAlphaTexture(p) (NULL)
+#endif
+
 
 #ifdef HP_ANI_DEBUG
 
@@ -34,7 +57,8 @@
 
 #endif
 
-#define NS_HPAM_BEGIN           namespace haypi_animation{
-#define NS_HPAM_END             }
+
+NS_HPAM_END
+
 
 #endif // HPLOG_H

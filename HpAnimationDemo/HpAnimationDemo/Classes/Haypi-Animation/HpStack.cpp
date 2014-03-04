@@ -7,10 +7,10 @@
 
 #include "HpStack.h"
 
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 HpStack::HpStack(){
@@ -63,3 +63,6 @@ void HpStack::clear(){
 int HpStack::getCount(){
     return m_cArray->count();
 }
+
+
+NS_HPAM_END

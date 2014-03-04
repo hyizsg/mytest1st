@@ -8,7 +8,7 @@
 USING_NS_CC;
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 class HpSplineInterp : public HpInterp{
 private:
     CCPoint     P0;
@@ -32,6 +32,8 @@ public:
     float getFactorWithStart(int p_t1, int p_t2, float p_t);
 
 };
-}
+
+
+NS_HPAM_END
 
 #endif // HPSPLINEINTERPOLATOR_H

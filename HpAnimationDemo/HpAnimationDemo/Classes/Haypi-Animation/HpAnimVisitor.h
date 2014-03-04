@@ -9,7 +9,7 @@
 #define HPANIMVISITOR_H
 
 #include "cocos2d.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
 NS_HPAM_BEGIN

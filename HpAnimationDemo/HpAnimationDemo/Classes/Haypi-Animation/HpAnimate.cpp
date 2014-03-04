@@ -2,11 +2,13 @@
 #include "HpCharaInst.h"
 #include "HpTextureAtlas.h"
 
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
-namespace haypi_animation{
-HpAnimate::HpAnimate(HpAnimation *p_anima, float p_offset, int p_fps){
+NS_HPAM_BEGIN
+
+HpAnimate::HpAnimate(HpAnimation *p_anima, float p_offset, int p_fps)
+{
     CCActionInterval::initWithDuration((float)(p_anima->getLength()) / p_fps);
     m_fps = p_fps;
     m_start = p_offset;
@@ -59,4 +61,5 @@ void HpAnimate::step(float dt){
 void HpAnimate::setAnima(HpAnimation* p_anima){
     m_anima = p_anima;
 }
-}
+
+NS_HPAM_END

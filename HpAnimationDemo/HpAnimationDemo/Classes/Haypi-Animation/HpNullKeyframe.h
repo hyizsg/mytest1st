@@ -10,12 +10,14 @@
 
 #include "HpKeyframe.h"
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 class HpNullKeyframe : public HpContentKeyframe {
 public:
     void visitBy(HpAnimVisitor* visitor, HpKeyframe *p_fm, float time);
     HpContentKeyframe* clone();
 };
-}
+
+
+NS_HPAM_END
 
 #endif // HPNULLKEYFRAME_H

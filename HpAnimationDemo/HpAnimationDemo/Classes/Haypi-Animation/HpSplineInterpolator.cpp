@@ -1,14 +1,14 @@
 
 #include "HpSplineInterpolator.h"
 #include "HpGlobalFunc.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 #include "cmath"
 
 
 
 using namespace std;
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 CCDictionary* HpSplineInterp::tires = NULL;
@@ -146,4 +146,6 @@ float HpSplineInterp::getFactorWithStart(int p_t1, int p_t2, float p_t){
     return factor;
 }
 
+
+NS_HPAM_END
 

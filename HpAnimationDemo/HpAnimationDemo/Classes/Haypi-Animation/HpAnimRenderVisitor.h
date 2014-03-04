@@ -12,7 +12,7 @@
 #include "HpKeyframe.h"
 #include "HpCharactorManager.h"
 #include "HpTextureAtlas.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 #include "ccColorExtension.h"
 
@@ -21,7 +21,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
     
 template<typename T>
 class CCNumber : public CCObject
@@ -107,7 +107,8 @@ public:
     double getElapsed(void);
 
 };
-}
+
+NS_HPAM_END
 
 
 

@@ -7,8 +7,13 @@
 
 #ifndef HPINTERPOLATOR_H
 #define HPINTERPOLATOR_H
+
 #include "cocos2d.h"
+#include "Hpheaders.h"
+
 USING_NS_CC;
+
+NS_HPAM_BEGIN
 
 class HpInterp : public cocos2d::CCObject{
 public:
@@ -26,5 +31,9 @@ enum HpInterpTarget {
     HPINTERP_COLOR,
     HPINTERP_NUM
 };
+
+
+
+NS_HPAM_END
 
 #endif // HPINTERPOLATOR_H

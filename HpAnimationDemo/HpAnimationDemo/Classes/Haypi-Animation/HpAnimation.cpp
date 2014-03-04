@@ -1,9 +1,9 @@
 #include "HpAnimation.h"
 #include "HpLayer.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 HpAnimation::HpAnimation(int len){
@@ -115,3 +115,5 @@ int HpAnimation::findLayerByName(CCString *p_name){
     return i;
 
 }
+
+NS_HPAM_END

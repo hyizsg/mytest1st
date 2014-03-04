@@ -2,9 +2,9 @@
 #include "HpAnimBuildVisitor.h"
 
 #include "HpCharactor.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 HpAnimBuildVisitor::HpAnimBuildVisitor(){
@@ -92,4 +92,4 @@ void HpAnimBuildVisitor::visitAnimaKey(HpAnimaKeyframe *p_akf, HpKeyframe *p_frm
     p_akf->setAnima(ani);
 }
 
-
+NS_HPAM_END

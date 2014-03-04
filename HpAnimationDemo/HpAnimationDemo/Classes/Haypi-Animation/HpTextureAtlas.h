@@ -12,6 +12,11 @@
 #include "cocos2d.h"
 using namespace cocos2d;
 
+#include "Hpheaders.h"
+#include "HpGLProgram.h"
+
+NS_HPAM_BEGIN
+
 //! a Point with a vertex point, a tex coord point and a color 4B
 typedef struct _ccV3F_C4B_T2F_C4B
 {
@@ -66,7 +71,7 @@ protected:
     /** Quads that are going to be rendered */
     CC_PROPERTY(ccV3F_C4B_T2F_C4B_Quad *, m_pQuads, Quads)
 	
-	CC_SYNTHESIZE_RETAIN(CCGLProgram*, m_shaderProgram, ShaderProgram);
+	CC_SYNTHESIZE_RETAIN(HpGLProgram*, m_shaderProgram, ShaderProgram);
     
 public:
     
@@ -211,6 +216,8 @@ private:
     
     
 };
+
+NS_HPAM_END
 
 
 #endif /* defined(__HpAnimationDemo__HpTextureAtlas__) */

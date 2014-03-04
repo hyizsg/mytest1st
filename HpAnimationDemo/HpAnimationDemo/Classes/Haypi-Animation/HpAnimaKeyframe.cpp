@@ -2,10 +2,10 @@
 #include "HpAnimBuildVisitor.h"
 #include "HpAnimRenderVisitor.h"
 
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 HpAnimaKeyframe::HpAnimaKeyframe(){
@@ -35,3 +35,5 @@ HpContentKeyframe* HpAnimaKeyframe::clone(){
     HP_AUTO_RELEASE(ret);
     return ret;
 }
+
+NS_HPAM_END

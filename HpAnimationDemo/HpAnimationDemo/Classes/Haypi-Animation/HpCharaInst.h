@@ -9,7 +9,7 @@
 #include "HpCharaInstObserver.h"
 #include "HpAttachPoint.h"
 #include "HpTextureAtlas.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
 USING_NS_CC;

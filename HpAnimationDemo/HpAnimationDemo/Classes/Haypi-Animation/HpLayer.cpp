@@ -7,10 +7,10 @@
 
 #include "HpLayer.h"
 
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 /**
  * @brief HpLayer::HpLayer
@@ -239,3 +239,7 @@ void HpLayer::replaceContent(CCString *p_name, HpContentKeyframe *p_content){
     }
 
 }
+
+
+
+NS_HPAM_END

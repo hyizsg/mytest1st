@@ -6,10 +6,9 @@
  */
 
 #include "HpAnimaStatus.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
-using namespace haypi_animation;
-
+NS_HPAM_BEGIN
 
 
 HpLayerStatus::HpLayerStatus(){
@@ -112,3 +111,4 @@ HpContentKeyframe* HpAnimaStatus::getLastCKey(){
     return hls->getLastCKey();
 }
 
+NS_HPAM_END

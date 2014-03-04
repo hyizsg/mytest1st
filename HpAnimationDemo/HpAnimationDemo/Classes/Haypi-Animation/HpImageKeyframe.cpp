@@ -4,9 +4,9 @@
  *
  */
 #include "HpImageKeyframe.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 HpImageKeyframe::HpImageKeyframe(){
@@ -53,3 +53,5 @@ HpContentKeyframe* HpImageKeyframe::clone(){
     HP_AUTO_RELEASE(ret);
     return ret;
 }
+
+NS_HPAM_END

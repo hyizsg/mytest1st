@@ -11,7 +11,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpCharactor;
 
@@ -64,7 +64,9 @@ public:
     CCPoint MakeCGPointFromString(const char* p_string);
 };
 
-}
+
+
+NS_HPAM_END
 
 
 

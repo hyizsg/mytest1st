@@ -8,7 +8,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpCharactor : public CCObject{
 public:
@@ -20,6 +20,7 @@ public:
     void build();
 };
 
-}
+
+NS_HPAM_END
 
 #endif // HPCHARATOR_H

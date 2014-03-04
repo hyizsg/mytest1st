@@ -1,4 +1,6 @@
-#include "HpLog.h"
+#include "Hpheaders.h"
+
+NS_HPAM_BEGIN
 
 const char* skip_file_prefix(const char* path,size_t n) {
 
@@ -10,3 +12,7 @@ const char* skip_file_prefix(const char* path,size_t n) {
     else
         return _path;
 }
+
+
+
+NS_HPAM_END

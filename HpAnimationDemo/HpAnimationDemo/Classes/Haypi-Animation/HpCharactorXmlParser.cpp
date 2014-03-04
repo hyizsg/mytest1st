@@ -9,9 +9,9 @@
 #include "HpGlobalFunc.h"
 #include "HpCharactor.h"
 
-#include "HpLog.h"
+#include "Hpheaders.h"
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 HpCharactorXmlParser::HpCharactorXmlParser(){
     m_cur_chara = NULL;
@@ -253,3 +253,6 @@ CCPoint HpCharactorXmlParser::MakeCGPointFromString(const char* p_string){
     CCString* poi = CCString::createWithFormat("{%s}", p_string);
     return CCPointFromString(poi->getCString());
 }
+
+
+NS_HPAM_END

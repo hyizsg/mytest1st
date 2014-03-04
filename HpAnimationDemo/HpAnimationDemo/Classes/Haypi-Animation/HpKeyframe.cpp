@@ -7,11 +7,11 @@
 
 #include "HpKeyframe.h"
 #include "HpInterpHolder.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 #include "ccColorExtension.h"
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 
 
@@ -111,6 +111,8 @@ HpContentKeyframe::HpContentKeyframe(){
 HpContentKeyframe::~HpContentKeyframe(){
     setContentName(NULL);
 }
+
+NS_HPAM_END
 
 
 

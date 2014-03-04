@@ -14,7 +14,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpKeyframe;
 
@@ -45,6 +45,8 @@ public:
     void setTarget(HpKeyframe* p_fm);
 
 };
-}
+
+
+NS_HPAM_END
 
 #endif // HPINTERPHOLDER_H

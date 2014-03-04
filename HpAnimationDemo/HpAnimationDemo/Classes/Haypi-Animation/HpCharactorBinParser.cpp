@@ -21,7 +21,7 @@
 #include "HpLinearInterpolator.h"
 #include "HpSplineInterpolator.h"
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
     
     typedef unsigned char  Byte;
     
@@ -257,4 +257,6 @@ HpInterp* ReadInterp(HpBinaryReader* reader)
     }
 }
     
-}
+
+
+NS_HPAM_END

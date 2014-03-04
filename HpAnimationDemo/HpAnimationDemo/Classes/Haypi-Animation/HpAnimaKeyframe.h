@@ -12,7 +12,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpAnimaKeyframe : public HpContentKeyframe{
 protected:
@@ -27,6 +27,7 @@ public:
     HpContentKeyframe* clone();
 
 };
-}
+
+NS_HPAM_END
 
 #endif // HPANIMAKEYFRAME_H

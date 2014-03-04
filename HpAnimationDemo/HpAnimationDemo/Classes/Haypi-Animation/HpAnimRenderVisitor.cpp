@@ -1,8 +1,9 @@
 #include "HpAnimRenderVisitor.h"
-#include "HpLog.h"
+#include "Hpheaders.h"
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
+
 HpAnimRenderVisitor::HpAnimRenderVisitor(){
     m_tf_stack = new HpAffineTransformStack(100);
     m_color_stack = new HpColorStack(100);
@@ -437,4 +438,5 @@ double HpAnimRenderVisitor::getElapsed(void)
     CCNumber<double> * elapsed = (CCNumber<double>*)m_cur_dic->objectForKey((int)s_elapsed);
     return elapsed->getValue();
 }
-}
+
+NS_HPAM_END

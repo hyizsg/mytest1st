@@ -9,6 +9,8 @@
 #include "HpTextureAtlas.h"
 #include "HpTextureAtlasShader.h"
 
+NS_HPAM_BEGIN
+
 HpTextureAtlas::HpTextureAtlas()
 :m_pIndices(NULL)
 ,m_bDirty(false)
@@ -51,13 +53,6 @@ CCTexture2D* HpTextureAtlas::getTexture()
 {
     return m_pTexture;
 }
-
-//void HpTextureAtlas::setTexture(CCTexture2D * var)
-//{
-//    CC_SAFE_RETAIN(var);
-//    CC_SAFE_RELEASE(m_pTexture);
-//    m_pTexture = var;
-//}
 
 ccV3F_C4B_T2F_C4B_Quad* HpTextureAtlas::getQuads()
 {
@@ -579,10 +574,12 @@ void HpTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_PosColorTex);
     
-    ccGLBindTexture2D(m_pTexture->getName());
     
-//    int _alpha = glGetUniformLocation(getShaderProgram()->getProgram(), kCCUniformSampler_Alpha);
-//    ccGLBindTexture2DN(_alpha, m_pTexture->getName());
+#ifdef HP_ENABLE_ALPHA_TEXTURE
+    ccGLBindTexture2DN(m_shaderProgram->getAlphaLocation(), getAlphaTexture(m_pTexture)->getName());
+#endif
+    
+    ccGLBindTexture2D(m_pTexture->getName());
     
 #if CC_TEXTURE_ATLAS_USE_VAO
     
@@ -676,3 +673,5 @@ void HpTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     CC_INCREMENT_GL_DRAWS(1);
     CHECK_GL_ERROR_DEBUG();
 }
+
+NS_HPAM_END

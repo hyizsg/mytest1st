@@ -9,6 +9,9 @@
 #define SINGLETON_H_
 
 #include <memory>
+#include "Hpheaders.h"
+
+NS_HPAM_BEGIN
 
 template<class T>
 class Singleton {
@@ -33,5 +36,7 @@ private:
 
 template<class T>
 std::auto_ptr<T> Singleton<T>::m_Instance;
+
+NS_HPAM_END
 
 #endif /* SINGLETON_H_ */

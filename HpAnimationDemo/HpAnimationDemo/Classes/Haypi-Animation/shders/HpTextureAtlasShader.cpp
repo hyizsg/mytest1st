@@ -6,7 +6,12 @@
 //
 //
 
+#include "Hpheaders.h"
+#include "HpGLProgram.h"
+#include "hpShaders.h"
 #include "HpTextureAtlasShader.h"
+
+NS_HPAM_BEGIN
 
 enum {
     kCCShaderType_PositionTextureColorExtra_HasPremultipliedAlpha =  10,
@@ -16,24 +21,24 @@ enum {
     kCCShaderType_PositionTextureColorExtraAlpha_NoPremultipliedAlpha,
 };
 
-CCGLProgram* HpTextureAtlasShader::defaultShader()
+HpGLProgram* HpTextureAtlasShader::defaultShader()
 {
     return programForKey(kCCShader_PositionTextureColorExtra_HasPremultipliedAlpha);
 }
 
-CCGLProgram* HpTextureAtlasShader::programForKey(const char* key)
+HpGLProgram* HpTextureAtlasShader::programForKey(const char* key)
 {
-    CCGLProgram* p = CCShaderCache::sharedShaderCache()->programForKey(key);
+    HpGLProgram* p = (HpGLProgram*)CCShaderCache::sharedShaderCache()->programForKey(key);
     if (p == NULL) {
         loadDefaultShaders();
     }
-    return CCShaderCache::sharedShaderCache()->programForKey(key);
+    return programForKey(key);
 }
 
 
-CCGLProgram* HpTextureAtlasShader::shaderByTexture(CCTexture2D* tex)
+HpGLProgram* HpTextureAtlasShader::shaderByTexture(CCTexture2D* tex)
 {
-#ifdef CC_PLATFORM_IOS
+#ifndef CC_PLATFORM_IOS
     if (!tex || tex->hasPremultipliedAlpha()) {
          return defaultShader();
     }
@@ -42,6 +47,25 @@ CCGLProgram* HpTextureAtlasShader::shaderByTexture(CCTexture2D* tex)
     }
    
 #else
+    /** For android ECT Texture with a same name Alpha texture.
+     * To suport it, you must define HP_ENABLE_ALPHA_TEXTURE;
+     * And modify CCTexture ori source to add a mothed [CCTexture* getAlphaTexture()]
+     * Or modify the define [getAlphaTexture(p)] to return a right texture
+     */
+    // zg to do ...
+    
+    if (!tex) {
+        return defaultShader();
+    }
+    
+    int type = (tex->hasPremultipliedAlpha() << 1) | (getAlphaTexture(tex) != NULL);
+    switch (type) {
+        case 0b00: return programForKey(kCCShader_PositionTextureColorExtra_NoPremultipliedAlpha);
+        case 0b10: return programForKey(kCCShader_PositionTextureColorExtra_HasPremultipliedAlpha);
+        case 0b01: return programForKey(kCCShader_PositionTextureColorExtraAlpha_NoPremultipliedAlpha);
+        case 0b11: return programForKey(kCCShader_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
+        default: return defaultShader();
+    }
     
 #endif
     
@@ -50,28 +74,28 @@ CCGLProgram* HpTextureAtlasShader::shaderByTexture(CCTexture2D* tex)
 void HpTextureAtlasShader::loadDefaultShaders()
 {
     // 1st
-    CCGLProgram* p = new HPGLProgram;
+    HpGLProgram* p = new HpGLProgram;
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtra_HasPremultipliedAlpha);
     
     CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorExtra_HasPremultipliedAlpha);
     p->release();
     
     // 2nd
-    p = new HPGLProgram;
+    p = new HpGLProgram;
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
     
     CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
     p->release();
     
     // 3rd
-    p = new HPGLProgram;
+    p = new HpGLProgram;
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtra_NoPremultipliedAlpha);
     
     CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorExtra_NoPremultipliedAlpha);
     p->release();
     
     // 4th
-    p = new HPGLProgram;
+    p = new HpGLProgram;
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtraAlpha_NoPremultipliedAlpha);
     
     CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorExtraAlpha_NoPremultipliedAlpha);
@@ -81,24 +105,24 @@ void HpTextureAtlasShader::loadDefaultShaders()
 
 void HpTextureAtlasShader::reloadDefaultShaders()
 {
-    CCGLProgram* p = CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColorExtra_HasPremultipliedAlpha);
+    HpGLProgram* p = programForKey(kCCShader_PositionTextureColorExtra_HasPremultipliedAlpha);
     p->reset();
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtra_HasPremultipliedAlpha);
     
-    p = CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
+    p = programForKey(kCCShader_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
     p->reset();
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
     
-    p = CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColorExtra_NoPremultipliedAlpha);
+    p = programForKey(kCCShader_PositionTextureColorExtra_NoPremultipliedAlpha);
     p->reset();
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtra_HasPremultipliedAlpha);
     
-    p = CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColorExtraAlpha_NoPremultipliedAlpha);
+    p = programForKey(kCCShader_PositionTextureColorExtraAlpha_NoPremultipliedAlpha);
     p->reset();
     loadDefaultShader(p, kCCShaderType_PositionTextureColorExtraAlpha_HasPremultipliedAlpha);
 }
 
-void HpTextureAtlasShader::loadDefaultShader(CCGLProgram *p, int type)
+void HpTextureAtlasShader::loadDefaultShader(HpGLProgram *p, int type)
 {
     switch (type) {
         case kCCShaderType_PositionTextureColorExtra_HasPremultipliedAlpha:
@@ -147,6 +171,12 @@ void HpTextureAtlasShader::loadDefaultShader(CCGLProgram *p, int type)
     p->link();
     p->updateUniforms();
     
+#ifdef HP_ENABLE_ALPHA_TEXTURE
+    p->setAlphaLocation(glGetUniformLocation(p->getProgram(), kCCUniformSampler_Alpha));
+#endif
+    
     CHECK_GL_ERROR_DEBUG();
 }
 
+
+NS_HPAM_END

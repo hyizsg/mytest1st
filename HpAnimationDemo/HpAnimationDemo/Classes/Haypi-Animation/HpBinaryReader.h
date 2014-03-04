@@ -10,8 +10,9 @@
 #define __HpAnimTest__HpBinaryReader__
 
 #include <stdio.h>
+#include "Hpheaders.h"
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpBinaryReader {
     FILE* m_fp;
@@ -42,7 +43,9 @@ public:
     unsigned int ReadUInt32();
     unsigned long ReadUInt64();
 };
-}
+
+
+NS_HPAM_END
 
 
 #endif /* defined(__HpAnimTest__HpBinaryReader__) */

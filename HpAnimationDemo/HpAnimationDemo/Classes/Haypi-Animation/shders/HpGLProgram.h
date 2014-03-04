@@ -10,8 +10,11 @@
 #define __HpAnimationDemo__HPGLProgram__
 
 #include "cocos2d.h"
+#include "Hpheaders.h"
+
 USING_NS_CC;
 
+NS_HPAM_BEGIN
 
 enum {
     kCCVertexAttrib_Extra = kCCVertexAttrib_MAX,
@@ -40,10 +43,16 @@ enum {
 
 
 
-class HPGLProgram : public CCGLProgram {
+class HpGLProgram : public CCGLProgram
+{
     
-
+#ifdef HP_ENABLE_ALPHA_TEXTURE
+    CC_SYNTHESIZE(int, m_alphaLocation, AlphaLocation);
+#endif
+    
 };
+
+NS_HPAM_END
 
 
 #endif /* defined(__HpAnimationDemo__HPGLProgram__) */

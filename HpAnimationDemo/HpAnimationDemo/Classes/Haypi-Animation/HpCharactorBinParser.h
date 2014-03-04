@@ -14,7 +14,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpCharactor;
 class HpAnimation;
@@ -40,6 +40,8 @@ protected:
     
 };
 
-}
+
+
+NS_HPAM_END
 
 #endif /* defined(__Cocos2DxFirstlosSample__HpCharactorBinParser__) */

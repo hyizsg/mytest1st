@@ -29,7 +29,6 @@ HpCharactorManager::HpCharactorManager()
     m_atlas_pool = new HpStack;
     m_layer_status_pool = new HpStack;
     m_anima_status_pool = new HpStack;
-    m_hd = false;
     m_instance_todestory = new CCArray;
     
     m_spriteFrameCache = new HpSpriteFrameCache;;
@@ -94,11 +93,28 @@ void HpCharactorManager::addCharactorsWithFile(const char *pszFile)
 
 void HpCharactorManager::removeCharactorsFromFile(const char* file)
 {
+    HpCharactor* chara = (HpCharactor*)m_charactors->objectForKey(file);
+    if (chara) {
+        CCObject* plist = NULL;
+        CCARRAY_FOREACH(chara->getPLists(), plist){
+            removePlist(((CCString*)plist)->getCString());
+        }
+    }
+    
     m_charactors->removeObjectForKey(file);
 }
 
 void HpCharactorManager::removeAllCharactor()
 {
+    CCDictElement* ele = NULL;
+    CCDICT_FOREACH(m_charactors, ele) {
+        HpCharactor* chara = (HpCharactor*)ele->getObject();
+        CCObject* plist = NULL;
+        CCARRAY_FOREACH(chara->getPLists(), plist){
+            removePlist(((CCString*)plist)->getCString());
+        }
+    }
+    
     m_charactors->removeAllObjects();
 }
 
@@ -202,31 +218,31 @@ void HpCharactorManager::loadPlist(const char* p_plist_file)
     m_plist_cache.insert(p_plist_file);
     
     string real_plist = p_plist_file;
-    real_plist = real_plist.substr(real_plist.rfind('\\')+1, real_plist.size());
-    
-    if (m_aniFilePath != NULL && m_aniFilePath->compare("") != 0) {
-        
-        string suffix = "/";
-        string path = m_aniFilePath->getCString();
-        
-        int pos = path.rfind('/');
-        if (pos == path.size() - 1) {
-            if (m_hd) {
-                path.insert(pos, "@2x");
-            }
-        } else {
-            if (m_hd) {
-                path = path + "@2x/";
-            } else {
-                path = path + "/";
-            }
-        }
-        
-        
-        real_plist = path + real_plist;
-    }else{
-        
-    }
+//    real_plist = real_plist.substr(real_plist.rfind('\\')+1, real_plist.size());
+//    
+//    if (m_aniFilePath != NULL && m_aniFilePath->compare("") != 0) {
+//        
+//        string suffix = "/";
+//        string path = m_aniFilePath->getCString();
+//        
+//        int pos = path.rfind('/');
+//        if (pos == path.size() - 1) {
+//            if (m_hd) {
+//                path.insert(pos, "@2x");
+//            }
+//        } else {
+//            if (m_hd) {
+//                path = path + "@2x/";
+//            } else {
+//                path = path + "/";
+//            }
+//        }
+//        
+//        
+//        real_plist = path + real_plist;
+//    }else{
+//        
+//    }
     
     
     HPLOG("loadPlist %s", real_plist.c_str());

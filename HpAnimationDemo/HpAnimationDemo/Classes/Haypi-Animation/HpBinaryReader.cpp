@@ -10,7 +10,7 @@
 #include <memory.h>
 #include <string.h>
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
     
 HpBinaryReader::HpBinaryReader(const char* p_file)
 {
@@ -132,4 +132,6 @@ unsigned long HpBinaryReader::ReadUInt64()
     fread(m_buffer, sizeof(unsigned long), 1);
     return *((unsigned long*)m_buffer);
 }
-}
+
+
+NS_HPAM_END

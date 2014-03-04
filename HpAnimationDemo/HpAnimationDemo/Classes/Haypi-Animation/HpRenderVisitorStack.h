@@ -2,12 +2,13 @@
 #define HPRENDERVISITORSTACK_H
 
 #include "math.h"
-
 #include "cocos2d.h"
+#include "Hpheaders.h"
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
+
 class HpAffineTransformStack : public CCObject{
 private:
     CCAffineTransform* m_array;
@@ -42,6 +43,8 @@ public:
 
     void push (ccColor4F* p_color);
 };
-}
+
+
+NS_HPAM_END
 
 #endif // HPRENDERVISITORSTACK_H

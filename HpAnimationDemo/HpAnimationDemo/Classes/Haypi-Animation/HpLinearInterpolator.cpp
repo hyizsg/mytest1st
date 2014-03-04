@@ -2,7 +2,7 @@
 
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 HpLinearInterp* HpLinearInterp::s_instance = NULL;
 
@@ -23,3 +23,7 @@ void HpLinearInterp::Purge(){
     s_instance->release();
     s_instance = NULL;
 }
+
+
+
+NS_HPAM_END

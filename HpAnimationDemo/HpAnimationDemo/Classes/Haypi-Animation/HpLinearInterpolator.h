@@ -9,7 +9,7 @@
 #include "HpInterpolator.h"
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 class HpLinearInterp : public HpInterp {
 private:
     static HpLinearInterp* s_instance;
@@ -22,6 +22,7 @@ public:
 
 };
 
-}
+
+NS_HPAM_END
 
 #endif // HPLINEARINTERPOLATOR_H

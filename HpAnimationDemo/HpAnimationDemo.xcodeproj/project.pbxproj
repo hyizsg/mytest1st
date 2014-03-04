@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D804AD5318C47F0000B0CB16 /* HPGLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D804AD5118C47F0000B0CB16 /* HPGLProgram.cpp */; };
+		D804AD5318C47F0000B0CB16 /* HpGLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D804AD5118C47F0000B0CB16 /* HpGLProgram.cpp */; };
 		D82E517118C47CFC0053ADB1 /* hpShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D82E516F18C47CFC0053ADB1 /* hpShaders.cpp */; };
 		D8809AA418C433D3003B9E80 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8809AA318C433D3003B9E80 /* QuartzCore.framework */; };
 		D8809AA618C433D3003B9E80 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8809AA518C433D3003B9E80 /* OpenGLES.framework */; };
@@ -307,7 +307,7 @@
 		D8809EAD18C43417003B9E80 /* HpKeyframe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8518C43417003B9E80 /* HpKeyframe.cpp */; };
 		D8809EAE18C43417003B9E80 /* HpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8718C43417003B9E80 /* HpLayer.cpp */; };
 		D8809EAF18C43417003B9E80 /* HpLinearInterpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8918C43417003B9E80 /* HpLinearInterpolator.cpp */; };
-		D8809EB018C43417003B9E80 /* HpLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8B18C43417003B9E80 /* HpLog.cpp */; };
+		D8809EB018C43417003B9E80 /* Hpheaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8B18C43417003B9E80 /* Hpheaders.cpp */; };
 		D8809EB118C43417003B9E80 /* HpNullKeyframe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8D18C43417003B9E80 /* HpNullKeyframe.cpp */; };
 		D8809EB218C43417003B9E80 /* HpRenderVisitorStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E8F18C43417003B9E80 /* HpRenderVisitorStack.cpp */; };
 		D8809EB318C43417003B9E80 /* HpSplineInterpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9118C43417003B9E80 /* HpSplineInterpolator.cpp */; };
@@ -339,8 +339,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D804AD5118C47F0000B0CB16 /* HPGLProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HPGLProgram.cpp; sourceTree = "<group>"; };
-		D804AD5218C47F0000B0CB16 /* HPGLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGLProgram.h; sourceTree = "<group>"; };
+		D804AD5118C47F0000B0CB16 /* HpGLProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpGLProgram.cpp; sourceTree = "<group>"; };
+		D804AD5218C47F0000B0CB16 /* HpGLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpGLProgram.h; sourceTree = "<group>"; };
 		D82E516F18C47CFC0053ADB1 /* hpShaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hpShaders.cpp; sourceTree = "<group>"; };
 		D82E517018C47CFC0053ADB1 /* hpShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hpShaders.h; sourceTree = "<group>"; };
 		D8809AA018C433D3003B9E80 /* HpAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HpAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -980,8 +980,8 @@
 		D8809E8818C43417003B9E80 /* HpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpLayer.h; sourceTree = "<group>"; };
 		D8809E8918C43417003B9E80 /* HpLinearInterpolator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpLinearInterpolator.cpp; sourceTree = "<group>"; };
 		D8809E8A18C43417003B9E80 /* HpLinearInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpLinearInterpolator.h; sourceTree = "<group>"; };
-		D8809E8B18C43417003B9E80 /* HpLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpLog.cpp; sourceTree = "<group>"; };
-		D8809E8C18C43417003B9E80 /* HpLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpLog.h; sourceTree = "<group>"; };
+		D8809E8B18C43417003B9E80 /* Hpheaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hpheaders.cpp; sourceTree = "<group>"; };
+		D8809E8C18C43417003B9E80 /* Hpheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hpheaders.h; sourceTree = "<group>"; };
 		D8809E8D18C43417003B9E80 /* HpNullKeyframe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpNullKeyframe.cpp; sourceTree = "<group>"; };
 		D8809E8E18C43417003B9E80 /* HpNullKeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpNullKeyframe.h; sourceTree = "<group>"; };
 		D8809E8F18C43417003B9E80 /* HpRenderVisitorStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpRenderVisitorStack.cpp; sourceTree = "<group>"; };
@@ -1049,8 +1049,8 @@
 			children = (
 				D82E516F18C47CFC0053ADB1 /* hpShaders.cpp */,
 				D82E517018C47CFC0053ADB1 /* hpShaders.h */,
-				D804AD5118C47F0000B0CB16 /* HPGLProgram.cpp */,
-				D804AD5218C47F0000B0CB16 /* HPGLProgram.h */,
+				D804AD5118C47F0000B0CB16 /* HpGLProgram.cpp */,
+				D804AD5218C47F0000B0CB16 /* HpGLProgram.h */,
 				D8A85AA518C566F8005EEB81 /* HpTextureAtlasShader.cpp */,
 				D8A85AA618C566F8005EEB81 /* HpTextureAtlasShader.h */,
 			);
@@ -2333,8 +2333,8 @@
 				D8809E8818C43417003B9E80 /* HpLayer.h */,
 				D8809E8918C43417003B9E80 /* HpLinearInterpolator.cpp */,
 				D8809E8A18C43417003B9E80 /* HpLinearInterpolator.h */,
-				D8809E8B18C43417003B9E80 /* HpLog.cpp */,
-				D8809E8C18C43417003B9E80 /* HpLog.h */,
+				D8809E8B18C43417003B9E80 /* Hpheaders.cpp */,
+				D8809E8C18C43417003B9E80 /* Hpheaders.h */,
 				D8809E8D18C43417003B9E80 /* HpNullKeyframe.cpp */,
 				D8809E8E18C43417003B9E80 /* HpNullKeyframe.h */,
 				D8809E8F18C43417003B9E80 /* HpRenderVisitorStack.cpp */,
@@ -2551,7 +2551,7 @@
 				D8809DA718C433D7003B9E80 /* Atlas.cpp in Sources */,
 				D8809B2918C433D4003B9E80 /* CCGeometry.cpp in Sources */,
 				D8809AE218C433D3003B9E80 /* CCActionEase.cpp in Sources */,
-				D804AD5318C47F0000B0CB16 /* HPGLProgram.cpp in Sources */,
+				D804AD5318C47F0000B0CB16 /* HpGLProgram.cpp in Sources */,
 				D8809E1918C433D8003B9E80 /* cpArbiter.c in Sources */,
 				D8809CEB18C433D6003B9E80 /* CCBKeyframe.cpp in Sources */,
 				D8809C8E18C433D6003B9E80 /* ZipUtils.cpp in Sources */,
@@ -2673,7 +2673,7 @@
 				D8809B1318C433D4003B9E80 /* CCScheduler.cpp in Sources */,
 				D8809BDE18C433D5003B9E80 /* AccelerometerDelegateWrapper.mm in Sources */,
 				D8809E0D18C433D8003B9E80 /* cpPinJoint.c in Sources */,
-				D8809EB018C43417003B9E80 /* HpLog.cpp in Sources */,
+				D8809EB018C43417003B9E80 /* Hpheaders.cpp in Sources */,
 				D8809C0218C433D5003B9E80 /* EAGLView.mm in Sources */,
 				D8809AF718C433D4003B9E80 /* CCActionProgressTimer.cpp in Sources */,
 				D8809CE518C433D6003B9E80 /* CCBAnimationManager.cpp in Sources */,

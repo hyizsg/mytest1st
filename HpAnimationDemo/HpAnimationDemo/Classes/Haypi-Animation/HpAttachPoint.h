@@ -7,7 +7,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpLayer;
 
@@ -32,6 +32,7 @@ public:
 protected:
 //    void apply(); 
 };
-}
+
+NS_HPAM_END
 
 #endif // HPATTACHPOINT_H

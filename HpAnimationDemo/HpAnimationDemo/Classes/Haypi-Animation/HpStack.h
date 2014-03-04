@@ -9,10 +9,11 @@
 #define HPSTACK_H
 
 #include "cocos2d.h"
+#include "Hpheaders.h"
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 class HpStack : public cocos2d::CCObject{
 private:
     cocos2d::CCArray* m_cArray;
@@ -29,6 +30,8 @@ public:
     const CCArray* getArray() {return m_cArray;}
 
 };
-}
+
+
+NS_HPAM_END
 
 #endif // HPSTACK_H

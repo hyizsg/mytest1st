@@ -10,6 +10,7 @@
 
 using namespace std;
 
+NS_CC_BEGIN
 
 CCPoint makeCCPointFromString(char *p_string){
     CCPoint ret = CCPointZero;
@@ -33,3 +34,6 @@ CCPoint makeCCPointFromString(char *p_string){
 double sign(double x){
     return x > 1e-6 ? 1.0 : x< -1e-6 ? -1.0 : 0;
 }
+
+
+NS_HPAM_END

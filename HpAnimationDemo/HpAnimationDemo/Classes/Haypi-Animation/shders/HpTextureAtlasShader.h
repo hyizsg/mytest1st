@@ -10,26 +10,29 @@
 #define __HpAnimationDemo__HpTextureAtlasShader__
 
 #include "cocos2d.h"
-
-#include "HPGLProgram.h"
-#include "hpShaders.h"
+#include "Hpheaders.h"
 
 USING_NS_CC;
+
+NS_HPAM_BEGIN
+
+class HpGLProgram;
 
 class HpTextureAtlasShader : CCObject
 {
     
 public:
-    static CCGLProgram* shaderByTexture(CCTexture2D* tex);
+    static HpGLProgram* shaderByTexture(CCTexture2D* tex);
     
-    static CCGLProgram* defaultShader();
-    static CCGLProgram* programForKey(const char* key);
+    static HpGLProgram* defaultShader();
+    static HpGLProgram* programForKey(const char* key);
     
     static void loadDefaultShaders();
     static void reloadDefaultShaders();
-    static void loadDefaultShader(CCGLProgram *p, int type);
+    static void loadDefaultShader(HpGLProgram *p, int type);
 
 };
 
+NS_HPAM_END
 
 #endif /* defined(__HpAnimationDemo__HpTextureAtlasShader__) */

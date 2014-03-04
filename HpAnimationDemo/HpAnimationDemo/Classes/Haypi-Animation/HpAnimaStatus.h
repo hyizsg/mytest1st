@@ -9,7 +9,8 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
+
 class HpAnimaStatus : public CCObject {
 private:
     CCArray* m_pLayer_status_list;
@@ -48,7 +49,8 @@ public:
     HpAnimaStatus* getSubAS();
 
 };
-}
+
+NS_HPAM_END
 
 
 #endif // HPANIMASTATUS_H

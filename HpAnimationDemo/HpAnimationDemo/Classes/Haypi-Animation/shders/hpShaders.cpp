@@ -8,6 +8,8 @@
 
 #include "hpShaders.h"
 
+NS_HPAM_BEGIN
+
 const char* ccPositionTextureColorExtra_vert =
 "													\n\
 attribute vec4 a_position;							\n\
@@ -131,3 +133,5 @@ void main()									\n\
 }\n\
 ";
 
+
+NS_HPAM_END

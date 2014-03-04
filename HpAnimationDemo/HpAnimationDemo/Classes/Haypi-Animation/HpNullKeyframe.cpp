@@ -9,7 +9,7 @@
 #include "HpNullKeyframe.h"
 
 
-using namespace haypi_animation;
+NS_HPAM_BEGIN
 
 void HpNullKeyframe::visitBy(HpAnimVisitor* visitor, HpKeyframe *p_fm, float time){
     visitor->visitNullKey(this, p_fm, time);
@@ -20,3 +20,6 @@ HpContentKeyframe* HpNullKeyframe::clone(){
     autorelease();
     return this;
 }
+
+
+NS_HPAM_END

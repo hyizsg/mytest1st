@@ -8,7 +8,7 @@
 
 USING_NS_CC;
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpCharactor;
 
@@ -33,6 +33,7 @@ public:
     void begin(CCObject* p_map);
     void end();
 };
-}
+
+NS_HPAM_END
 
 #endif // HPANIMBUILDVISITOR_H

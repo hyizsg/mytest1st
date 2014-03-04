@@ -75,11 +75,13 @@ public:
     CC_SYNTHESIZE_READONLY(HpAnimRenderVisitor*, m_render, Render)
     
     /** Set a costom SpriteFrameCache for Animation
-     * When you wan't use a same SpriteFrameCache to UI
+     * if you wan't use the same SpriteFrameCache with UI
      */
     CC_SYNTHESIZE_RETAIN(CCSpriteFrameCache*, m_spriteFrameCache, SpriteFrameCache);
     
-    /** Set a chr or xml file paht */
+    /** Set a chr or xml file path.
+     * But it is ivalid now.
+     */
     CC_SYNTHESIZE_RETAIN(CCString*, m_aniFilePath, AniFilePath);
     
     /** Set display mode HD or not */

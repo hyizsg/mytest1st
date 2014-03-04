@@ -10,7 +10,7 @@
 #include "HpKeyframe.h"
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 HpInterpHolder::HpInterpHolder(){
     m_pCenterInterp = NULL;
@@ -71,5 +71,7 @@ void HpInterpHolder::setTarget(HpKeyframe* p_fm){
     m_pTarget = p_fm;
 }
 
-}
+
+
+NS_HPAM_END
 

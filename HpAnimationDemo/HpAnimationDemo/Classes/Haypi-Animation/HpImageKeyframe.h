@@ -13,7 +13,7 @@
 USING_NS_CC;
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
 
 class HpImageKeyframe : public HpContentKeyframe {
 public:
@@ -28,6 +28,8 @@ public:
     void visitBy(HpAnimVisitor *p_visitor, HpKeyframe *p_fm, float time);
     HpContentKeyframe* clone();
 };
-}
+
+
+NS_HPAM_END
 
 #endif // HPIMAGEKEYFRAME_H
