@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Haypi Animation File-->
+<Charactor version="1.0">
+  <plists>
+    <plist file="test.plist" />
+  </plists>
+  <Animations>
+    <Animation name="动画   0" length="33">
+      <Nodes>
+        <Node name="节点   0">
+          <Keys>
+            <Key type="ImageKey">
+              <Image>vipet_front_1@2x.png</Image>
+              <Time>0</Time>
+              <Center>0,0</Center>
+              <Scale>0.300000011920929,0.300000011920929</Scale>
+              <Skew>0,0</Skew>
+              <Rot>0</Rot>
+              <Trans>0,217.18</Trans>
+              <Color>#FFFFFFFF</Color>
+              <ColorEx>#00000000</ColorEx>
+              <Interps>
+                <Interp target="Center" type="linear" />
+                <Interp target="Scale" type="linear" />
+                <Interp target="Skew" type="linear" />
+                <Interp target="Rot" type="linear" />
+                <Interp target="Trans" type="linear" />
+                <Interp target="Color" type="linear" />
+              </Interps>
+            </Key>
+            <Key type="ImageKey">
+              <Image>vipet_front_1@2x.png</Image>
+              <Time>32</Time>
+              <Center>0,0</Center>
+              <Scale>0.300000011920929,0.300000011920929</Scale>
+              <Skew>0,0</Skew>
+              <Rot>0</Rot>
+              <Trans>0,217.18</Trans>
+              <Color>#FFFFFFFF</Color>
+              <ColorEx>#00FF0000</ColorEx>
+            </Key>
+          </Keys>
+        </Node>
+        <Node name="节点   1">
+          <Keys>
+            <Key type="ImageKey">
+              <Image>test.png</Image>
+              <Time>0</Time>
+              <Center>0,0</Center>
+              <Scale>0.300000011920929,0.300000011920929</Scale>
+              <Skew>0,0</Skew>
+              <Rot>0</Rot>
+              <Trans>173,5.18</Trans>
+              <Color>#FFFFFFFF</Color>
+              <ColorEx>#00000000</ColorEx>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+    <Animation name="动画   1" length="1">
+      <Nodes>
+        <Node name="节点   0">
+          <Keys>
+            <Key type="AnimaKey">
+              <Anima>动画   0</Anima>
+              <Time>0</Time>
+              <TimeInher>true</TimeInher>
+              <Center>0,0</Center>
+              <Scale>1,1</Scale>
+              <Skew>0,0</Skew>
+              <Rot>0</Rot>
+              <Trans>4.5,7.46</Trans>
+              <Color>#FFFFFFFF</Color>
+              <ColorEx>#00000000</ColorEx>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+  </Animations>
+</Charactor>
