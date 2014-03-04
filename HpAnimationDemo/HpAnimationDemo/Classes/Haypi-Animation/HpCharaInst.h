@@ -48,7 +48,7 @@ public:
     /** Show an Animation start from a frame */
     void playAniByName(const char *p_ani_name, float start_frm);
     
-    /** Show an Animation once and autodestroy as effect */
+    /** Show an Animation once and autodestroy as an effect */
     void playEffectByName(const char * p_ani_name);
 
     /** The Animation event of Ended */
