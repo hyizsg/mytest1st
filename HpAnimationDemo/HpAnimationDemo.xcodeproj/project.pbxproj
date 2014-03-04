@@ -299,7 +299,6 @@
 		D8809EA418C43417003B9E80 /* HpBinaryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7118C43417003B9E80 /* HpBinaryReader.cpp */; };
 		D8809EA518C43417003B9E80 /* HpCharactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7318C43417003B9E80 /* HpCharactor.cpp */; };
 		D8809EA618C43417003B9E80 /* HpCharactorBinParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7518C43417003B9E80 /* HpCharactorBinParser.cpp */; };
-		D8809EA718C43417003B9E80 /* HpCharactorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7718C43417003B9E80 /* HpCharactorManager.cpp */; };
 		D8809EA818C43417003B9E80 /* HpCharactorXmlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7918C43417003B9E80 /* HpCharactorXmlParser.cpp */; };
 		D8809EA918C43417003B9E80 /* HpCharaInst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7B18C43417003B9E80 /* HpCharaInst.cpp */; };
 		D8809EAA18C43417003B9E80 /* HpGlobalFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E7E18C43417003B9E80 /* HpGlobalFunc.cpp */; };
@@ -335,6 +334,8 @@
 		D8A85ADB18C57A41005EEB81 /* testex.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AD918C57A41005EEB81 /* testex.plist */; };
 		D8A85ADE18C57A61005EEB81 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ADD18C57A61005EEB81 /* test.xml */; };
 		D8A85AE018C57B0A005EEB81 /* testex.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ADF18C57B0A005EEB81 /* testex.pvr.ccz */; };
+		D8A85AE518C5A13C005EEB81 /* HpCharactorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8A85AE318C5A13C005EEB81 /* HpCharactorManager.cpp */; };
+		D8A85AF118C5BD92005EEB81 /* HpCharaInstLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8A85AEF18C5BD92005EEB81 /* HpCharaInstLoader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -961,8 +962,6 @@
 		D8809E7418C43417003B9E80 /* HpCharactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpCharactor.h; sourceTree = "<group>"; };
 		D8809E7518C43417003B9E80 /* HpCharactorBinParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpCharactorBinParser.cpp; sourceTree = "<group>"; };
 		D8809E7618C43417003B9E80 /* HpCharactorBinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpCharactorBinParser.h; sourceTree = "<group>"; };
-		D8809E7718C43417003B9E80 /* HpCharactorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpCharactorManager.cpp; sourceTree = "<group>"; };
-		D8809E7818C43417003B9E80 /* HpCharactorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpCharactorManager.h; sourceTree = "<group>"; };
 		D8809E7918C43417003B9E80 /* HpCharactorXmlParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpCharactorXmlParser.cpp; sourceTree = "<group>"; };
 		D8809E7A18C43417003B9E80 /* HpCharactorXmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpCharactorXmlParser.h; sourceTree = "<group>"; };
 		D8809E7B18C43417003B9E80 /* HpCharaInst.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpCharaInst.cpp; sourceTree = "<group>"; };
@@ -1017,6 +1016,10 @@
 		D8A85AD918C57A41005EEB81 /* testex.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testex.plist; sourceTree = "<group>"; };
 		D8A85ADD18C57A61005EEB81 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		D8A85ADF18C57B0A005EEB81 /* testex.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = testex.pvr.ccz; sourceTree = "<group>"; };
+		D8A85AE318C5A13C005EEB81 /* HpCharactorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpCharactorManager.cpp; sourceTree = "<group>"; };
+		D8A85AE418C5A13C005EEB81 /* HpCharactorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpCharactorManager.h; sourceTree = "<group>"; };
+		D8A85AEF18C5BD92005EEB81 /* HpCharaInstLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpCharaInstLoader.cpp; sourceTree = "<group>"; };
+		D8A85AF018C5BD92005EEB81 /* HpCharaInstLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpCharaInstLoader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2308,12 +2311,14 @@
 				D8809E7418C43417003B9E80 /* HpCharactor.h */,
 				D8809E7518C43417003B9E80 /* HpCharactorBinParser.cpp */,
 				D8809E7618C43417003B9E80 /* HpCharactorBinParser.h */,
-				D8809E7718C43417003B9E80 /* HpCharactorManager.cpp */,
-				D8809E7818C43417003B9E80 /* HpCharactorManager.h */,
+				D8A85AE318C5A13C005EEB81 /* HpCharactorManager.cpp */,
+				D8A85AE418C5A13C005EEB81 /* HpCharactorManager.h */,
 				D8809E7918C43417003B9E80 /* HpCharactorXmlParser.cpp */,
 				D8809E7A18C43417003B9E80 /* HpCharactorXmlParser.h */,
 				D8809E7B18C43417003B9E80 /* HpCharaInst.cpp */,
 				D8809E7C18C43417003B9E80 /* HpCharaInst.h */,
+				D8A85AEF18C5BD92005EEB81 /* HpCharaInstLoader.cpp */,
+				D8A85AF018C5BD92005EEB81 /* HpCharaInstLoader.h */,
 				D8809E7D18C43417003B9E80 /* HpCharaInstObserver.h */,
 				D8809E7E18C43417003B9E80 /* HpGlobalFunc.cpp */,
 				D8809E7F18C43417003B9E80 /* HpGlobalFunc.h */,
@@ -2592,7 +2597,6 @@
 				D8809D1B18C433D7003B9E80 /* CCNode+CCBRelativePositioning.cpp in Sources */,
 				D8809C9318C433D6003B9E80 /* CCIMEDispatcher.cpp in Sources */,
 				D8809B3C18C433D4003B9E80 /* cocos2d.cpp in Sources */,
-				D8809EA718C43417003B9E80 /* HpCharactorManager.cpp in Sources */,
 				D8809B3F18C433D4003B9E80 /* CCDrawingPrimitives.cpp in Sources */,
 				D8809B7F18C433D4003B9E80 /* vec2.c in Sources */,
 				D8809C2918C433D5003B9E80 /* ccGLStateCache.cpp in Sources */,
@@ -2676,6 +2680,7 @@
 				D8809BD018C433D4003B9E80 /* CCFileUtils.cpp in Sources */,
 				D8809CA618C433D6003B9E80 /* CCTexturePVR.cpp in Sources */,
 				D8809BE418C433D5003B9E80 /* CCApplication.mm in Sources */,
+				D8A85AF118C5BD92005EEB81 /* HpCharaInstLoader.cpp in Sources */,
 				D8809D4C18C433D7003B9E80 /* CCControlHuePicker.cpp in Sources */,
 				D8809BCD18C433D4003B9E80 /* CCEGLViewProtocol.cpp in Sources */,
 				D8809B7D18C433D4003B9E80 /* utility.c in Sources */,
@@ -2745,6 +2750,7 @@
 				D8809CB018C433D6003B9E80 /* CCTMXLayer.cpp in Sources */,
 				D8809CEF18C433D7003B9E80 /* CCBReader.cpp in Sources */,
 				D8809D4818C433D7003B9E80 /* CCControlColourPicker.cpp in Sources */,
+				D8A85AE518C5A13C005EEB81 /* HpCharactorManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,11 @@
 #define HPANIMVISITOR_H
 
 #include "cocos2d.h"
+#include "HpLog.h"
 
 
-namespace haypi_animation{
+NS_HPAM_BEGIN
+
 class HpAnimation;
 class HpLayer;
 class HpKeyframe;
@@ -37,9 +39,10 @@ class HpCharactorParser : public cocos2d::CCObject
 {
     
 public:
-    virtual cocos2d::CCObject* parse(cocos2d::CCString* p_file) = 0;
+    virtual HpCharactor* parse(const char* p_file) = 0;
     
 };
-}
+
+NS_HPAM_END
 
 #endif // HPANIMVISITOR_H

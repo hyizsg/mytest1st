@@ -17,29 +17,26 @@ NS_HPAM_BEGIN
 
 const double HpCharaInst::s_default_fps = 30;
 
-HpCharaInst::HpCharaInst() : CCNode(){
-    
-}
-
-HpCharaInst::HpCharaInst(HpCharactor *p_char) : CCNode(){
-    this->setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColor));
-    m_charator = p_char;
+HpCharaInst::HpCharaInst()
+: CCNodeRGBA()
+{
+    m_charator = NULL;
     m_cur_anima = NULL;
     m_atlas_list = new CCArray;
     m_local_anims = new CCDictionary;
     m_cur_anima_name = NULL;
     m_delegate = NULL;
     m_flipx = false;
-    m_anima_status = static_cast<HpAnimaStatus*>(HpCharactorManager::SharedCharactorManager()->requestAS());
+    m_anima_status = HpCharactorManager::sharedManager()->requestAS();
     m_attach_list = new CCArray;
     m_opacity = 255;
 }
 
 HpCharaInst::~HpCharaInst(){
-    HpCharactorManager::SharedCharactorManager()->recycleAS(m_anima_status);
+    HpCharactorManager::sharedManager()->recycleAS(m_anima_status);
     
     for(int i = getAtlases()->count() - 1; i >=0;  --i){
-        HpCharactorManager::SharedCharactorManager()->freeAtlas(getAtlases()->objectAtIndex(i));
+        HpCharactorManager::sharedManager()->freeAtlas(getAtlases()->objectAtIndex(i));
     }
     
     CC_SAFE_RELEASE(m_local_anims);
@@ -48,29 +45,18 @@ HpCharaInst::~HpCharaInst(){
     CC_SAFE_RELEASE(m_cur_anima_name);
 }
 
-HpCharaInst* HpCharaInst::create(HpCharactor *p_char)
+HpCharaInst* HpCharaInst::create()
 {
-    HpCharaInst *inst = new HpCharaInst(p_char);
-    if(inst)
-    {
-        //        inst->autorelease();
+    HpCharaInst *inst = new HpCharaInst();
+    if(inst && inst->init()){
         HP_AUTO_RELEASE(inst);
     }
     return inst;
 }
 
-HpCharaInstObserver* HpCharaInst::getDelegate(){
-    return m_delegate;
-}
-
-void HpCharaInst::setDelegate(haypi_animation::HpCharaInstObserver *var){
-    if (m_delegate != var) {
-        m_delegate = var;
-    }
-}
-
 /************ private function ************/
-HpAnimation* HpCharaInst::getAnimationByName(CCString* p_ani){
+HpAnimation* HpCharaInst::getAnimationByName(CCString* p_ani)
+{
     HpAnimation* ani = static_cast<HpAnimation*>(m_local_anims->objectForKey(p_ani->getCString()));
     if(ani) return ani;
     return static_cast<HpAnimation*>(m_charator->getAnimas()->objectForKey(p_ani->getCString()));
@@ -89,7 +75,7 @@ HpLayer* HpCharaInst::getlayerWhile(bool caring_dst_l, CCString* p_dst_layer, CC
     }
     
     if(p_src_chr) {
-        HpCharactor*c = dynamic_cast<HpCharactor*>(HpCharactorManager::SharedCharactorManager()->getCharactorById(p_src_chr));
+        HpCharactor*c = HpCharactorManager::sharedManager()->getCharactorById(p_src_chr->getCString());
         if(c == NULL)
             return NULL;
         HpAnimation* a = dynamic_cast<HpAnimation*>(c->getAnimas()->objectForKey(p_src_ani->getCString()));
@@ -138,7 +124,7 @@ void HpCharaInst::createLocalAnimation(){
         }
     }
     
-    HpAnimBuildVisitor* visitor = HpCharactorManager::SharedCharactorManager()->getBuilder();
+    HpAnimBuildVisitor* visitor = HpCharactorManager::sharedManager()->getBuilder();
     
     visitor->begin(m_local_anims);
     
@@ -169,7 +155,8 @@ void HpCharaInst::replaceContent(CCString *p_content, CCString *p_layer, CCStrin
     }
 }
 
-void HpCharaInst::updateAttaches(){
+void HpCharaInst::updateAttaches()
+{
     
     CCObject* arrayItem = NULL;
     CCARRAY_FOREACH(m_attach_list, arrayItem){
@@ -182,18 +169,15 @@ void HpCharaInst::updateAttaches(){
 
 /************ public function ************/
 
-void HpCharaInst::addToWorld(CCNode* world){
-    world->addChild(this, 100);
-}
-
-void HpCharaInst::playAniByName(CCString* p_ani_name, float start_time, int fps, unsigned int num, bool auto_destroy, float delaytime){
-    HpAnimation* anim = this->getAnimationByName(p_ani_name);
-    if(anim == NULL)
+void HpCharaInst::playAniByName(const char* p_ani_name, float start_time, int fps, unsigned int num, bool auto_destroy, float delaytime)
+{
+    HpAnimation* anim = HpCharactorManager::sharedManager()->charaAnimaByName(p_ani_name, &m_charator);
+    if(anim == NULL) {
         return;
-    
+    }
     
     this->m_cur_anima = NULL;
-    this->setCurrentAnimationName(p_ani_name);
+    this->setCurrentAnimationName(CCString::create(p_ani_name));
     this->setFirstAnimationFrame(true);
     this->stopActionByTag(HPANIMATION_ACTION_TAG);
     this->updateAttaches();
@@ -230,35 +214,20 @@ void HpCharaInst::playAniByName(CCString* p_ani_name, float start_time, int fps,
     anim_action->release();
 }
 
-void HpCharaInst::playAniByName(CCString *p_ani_name, float start_time, int fps, bool forever_repeat){
-    unsigned int repeatNum = 0;
-    if(!forever_repeat)
-        repeatNum = 1;
-    this->playAniByName(p_ani_name, start_time, fps, repeatNum, false);
+void HpCharaInst::playAniByName(const char *p_ani_name, float start_time, int fps, bool forever_repeat)
+{
+    this->playAniByName(p_ani_name, start_time, fps, forever_repeat ? 0 : 1, false);
 }
 
-void HpCharaInst::playAniByName(CCString *p_ani_name, bool forever_repeat){
+void HpCharaInst::playAniByName(const char *p_ani_name, bool forever_repeat)
+{
     this->playAniByName(p_ani_name, 0, s_default_fps, forever_repeat);
 }
 
-void HpCharaInst::playAniByName(CCString *p_ani_name, float frm){
-    HpAnimation* anim = this->getAnimationByName(p_ani_name);
-    if(anim == NULL){
-        return;
-    }
-    
-    this->m_cur_anima = NULL;
-    this->setCurrentAnimationName(p_ani_name);
-    this->setFirstAnimationFrame(true);
-    this->stopActionByTag(HPANIMATION_ACTION_TAG);
-    this->updateAttaches();
-    
-    setFps(s_default_fps);
-    setDeltaTime(0);
-    
-    this->setAni(anim, frm);
+void HpCharaInst::playAniByName(const char *p_ani_name, float frm)
+{
+    this->playAniByName(p_ani_name, frm, s_default_fps, false);
 }
-
 
 void HpCharaInst::draw(){
     
@@ -277,22 +246,6 @@ void HpCharaInst::draw(){
             atlas->drawQuads();
         }
     }
-    
-//    glDisableVertexAttribArray(kCCVertexAttrib_Extra);
-    
-}
-
-void allChildren(CCNode *parent) {
-    if (!parent->getChildren()) return;
-    for (int i = parent->getChildren()->count() - 1; i >= 0; --i) {
-        CCNode *node = (CCNode *)parent->getChildren()->objectAtIndex(i);
-        allChildren(node);
-    }
-}
-
-void HpCharaInst::visit(void) {
-    allChildren(this);
-    CCNode::visit();
 }
 
 void HpCharaInst::appendLayer(CCString* p_src_layer, CCString* p_src_ani, CCString* p_char, CCString* p_dst_ani){
@@ -365,7 +318,7 @@ void HpCharaInst::replaceContent(CCString* p_content, CCString* p_layer, CCStrin
     if(p_image == NULL){
         return;
     }
-    CCSpriteFrame* sf = HpCharactorManager::SharedCharactorManager()->getSpriteFrameCache()->spriteFrameByName(p_image->getCString());
+    CCSpriteFrame* sf = HpCharactorManager::sharedManager()->getSpriteFrameCache()->spriteFrameByName(p_image->getCString());
     this->replaceContent(p_content, p_layer, p_ani, sf);
 }
 
@@ -396,7 +349,7 @@ void HpCharaInst::replaceContent(CCString *p_content, CCString *p_layer, CCStrin
         if(p_char == NULL || p_anima == NULL)
             break;
         
-        HpCharactor* c = dynamic_cast<HpCharactor*>(HpCharactorManager::SharedCharactorManager()->getCharactorById(p_char));
+        HpCharactor* c = dynamic_cast<HpCharactor*>(HpCharactorManager::sharedManager()->getCharactorById(p_char->getCString()));
         if(c == NULL)
             break;
         
@@ -428,7 +381,7 @@ void HpCharaInst::onAnimationEnd(bool destroy){
     }
     
     if(destroy){
-        HpCharactorManager::SharedCharactorManager()->destroyInstance(this);
+        this->removeFromParent();
     }
     
 }
@@ -529,7 +482,7 @@ void HpCharaInst::setAni(HpAnimation* p_ani, float frm){
     
     
     if(m_dirty && m_cur_anima){
-        HpAnimRenderVisitor* visitor = HpCharactorManager::SharedCharactorManager()->getRender();
+        HpAnimRenderVisitor* visitor = HpCharactorManager::sharedManager()->getRender();
         visitor->begin(this);
         visitor->visitAnima(m_cur_anima, this->getFirstAnimationFrame(), m_cur_frame);
         visitor->end();

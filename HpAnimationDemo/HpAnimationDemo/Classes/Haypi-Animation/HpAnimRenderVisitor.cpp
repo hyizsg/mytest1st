@@ -79,7 +79,7 @@ void HpAnimRenderVisitor::end(){
 
     for(int i = m_chr_instance->getAtlases()->count() - 1; i > m_cur_atlas_id; -- i){
         HpTextureAtlas* atlas = dynamic_cast<HpTextureAtlas*> (m_chr_instance->getAtlases()->objectAtIndex(i));
-        HpCharactorManager::SharedCharactorManager()->freeAtlas(atlas);
+        HpCharactorManager::sharedManager()->freeAtlas(atlas);
         m_chr_instance->getAtlases()->removeLastObject();
     }
 
@@ -181,7 +181,7 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
     if(m_cur_atlas == NULL || m_cur_atlas->getTexture() != p_ikf->getSpriteFrame()->getTexture()){
         ++ m_cur_atlas_id;
         if(m_chr_instance->getAtlases()->count() == m_cur_atlas_id){
-            CCObject* obj = HpCharactorManager::SharedCharactorManager()->allocAtlas();
+            CCObject* obj = HpCharactorManager::sharedManager()->allocAtlas();
             m_chr_instance->getAtlases()->addObject(obj);
         }
         m_cur_atlas = static_cast<HpTextureAtlas*>(m_chr_instance->getAtlases()->objectAtIndex(m_cur_atlas_id));

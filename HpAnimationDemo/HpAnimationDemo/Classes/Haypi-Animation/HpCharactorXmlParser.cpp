@@ -24,10 +24,10 @@ HpCharactorXmlParser::~HpCharactorXmlParser(){
 }
 
 
-CCObject* HpCharactorXmlParser::parse(CCString *p_file){
+HpCharactor* HpCharactorXmlParser::parse(const char*p_file){
     m_cur_chara = NULL;
 
-    const string& full_path = CCFileUtils::sharedFileUtils()->fullPathForFilename(p_file->getCString());
+    const string& full_path = CCFileUtils::sharedFileUtils()->fullPathForFilename(p_file);
     CCSAXParser* parser = new CCSAXParser;
     if(parser->init("UTF-8")){
         parser->setDelegator(this);

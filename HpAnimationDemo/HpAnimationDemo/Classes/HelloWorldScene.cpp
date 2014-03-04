@@ -36,14 +36,13 @@ bool HelloWorld::init()
     CCLayerColor* layer = CCLayerColor::create(ccc4(100, 100, 0, 255), 2000, 2000);
     addChild(layer);
 
-    HpCharactorManager* mgr = HpCharactorManager::SharedCharactorManager();
-    mgr->loadCharactorForId(CCString::create("test"), CCString::create("test.xml"));
     
-    HpCharaInst* inst = mgr->createInstanceOfId(CCString::create("test"), this);
-    inst->playAniByName(CCString::create("动画   0"), true);
-    inst->setPosition(0, 0);
-    inst->setScale(1);
+    HpCharactorManager::sharedManager()->addCharactorsWithFile("test.xml");
     
+    HpCharaInst* inst = HpCharaInst::create();
+    addChild(inst);
+    
+    inst->playAniByName("动画   0", true);
     
     return true;
 }

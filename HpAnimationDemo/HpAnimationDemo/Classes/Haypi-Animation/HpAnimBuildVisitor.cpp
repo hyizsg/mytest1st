@@ -68,7 +68,7 @@ void HpAnimBuildVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_frm
 
     }
     const char* pszName = p_ikf->getContentName()->getCString();
-    CCSpriteFrame* pframe = HpCharactorManager::SharedCharactorManager()->getSpriteFrameCache()->spriteFrameByName(pszName);
+    CCSpriteFrame* pframe = HpCharactorManager::sharedManager()->getSpriteFrameCache()->spriteFrameByName(pszName);
     CCAssert(pframe, "HpAnimBuildVisitor visiImagekey the pframe is NULL");
     p_ikf->setSpriteFrame(pframe);
 

@@ -30,7 +30,7 @@ class HpCharactorBinParser : public HpCharactorParser
     HpKeyframe* m_cur_keyfrm;
     
 public:
-    virtual CCObject* parse(CCString* p_file);
+    virtual HpCharactor* parse(const char* p_file);
     
 protected:
     void readAnimation(HpBinaryReader* reader, char* buffer);

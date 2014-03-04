@@ -24,14 +24,14 @@ HpLayerStatus::~HpLayerStatus(){
 
 void HpLayerStatus::recycle(){
     if(m_pSubani_status){
-        HpCharactorManager::SharedCharactorManager()->recycleAS(m_pSubani_status);
+        HpCharactorManager::sharedManager()->recycleAS(m_pSubani_status);
         m_pSubani_status = NULL;
     }
 }
 
 HpAnimaStatus* HpLayerStatus::getSubAS(){
     if(m_pSubani_status == NULL){
-        CCObject* _as =  HpCharactorManager::SharedCharactorManager()->requestAS();
+        CCObject* _as =  HpCharactorManager::sharedManager()->requestAS();
         if(_as == NULL){
             HPLOG("");
         }
@@ -61,7 +61,7 @@ void HpAnimaStatus::recycle(){
     CCObject* item = NULL;
     CCARRAY_FOREACH(m_pLayer_status_list, item){
         HpLayerStatus* ls = static_cast<HpLayerStatus*>(item);
-        HpCharactorManager::SharedCharactorManager()->recycleLS(ls);
+        HpCharactorManager::sharedManager()->recycleLS(ls);
     }
 
 
@@ -74,7 +74,7 @@ void HpAnimaStatus::setLastGKey(HpKeyframe *p_gKey, HpContentKeyframe *p_ckey){
     }
 
     if(this->getLayerIndex() == m_pLayer_status_list->count()){
-        CCObject* _ls = HpCharactorManager::SharedCharactorManager()->requestLS();
+        CCObject* _ls = HpCharactorManager::sharedManager()->requestLS();
         HpLayerStatus* ls = static_cast<HpLayerStatus*>(_ls);
         ls->setLastGKey(p_gKey);
         ls->setLastCKey(p_ckey);

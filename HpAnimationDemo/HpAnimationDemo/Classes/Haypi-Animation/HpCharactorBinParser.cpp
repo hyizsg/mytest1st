@@ -33,13 +33,13 @@ CCPoint ReadPoint(HpBinaryReader* reader);
 ccColor4F ReadColor(HpBinaryReader* reader);
 HpInterp* ReadInterp(HpBinaryReader* reader);
 
-CCObject* HpCharactorBinParser::parse(CCString* p_file)
+HpCharactor* HpCharactorBinParser::parse(const char* p_file)
 {
     
     m_cur_chara = new HpCharactor();
     HpBinaryReader* reader = NULL;
     
-    const string& full_path = CCFileUtils::sharedFileUtils()->fullPathForFilename(p_file->getCString());
+    const string& full_path = CCFileUtils::sharedFileUtils()->fullPathForFilename(p_file);
     
     unsigned long size = 0;
     char* pBuffer = (char*)CCFileUtils::sharedFileUtils()->getFileData(full_path.c_str(), "rt", &size);

@@ -18,10 +18,10 @@ void HpCharactor::build(){
     CCObject* arrayItem = NULL;
     CCARRAY_FOREACH(m_plist_array, arrayItem){
         CCString* plist_name = static_cast<CCString*>(arrayItem);        
-        HpCharactorManager::SharedCharactorManager()->loadPlist(plist_name);
+        HpCharactorManager::sharedManager()->loadPlist(plist_name->getCString());
     }
 
-    HpAnimBuildVisitor* visitor = HpCharactorManager::SharedCharactorManager()->getBuilder();
+    HpAnimBuildVisitor* visitor = HpCharactorManager::sharedManager()->getBuilder();
     visitor->begin(this->getAnimas());
     
     CCDictElement* pElement = NULL;

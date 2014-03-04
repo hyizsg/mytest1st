@@ -53,7 +53,8 @@ public:
     HpCharactorXmlParser();
     virtual ~HpCharactorXmlParser();
     
-    CCObject* parse(CCString* p_file);
+    HpCharactor* parse(const char* p_file);
+    
     void startElement(void *ctx, const char *name, const char **atts);
     void endElement(void *ctx, const char *name);
     void textHandler(void *ctx, const char *s, int len);
