@@ -31,8 +31,10 @@ HpGLProgram* HpTextureAtlasShader::programForKey(const char* key)
     HpGLProgram* p = (HpGLProgram*)CCShaderCache::sharedShaderCache()->programForKey(key);
     if (p == NULL) {
         loadDefaultShaders();
+        return programForKey(key);
     }
-    return programForKey(key);
+    
+    return p;
 }
 
 

@@ -2288,6 +2288,8 @@
 			isa = PBXGroup;
 			children = (
 				D82E516E18C47CCC0053ADB1 /* shders */,
+				D8809E8B18C43417003B9E80 /* Hpheaders.cpp */,
+				D8809E8C18C43417003B9E80 /* Hpheaders.h */,
 				D8809E6018C43417003B9E80 /* ccColorExtension.cpp */,
 				D8809E6118C43417003B9E80 /* ccColorExtension.h */,
 				D8809E6218C43417003B9E80 /* HpAnimaKeyframe.cpp */,
@@ -2333,8 +2335,6 @@
 				D8809E8818C43417003B9E80 /* HpLayer.h */,
 				D8809E8918C43417003B9E80 /* HpLinearInterpolator.cpp */,
 				D8809E8A18C43417003B9E80 /* HpLinearInterpolator.h */,
-				D8809E8B18C43417003B9E80 /* Hpheaders.cpp */,
-				D8809E8C18C43417003B9E80 /* Hpheaders.h */,
 				D8809E8D18C43417003B9E80 /* HpNullKeyframe.cpp */,
 				D8809E8E18C43417003B9E80 /* HpNullKeyframe.h */,
 				D8809E8F18C43417003B9E80 /* HpRenderVisitorStack.cpp */,
