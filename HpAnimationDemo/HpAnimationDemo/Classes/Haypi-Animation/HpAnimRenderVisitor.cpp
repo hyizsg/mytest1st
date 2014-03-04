@@ -249,7 +249,7 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
         extra.a = m_cur_atlas->getTexture()->hasPremultipliedAlpha();
     }
     
-    CCLOG("extra: {%.3f, %.3f, %.3f, %.3f}", extra.r, extra.g, extra.b, extra.a);
+    CCLOG("hasPremultipliedAlpha: %d, extra: {%.3f, %.3f, %.3f, %.3f}", m_cur_atlas->getTexture()->hasPremultipliedAlpha(), extra.r, extra.g, extra.b, extra.a);
     
     ccColor4B ccc = ccc4(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
     m_quad.bl.colors = ccc;

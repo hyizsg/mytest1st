@@ -3,21 +3,22 @@
 <Charactor version="1.0">
   <plists>
     <plist file="test.plist" />
+    <plist file="testex.plist" />
   </plists>
   <Animations>
-    <Animation name="动画   0" length="33">
+    <Animation name="动画   0" length="100">
       <Nodes>
         <Node name="节点   0">
           <Keys>
             <Key type="ImageKey">
-              <Image>vipet_front_1@2x.png</Image>
+              <Image>sx_light.png</Image>
               <Time>0</Time>
               <Center>0,0</Center>
-              <Scale>0.300000011920929,0.300000011920929</Scale>
+              <Scale>1,1</Scale>
               <Skew>0,0</Skew>
               <Rot>0</Rot>
-              <Trans>0,217.18</Trans>
-              <Color>#FFFFFFFF</Color>
+              <Trans>4,313.18</Trans>
+              <Color>#00FFFFFF</Color>
               <ColorEx>#00000000</ColorEx>
               <Interps>
                 <Interp target="Center" type="linear" />
@@ -29,13 +30,13 @@
               </Interps>
             </Key>
             <Key type="ImageKey">
-              <Image>vipet_front_1@2x.png</Image>
-              <Time>32</Time>
+              <Image>sx_light.png</Image>
+              <Time>99</Time>
               <Center>0,0</Center>
-              <Scale>0.300000011920929,0.300000011920929</Scale>
+              <Scale>1,1</Scale>
               <Skew>0,0</Skew>
               <Rot>0</Rot>
-              <Trans>0,217.18</Trans>
+              <Trans>4,313.18</Trans>
               <Color>#FFFFFFFF</Color>
               <ColorEx>#00FF0000</ColorEx>
             </Key>
@@ -44,35 +45,34 @@
         <Node name="节点   1">
           <Keys>
             <Key type="ImageKey">
-              <Image>test.png</Image>
+              <Image>sx_light2.png</Image>
               <Time>0</Time>
-              <Center>0,0</Center>
-              <Scale>0.300000011920929,0.300000011920929</Scale>
-              <Skew>0,0</Skew>
-              <Rot>0</Rot>
-              <Trans>173,5.18</Trans>
-              <Color>#FFFFFFFF</Color>
-              <ColorEx>#00000000</ColorEx>
-            </Key>
-          </Keys>
-        </Node>
-      </Nodes>
-    </Animation>
-    <Animation name="动画   1" length="1">
-      <Nodes>
-        <Node name="节点   0">
-          <Keys>
-            <Key type="AnimaKey">
-              <Anima>动画   0</Anima>
-              <Time>0</Time>
-              <TimeInher>true</TimeInher>
               <Center>0,0</Center>
               <Scale>1,1</Scale>
               <Skew>0,0</Skew>
               <Rot>0</Rot>
-              <Trans>4.5,7.46</Trans>
-              <Color>#FFFFFFFF</Color>
+              <Trans>-1.5,2.2</Trans>
+              <Color>#00FFFFFF</Color>
               <ColorEx>#00000000</ColorEx>
+              <Interps>
+                  <Interp target="Center" type="linear" />
+                  <Interp target="Scale" type="linear" />
+                  <Interp target="Skew" type="linear" />
+                  <Interp target="Rot" type="linear" />
+                  <Interp target="Trans" type="linear" />
+                  <Interp target="Color" type="linear" />
+              </Interps>
+            </Key>
+            <Key type="ImageKey">
+              <Image>sx_light2.png</Image>
+              <Time>99</Time>
+              <Center>0,0</Center>
+              <Scale>1,1</Scale>
+              <Skew>0,0</Skew>
+              <Rot>0</Rot>
+              <Trans>-1.5,2.2</Trans>
+              <Color>#FFFFFFFF</Color>
+              <ColorEx>#00FF0000</ColorEx>
             </Key>
           </Keys>
         </Node>

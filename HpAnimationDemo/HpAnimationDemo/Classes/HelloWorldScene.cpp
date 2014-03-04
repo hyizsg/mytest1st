@@ -30,15 +30,20 @@ bool HelloWorld::init()
     {
         return false;
     }
+    
+    CCTexture2D::PVRImagesHavePremultipliedAlpha(true);
+    
+    CCLayerColor* layer = CCLayerColor::create(ccc4(100, 100, 0, 255), 2000, 2000);
+    addChild(layer);
 
     HpCharactorManager* mgr = HpCharactorManager::SharedCharactorManager();
-    mgr->loadCharactorForId(CCString::create("test"), CCString::create("test.chr"));
+    mgr->loadCharactorForId(CCString::create("test"), CCString::create("test.xml"));
     
     HpCharaInst* inst = mgr->createInstanceOfId(CCString::create("test"), this);
-//    inst->setPosition(300, 300);
-//    inst->playAniByName(CCString::create("hudie_1"), true);
     inst->playAniByName(CCString::create("动画   0"), true);
-    inst->setScale(3);
+    inst->setPosition(0, 0);
+    inst->setScale(1);
+    
     
     return true;
 }

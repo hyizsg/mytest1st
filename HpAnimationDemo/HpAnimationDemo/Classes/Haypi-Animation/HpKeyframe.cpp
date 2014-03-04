@@ -8,6 +8,7 @@
 #include "HpKeyframe.h"
 #include "HpInterpHolder.h"
 #include "HpLog.h"
+#include "ccColorExtension.h"
 
 
 using namespace haypi_animation;
@@ -23,6 +24,7 @@ HpKeyframe::HpKeyframe(){
     this->m_pContent = NULL;
     this->m_pInterps = NULL;
     this->m_pEvent = NULL;
+    setColorEx(ccClear4F);
 }
 
 HpKeyframe::~HpKeyframe(){

@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D804AD5318C47F0000B0CB16 /* HPGLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D804AD5118C47F0000B0CB16 /* HPGLProgram.cpp */; };
-		D82E516818C46E930053ADB1 /* test.chr in Resources */ = {isa = PBXBuildFile; fileRef = D82E516418C46E930053ADB1 /* test.chr */; };
-		D82E516918C46E930053ADB1 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = D82E516518C46E930053ADB1 /* test.plist */; };
-		D82E516A18C46E930053ADB1 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E516618C46E930053ADB1 /* test.png */; };
-		D82E516B18C46E930053ADB1 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = D82E516718C46E930053ADB1 /* test.xml */; };
 		D82E517118C47CFC0053ADB1 /* hpShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D82E516F18C47CFC0053ADB1 /* hpShaders.cpp */; };
 		D8809AA418C433D3003B9E80 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8809AA318C433D3003B9E80 /* QuartzCore.framework */; };
 		D8809AA618C433D3003B9E80 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8809AA518C433D3003B9E80 /* OpenGLES.framework */; };
@@ -318,16 +314,32 @@
 		D8809EB318C43417003B9E80 /* HpSplineInterpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9118C43417003B9E80 /* HpSplineInterpolator.cpp */; };
 		D8809EB418C43417003B9E80 /* HpStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9318C43417003B9E80 /* HpStack.cpp */; };
 		D8809EB518C43417003B9E80 /* HpTextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9518C43417003B9E80 /* HpTextureAtlas.cpp */; };
-		D8809EB618C43417003B9E80 /* HpTextureAtlasShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9718C43417003B9E80 /* HpTextureAtlasShader.cpp */; };
+		D8A85AA718C566F8005EEB81 /* HpTextureAtlasShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8A85AA518C566F8005EEB81 /* HpTextureAtlasShader.cpp */; };
+		D8A85AB718C568D2005EEB81 /* effect001_ui.chr in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AA918C568D2005EEB81 /* effect001_ui.chr */; };
+		D8A85AB818C568D2005EEB81 /* effect001_ui.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AAA18C568D2005EEB81 /* effect001_ui.xml */; };
+		D8A85AB918C568D2005EEB81 /* effect_ui_zi.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AAB18C568D2005EEB81 /* effect_ui_zi.plist */; };
+		D8A85ABA18C568D2005EEB81 /* effect_ui_zi.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AAC18C568D2005EEB81 /* effect_ui_zi.pvr.ccz */; };
+		D8A85ABB18C568D2005EEB81 /* effects.chr in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AAD18C568D2005EEB81 /* effects.chr */; };
+		D8A85ABC18C568D2005EEB81 /* effects.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AAE18C568D2005EEB81 /* effects.xml */; };
+		D8A85ABD18C568D2005EEB81 /* effects001.chr in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AAF18C568D2005EEB81 /* effects001.chr */; };
+		D8A85ABE18C568D2005EEB81 /* effects001.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB018C568D2005EEB81 /* effects001.xml */; };
+		D8A85ABF18C568D2005EEB81 /* effects_hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB118C568D2005EEB81 /* effects_hd.plist */; };
+		D8A85AC018C568D2005EEB81 /* effects_hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB218C568D2005EEB81 /* effects_hd.pvr.ccz */; };
+		D8A85AC118C568D2005EEB81 /* effects_hd2.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB318C568D2005EEB81 /* effects_hd2.plist */; };
+		D8A85AC218C568D2005EEB81 /* effects_hd2.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB418C568D2005EEB81 /* effects_hd2.pvr.ccz */; };
+		D8A85AC318C568D2005EEB81 /* effects_merge.chr in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB518C568D2005EEB81 /* effects_merge.chr */; };
+		D8A85AC418C568D2005EEB81 /* effects_merge.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AB618C568D2005EEB81 /* effects_merge.xml */; };
+		D8A85AD318C57917005EEB81 /* test.chr in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ACD18C57917005EEB81 /* test.chr */; };
+		D8A85AD418C57917005EEB81 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ACE18C57917005EEB81 /* test.plist */; };
+		D8A85AD518C57917005EEB81 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ACF18C57917005EEB81 /* test.png */; };
+		D8A85ADB18C57A41005EEB81 /* testex.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85AD918C57A41005EEB81 /* testex.plist */; };
+		D8A85ADE18C57A61005EEB81 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ADD18C57A61005EEB81 /* test.xml */; };
+		D8A85AE018C57B0A005EEB81 /* testex.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ADF18C57B0A005EEB81 /* testex.pvr.ccz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D804AD5118C47F0000B0CB16 /* HPGLProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HPGLProgram.cpp; sourceTree = "<group>"; };
 		D804AD5218C47F0000B0CB16 /* HPGLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGLProgram.h; sourceTree = "<group>"; };
-		D82E516418C46E930053ADB1 /* test.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.chr; sourceTree = "<group>"; };
-		D82E516518C46E930053ADB1 /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
-		D82E516618C46E930053ADB1 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		D82E516718C46E930053ADB1 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		D82E516F18C47CFC0053ADB1 /* hpShaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hpShaders.cpp; sourceTree = "<group>"; };
 		D82E517018C47CFC0053ADB1 /* hpShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hpShaders.h; sourceTree = "<group>"; };
 		D8809AA018C433D3003B9E80 /* HpAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HpAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -981,10 +993,30 @@
 		D8809E9418C43417003B9E80 /* HpStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpStack.h; sourceTree = "<group>"; };
 		D8809E9518C43417003B9E80 /* HpTextureAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpTextureAtlas.cpp; sourceTree = "<group>"; };
 		D8809E9618C43417003B9E80 /* HpTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTextureAtlas.h; sourceTree = "<group>"; };
-		D8809E9718C43417003B9E80 /* HpTextureAtlasShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpTextureAtlasShader.cpp; sourceTree = "<group>"; };
-		D8809E9818C43417003B9E80 /* HpTextureAtlasShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTextureAtlasShader.h; sourceTree = "<group>"; };
 		D8809E9918C43417003B9E80 /* HpTransformProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTransformProtocol.h; sourceTree = "<group>"; };
 		D8809E9A18C43417003B9E80 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		D8A85AA518C566F8005EEB81 /* HpTextureAtlasShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpTextureAtlasShader.cpp; sourceTree = "<group>"; };
+		D8A85AA618C566F8005EEB81 /* HpTextureAtlasShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTextureAtlasShader.h; sourceTree = "<group>"; };
+		D8A85AA918C568D2005EEB81 /* effect001_ui.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effect001_ui.chr; sourceTree = "<group>"; };
+		D8A85AAA18C568D2005EEB81 /* effect001_ui.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect001_ui.xml; sourceTree = "<group>"; };
+		D8A85AAB18C568D2005EEB81 /* effect_ui_zi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = effect_ui_zi.plist; sourceTree = "<group>"; };
+		D8A85AAC18C568D2005EEB81 /* effect_ui_zi.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = effect_ui_zi.pvr.ccz; sourceTree = "<group>"; };
+		D8A85AAD18C568D2005EEB81 /* effects.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects.chr; sourceTree = "<group>"; };
+		D8A85AAE18C568D2005EEB81 /* effects.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effects.xml; sourceTree = "<group>"; };
+		D8A85AAF18C568D2005EEB81 /* effects001.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects001.chr; sourceTree = "<group>"; };
+		D8A85AB018C568D2005EEB81 /* effects001.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effects001.xml; sourceTree = "<group>"; };
+		D8A85AB118C568D2005EEB81 /* effects_hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = effects_hd.plist; sourceTree = "<group>"; };
+		D8A85AB218C568D2005EEB81 /* effects_hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_hd.pvr.ccz; sourceTree = "<group>"; };
+		D8A85AB318C568D2005EEB81 /* effects_hd2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = effects_hd2.plist; sourceTree = "<group>"; };
+		D8A85AB418C568D2005EEB81 /* effects_hd2.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_hd2.pvr.ccz; sourceTree = "<group>"; };
+		D8A85AB518C568D2005EEB81 /* effects_merge.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_merge.chr; sourceTree = "<group>"; };
+		D8A85AB618C568D2005EEB81 /* effects_merge.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effects_merge.xml; sourceTree = "<group>"; };
+		D8A85ACD18C57917005EEB81 /* test.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.chr; sourceTree = "<group>"; };
+		D8A85ACE18C57917005EEB81 /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
+		D8A85ACF18C57917005EEB81 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		D8A85AD918C57A41005EEB81 /* testex.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testex.plist; sourceTree = "<group>"; };
+		D8A85ADD18C57A61005EEB81 /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
+		D8A85ADF18C57B0A005EEB81 /* testex.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = testex.pvr.ccz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,6 +1048,8 @@
 				D82E517018C47CFC0053ADB1 /* hpShaders.h */,
 				D804AD5118C47F0000B0CB16 /* HPGLProgram.cpp */,
 				D804AD5218C47F0000B0CB16 /* HPGLProgram.h */,
+				D8A85AA518C566F8005EEB81 /* HpTextureAtlasShader.cpp */,
+				D8A85AA618C566F8005EEB81 /* HpTextureAtlasShader.h */,
 			);
 			path = shders;
 			sourceTree = "<group>";
@@ -2229,10 +2263,13 @@
 		D8809E5018C4340D003B9E80 /* anima */ = {
 			isa = PBXGroup;
 			children = (
-				D82E516418C46E930053ADB1 /* test.chr */,
-				D82E516518C46E930053ADB1 /* test.plist */,
-				D82E516618C46E930053ADB1 /* test.png */,
-				D82E516718C46E930053ADB1 /* test.xml */,
+				D8A85AA818C568D2005EEB81 /* game */,
+				D8A85ACD18C57917005EEB81 /* test.chr */,
+				D8A85ADD18C57A61005EEB81 /* test.xml */,
+				D8A85AD918C57A41005EEB81 /* testex.plist */,
+				D8A85ADF18C57B0A005EEB81 /* testex.pvr.ccz */,
+				D8A85ACE18C57917005EEB81 /* test.plist */,
+				D8A85ACF18C57917005EEB81 /* test.png */,
 				D8809E5118C4340D003B9E80 /* game_weizi.chr */,
 				D8809E5218C4340D003B9E80 /* game_weizi.plist */,
 				D8809E5318C4340D003B9E80 /* game_weizi.png */,
@@ -2303,13 +2340,32 @@
 				D8809E9418C43417003B9E80 /* HpStack.h */,
 				D8809E9518C43417003B9E80 /* HpTextureAtlas.cpp */,
 				D8809E9618C43417003B9E80 /* HpTextureAtlas.h */,
-				D8809E9718C43417003B9E80 /* HpTextureAtlasShader.cpp */,
-				D8809E9818C43417003B9E80 /* HpTextureAtlasShader.h */,
 				D8809E9918C43417003B9E80 /* HpTransformProtocol.h */,
 				D8809E9A18C43417003B9E80 /* Singleton.h */,
 			);
 			name = "Haypi-Animation";
 			path = "Classes/Haypi-Animation";
+			sourceTree = "<group>";
+		};
+		D8A85AA818C568D2005EEB81 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				D8A85AA918C568D2005EEB81 /* effect001_ui.chr */,
+				D8A85AAA18C568D2005EEB81 /* effect001_ui.xml */,
+				D8A85AAB18C568D2005EEB81 /* effect_ui_zi.plist */,
+				D8A85AAC18C568D2005EEB81 /* effect_ui_zi.pvr.ccz */,
+				D8A85AAD18C568D2005EEB81 /* effects.chr */,
+				D8A85AAE18C568D2005EEB81 /* effects.xml */,
+				D8A85AAF18C568D2005EEB81 /* effects001.chr */,
+				D8A85AB018C568D2005EEB81 /* effects001.xml */,
+				D8A85AB118C568D2005EEB81 /* effects_hd.plist */,
+				D8A85AB218C568D2005EEB81 /* effects_hd.pvr.ccz */,
+				D8A85AB318C568D2005EEB81 /* effects_hd2.plist */,
+				D8A85AB418C568D2005EEB81 /* effects_hd2.pvr.ccz */,
+				D8A85AB518C568D2005EEB81 /* effects_merge.chr */,
+				D8A85AB618C568D2005EEB81 /* effects_merge.xml */,
+			);
+			path = game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2368,23 +2424,39 @@
 				D8809AB618C433D3003B9E80 /* CloseNormal.png in Resources */,
 				D8809AC218C433D3003B9E80 /* Icon-Small.png in Resources */,
 				D8809E5B18C4340D003B9E80 /* game_weizi1.plist in Resources */,
-				D82E516918C46E930053ADB1 /* test.plist in Resources */,
+				D8A85AB918C568D2005EEB81 /* effect_ui_zi.plist in Resources */,
+				D8A85AB818C568D2005EEB81 /* effect001_ui.xml in Resources */,
+				D8A85AC418C568D2005EEB81 /* effects_merge.xml in Resources */,
+				D8A85ABE18C568D2005EEB81 /* effects001.xml in Resources */,
+				D8A85ABC18C568D2005EEB81 /* effects.xml in Resources */,
+				D8A85AD518C57917005EEB81 /* test.png in Resources */,
+				D8A85ADE18C57A61005EEB81 /* test.xml in Resources */,
+				D8A85ABA18C568D2005EEB81 /* effect_ui_zi.pvr.ccz in Resources */,
+				D8A85AC218C568D2005EEB81 /* effects_hd2.pvr.ccz in Resources */,
+				D8A85AD418C57917005EEB81 /* test.plist in Resources */,
+				D8A85ABB18C568D2005EEB81 /* effects.chr in Resources */,
 				D8809ABE18C433D3003B9E80 /* Icon-72.png in Resources */,
 				D8809ABC18C433D3003B9E80 /* HelloWorld.png in Resources */,
 				D8809AC018C433D3003B9E80 /* Icon-Small-50.png in Resources */,
+				D8A85AC118C568D2005EEB81 /* effects_hd2.plist in Resources */,
 				D8809E5A18C4340D003B9E80 /* game_weizi.xml in Resources */,
+				D8A85AE018C57B0A005EEB81 /* testex.pvr.ccz in Resources */,
+				D8A85ABD18C568D2005EEB81 /* effects001.chr in Resources */,
 				D8809E5C18C4340D003B9E80 /* game_weizi1.png in Resources */,
 				D8809ACA18C433D3003B9E80 /* iTunesArtwork in Resources */,
-				D82E516B18C46E930053ADB1 /* test.xml in Resources */,
+				D8A85ADB18C57A41005EEB81 /* testex.plist in Resources */,
+				D8A85ABF18C568D2005EEB81 /* effects_hd.plist in Resources */,
+				D8A85AC018C568D2005EEB81 /* effects_hd.pvr.ccz in Resources */,
+				D8A85AB718C568D2005EEB81 /* effect001_ui.chr in Resources */,
 				D8809E5718C4340D003B9E80 /* game_weizi.chr in Resources */,
 				D8809AC418C433D3003B9E80 /* Icon-Small@2x.png in Resources */,
+				D8A85AD318C57917005EEB81 /* test.chr in Resources */,
 				D8809ABA18C433D3003B9E80 /* Default.png in Resources */,
-				D82E516818C46E930053ADB1 /* test.chr in Resources */,
 				D8809AB818C433D3003B9E80 /* CloseSelected.png in Resources */,
+				D8A85AC318C568D2005EEB81 /* effects_merge.chr in Resources */,
 				D8809AC818C433D3003B9E80 /* Icon@2x.png in Resources */,
 				D8809E5818C4340D003B9E80 /* game_weizi.plist in Resources */,
 				D8809CDD18C433D6003B9E80 /* project.pbxproj in Resources */,
-				D82E516A18C46E930053ADB1 /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2611,6 +2683,7 @@
 				D8809AD418C433D3003B9E80 /* main.m in Sources */,
 				D8809CA018C433D6003B9E80 /* CCTextureCache.cpp in Sources */,
 				D8809C7318C433D6003B9E80 /* ccCArray.cpp in Sources */,
+				D8A85AA718C566F8005EEB81 /* HpTextureAtlasShader.cpp in Sources */,
 				D8809B3618C433D4003B9E80 /* CCString.cpp in Sources */,
 				D8809D9A18C433D7003B9E80 /* CCPhysicsSprite.cpp in Sources */,
 				D8809ACF18C433D3003B9E80 /* AppController.mm in Sources */,
@@ -2670,7 +2743,6 @@
 				D8809E0518C433D8003B9E80 /* cpDampedRotarySpring.c in Sources */,
 				D8809E4718C433D8003B9E80 /* AppDelegate.cpp in Sources */,
 				D8809CB018C433D6003B9E80 /* CCTMXLayer.cpp in Sources */,
-				D8809EB618C43417003B9E80 /* HpTextureAtlasShader.cpp in Sources */,
 				D8809CEF18C433D7003B9E80 /* CCBReader.cpp in Sources */,
 				D8809D4818C433D7003B9E80 /* CCControlColourPicker.cpp in Sources */,
 			);

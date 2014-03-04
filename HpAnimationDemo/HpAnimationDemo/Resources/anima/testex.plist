@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>sx_light.png</key>
+            <key>sx_light2.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{334,334}}</string>
@@ -23,13 +23,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>test.png</string>
+            <string>testex.pvr.ccz</string>
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ee1e23763b9dca60f1a514f24e4b9031$</string>
+            <string>$TexturePacker:SmartUpdate:4927d39359d7534221af09a4859e91de$</string>
             <key>textureFileName</key>
-            <string>test.png</string>
+            <string>testex.pvr.ccz</string>
         </dict>
     </dict>
 </plist>
