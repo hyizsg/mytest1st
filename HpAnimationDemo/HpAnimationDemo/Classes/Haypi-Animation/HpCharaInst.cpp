@@ -30,6 +30,10 @@ HpCharaInst::HpCharaInst()
     m_anima_status = HpCharactorManager::sharedManager()->requestAS();
     m_attach_list = new CCArray;
     m_opacity = 255;
+    
+    // set CCNodeRGBA prop to effect its childern
+    _cascadeColorEnabled = true;
+    _cascadeOpacityEnabled = true;
 }
 
 HpCharaInst::~HpCharaInst(){

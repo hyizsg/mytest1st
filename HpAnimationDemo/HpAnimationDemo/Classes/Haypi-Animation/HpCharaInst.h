@@ -10,6 +10,7 @@
 #include "HpAttachPoint.h"
 #include "HpTextureAtlas.h"
 #include "Hpheaders.h"
+#include "HpLightProtocol.h"
 
 
 USING_NS_CC;
@@ -20,7 +21,7 @@ NS_HPAM_BEGIN
 
 class HpAnimaStatus;
 
-class HpCharaInst : public cocos2d::CCNodeRGBA
+class HpCharaInst : public cocos2d::CCNodeRGBA, public HpLightObject
 {
 public:
     HpCharaInst();

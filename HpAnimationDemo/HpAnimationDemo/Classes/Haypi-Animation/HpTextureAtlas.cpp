@@ -241,8 +241,8 @@ void HpTextureAtlas::setupVBOandVAO()
     glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, texCoords));
     
     // extra
-    glEnableVertexAttribArray(kCCVertexAttrib_Extra);
-    glVertexAttribPointer(kCCVertexAttrib_Extra, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, extra));
+    glEnableVertexAttribArray(kCCVertexAttrib_Light);
+    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, extra));
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_pIndices[0]) * m_uCapacity * 6, m_pIndices, GL_STATIC_DRAW);
@@ -654,7 +654,7 @@ void HpTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_C4B, texCoords));
     
     // extra
-    glVertexAttribPointer(kCCVertexAttrib_Extra, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, extra));
+    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, extra));
     
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);

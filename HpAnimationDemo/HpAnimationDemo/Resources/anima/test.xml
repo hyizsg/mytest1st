@@ -3,23 +3,22 @@
 <Charactor version="1.0">
   <plists>
     <plist file="test.plist" />
-    <plist file="testex.plist" />
   </plists>
   <Animations>
-    <Animation name="动画   0" length="100">
+    <Animation name="动画   0" length="80">
       <Nodes>
         <Node name="节点   0">
           <Keys>
             <Key type="ImageKey">
               <Image>sx_light.png</Image>
               <Time>0</Time>
-              <Center>0,0</Center>
-              <Scale>1,1</Scale>
-              <Skew>0,0</Skew>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
               <Rot>0</Rot>
-              <Trans>4,313.18</Trans>
-              <Color>#00FFFFFF</Color>
-              <ColorEx>#00000000</ColorEx>
+              <Trans>0.00,0.00</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
               <Interps>
                 <Interp target="Center" type="linear" />
                 <Interp target="Scale" type="linear" />
@@ -31,48 +30,33 @@
             </Key>
             <Key type="ImageKey">
               <Image>sx_light.png</Image>
-              <Time>99</Time>
-              <Center>0,0</Center>
-              <Scale>1,1</Scale>
-              <Skew>0,0</Skew>
+              <Time>39</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
               <Rot>0</Rot>
-              <Trans>4,313.18</Trans>
+              <Trans>0.00,0.00</Trans>
               <Color>#FFFFFFFF</Color>
-              <ColorEx>#00FF0000</ColorEx>
-            </Key>
-          </Keys>
-        </Node>
-        <Node name="节点   1">
-          <Keys>
-            <Key type="ImageKey">
-              <Image>sx_light2.png</Image>
-              <Time>0</Time>
-              <Center>0,0</Center>
-              <Scale>1,1</Scale>
-              <Skew>0,0</Skew>
-              <Rot>0</Rot>
-              <Trans>-1.5,2.2</Trans>
-              <Color>#00FFFFFF</Color>
-              <ColorEx>#00000000</ColorEx>
+              <Light>#00FF0000</Light>
               <Interps>
-                  <Interp target="Center" type="linear" />
-                  <Interp target="Scale" type="linear" />
-                  <Interp target="Skew" type="linear" />
-                  <Interp target="Rot" type="linear" />
-                  <Interp target="Trans" type="linear" />
-                  <Interp target="Color" type="linear" />
+                <Interp target="Center" type="linear" />
+                <Interp target="Scale" type="linear" />
+                <Interp target="Skew" type="linear" />
+                <Interp target="Rot" type="linear" />
+                <Interp target="Trans" type="linear" />
+                <Interp target="Color" type="linear" />
               </Interps>
             </Key>
             <Key type="ImageKey">
-              <Image>sx_light2.png</Image>
-              <Time>99</Time>
-              <Center>0,0</Center>
-              <Scale>1,1</Scale>
-              <Skew>0,0</Skew>
+              <Image>sx_light.png</Image>
+              <Time>79</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
               <Rot>0</Rot>
-              <Trans>-1.5,2.2</Trans>
+              <Trans>0.00,0.00</Trans>
               <Color>#FFFFFFFF</Color>
-              <ColorEx>#00FF0000</ColorEx>
+              <Light>#00000000</Light>
             </Key>
           </Keys>
         </Node>

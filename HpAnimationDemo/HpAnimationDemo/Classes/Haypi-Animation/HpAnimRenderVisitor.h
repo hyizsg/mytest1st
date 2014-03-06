@@ -62,7 +62,7 @@ private:
     ccV3F_C4B_T2F_C4B_Quad m_quad;
     HpAffineTransformStack* m_tf_stack;
     HpColorStack* m_color_stack;
-    HpColorStack* m_colorex_stack;
+    HpColorStack* m_light_stack;
     HpStack* m_status_stack;
     
     HpStack* m_object_stack;

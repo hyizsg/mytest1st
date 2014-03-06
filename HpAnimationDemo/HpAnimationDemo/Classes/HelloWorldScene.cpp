@@ -23,7 +23,7 @@ CCScene* HelloWorld::scene()
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
-{
+{    
     //////////////////////////////
     // 1. super init first
     if ( !CCLayer::init() )
@@ -37,13 +37,12 @@ bool HelloWorld::init()
     addChild(layer);
 
     
-    HpCharactorManager::sharedManager()->addCharactorsWithFile("test.xml");
+    HpCharactorManager::sharedManager()->addCharactorsWithFile("test.chr");
     
     HpCharaInst* inst = HpCharaInst::create();
     addChild(inst);
     
     inst->playAniByName("动画   0", true);
-    inst->playEffectByName("动画   0");
     
     return true;
 }

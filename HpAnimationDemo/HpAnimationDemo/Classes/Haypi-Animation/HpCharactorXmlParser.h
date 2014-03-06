@@ -27,7 +27,7 @@ enum CharKeyPropertyType{
     CharKeyProperty_Rot,
     CharKeyProperty_Skew,
     CharKeyProperty_Color,
-    CharKeyProperty_ColorEx,
+    CharKeyProperty_Light,
     CharKeyProperty_Event
 };
 

@@ -17,7 +17,7 @@ USING_NS_CC;
 NS_HPAM_BEGIN
 
 enum {
-    kCCVertexAttrib_Extra = kCCVertexAttrib_MAX,
+    kCCVertexAttrib_Light = kCCVertexAttrib_MAX,
 };
 
 enum {
@@ -26,12 +26,12 @@ enum {
 
 
 
-#define kCCShader_PositionTextureColorExtra_HasPremultipliedAlpha           "UserShader_PositionTextureColorExtra_HasPremultipliedAlpha"
-#define kCCShader_PositionTextureColorExtraAlpha_HasPremultipliedAlpha      "UserShader_PositionTextureColorExtraAlpha_HasPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLight_HasPremultipliedAlpha           "UserShader_PositionTextureColorLight_HasPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha      "UserShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha"
 
 
-#define kCCShader_PositionTextureColorExtra_NoPremultipliedAlpha            "UserShader_PositionTextureColorExtra_NoPremultipliedAlpha"
-#define kCCShader_PositionTextureColorExtraAlpha_NoPremultipliedAlpha       "UserShader_PositionTextureColorExtraAlpha_NoPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLight_NoPremultipliedAlpha            "UserShader_PositionTextureColorLight_NoPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha       "UserShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha"
 
 // uniform names
 #define kCCUniformSampler_Alpha                     "CC_TexAlpha"
@@ -39,7 +39,7 @@ enum {
 
 
 // Attribute names
-#define kCCAttributeNameExtra                       "a_extra"
+#define kCCAttributeNameLight                       "a_light"
 
 
 

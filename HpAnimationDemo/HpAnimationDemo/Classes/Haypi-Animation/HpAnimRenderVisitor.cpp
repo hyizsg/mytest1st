@@ -7,14 +7,15 @@ NS_HPAM_BEGIN
 HpAnimRenderVisitor::HpAnimRenderVisitor(){
     m_tf_stack = new HpAffineTransformStack(100);
     m_color_stack = new HpColorStack(100);
-    m_colorex_stack = new HpColorStack(100);
+    m_light_stack = new HpColorStack(100);
     m_status_stack = new HpStack(100);
     
     m_cur_atlas = NULL;
     m_chr_instance = NULL;
 
+    CCSize size = CCEGLView::sharedOpenGLView()->getDesignResolutionSize();
     m_local_scale = 1.0f;
-    m_global_scale = 0.5f;
+    m_global_scale = ((int)(size.width/480.f)) * 480.f / 960.0;
     m_global_translate = CCPointZero;
     
     m_anim_helper = new CCDictionary();
@@ -27,7 +28,7 @@ HpAnimRenderVisitor::~HpAnimRenderVisitor(){
     CC_SAFE_RELEASE(m_chr_instance);
     CC_SAFE_RELEASE(m_tf_stack);
     CC_SAFE_RELEASE(m_color_stack);
-    CC_SAFE_RELEASE(m_colorex_stack);
+    CC_SAFE_RELEASE(m_light_stack);
     CC_SAFE_RELEASE(m_status_stack);
     CC_SAFE_RELEASE(s_elapsed);
     CC_SAFE_RELEASE(m_anim_helper);
@@ -61,11 +62,13 @@ void HpAnimRenderVisitor::begin(CCObject *p_map){
 
 
     m_tf_stack->push((CCAffineTransform*)&transform);
-    ccColor4F color = ccWhite4F;
+    ccColor4F color = ccc4FFromccc3B(m_chr_instance->getDisplayedColor());
     color.a = m_chr_instance->getOpacity() / 255.f;
     m_color_stack->push(&color);
-    ccColor4F colorex = ccClear4F;
-    m_colorex_stack->push(&colorex);
+    
+    ccColor4F light = ccc4FFromccc3B(m_chr_instance->getDisplayedLight());
+    light.a = 0;
+    m_light_stack->push(&light);
     
     m_status_stack->push(m_chr_instance->getStatus());
     m_object_stack->push(m_chr_instance);
@@ -75,7 +78,7 @@ void HpAnimRenderVisitor::end(){
     m_status_stack->pop();
     m_tf_stack->pop();
     m_color_stack->pop();
-    m_colorex_stack->pop();
+    m_light_stack->pop();
     m_object_stack->pop();
 
     for(int i = m_chr_instance->getAtlases()->count() - 1; i > m_cur_atlas_id; -- i){
@@ -237,7 +240,7 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
 
     // Atlas: color
     ccColor4F color = cccMult(p_frm->getColorAt(time), *m_color_stack->peek());
-    ccColor4F extra = cccAdd(p_frm->getColorExAt(time), *m_colorex_stack->peek());
+    ccColor4F extra = cccAdd(p_frm->getLightAt(time), *m_light_stack->peek());
     this->setLayerColor(color);
     
     if(m_cur_atlas->getTexture()) {
@@ -250,7 +253,7 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
         extra.a = m_cur_atlas->getTexture()->hasPremultipliedAlpha();
     }
     
-    CCLOG("hasPremultipliedAlpha: %d, extra: {%.3f, %.3f, %.3f, %.3f}", m_cur_atlas->getTexture()->hasPremultipliedAlpha(), extra.r, extra.g, extra.b, extra.a);
+//    CCLOG("hasPremultipliedAlpha: %d, extra: {%.3f, %.3f, %.3f, %.3f}", m_cur_atlas->getTexture()->hasPremultipliedAlpha(), extra.r, extra.g, extra.b, extra.a);
     
     ccColor4B ccc = ccc4(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
     m_quad.bl.colors = ccc;

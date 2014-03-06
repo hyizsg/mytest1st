@@ -124,8 +124,8 @@ void HpCharactorXmlParser::startElement(void *ctx, const char *pname, const char
         m_cur_property = CharKeyProperty_Trans;
     } else if(m_startXmlElement.compare("Color") == 0){
         m_cur_property = CharKeyProperty_Color;
-    } else if(m_startXmlElement.compare("ColorEx") == 0){
-        m_cur_property = CharKeyProperty_ColorEx;
+    } else if(m_startXmlElement.compare("Light") == 0){
+        m_cur_property = CharKeyProperty_Light;
     } else if(m_startXmlElement.compare("Event") == 0){
         m_cur_property = CharKeyProperty_Event;
     } else if(m_startXmlElement.compare("Interps") == 0){
@@ -210,7 +210,7 @@ void HpCharactorXmlParser::textHandler(void *ctx, const char *s, int len){
                                    ((value >> 24) & 0xff) / 255.f));
         break;
     }
-    case CharKeyProperty_ColorEx:
+    case CharKeyProperty_Light:
     {
         const char* hex = m_currString.c_str();
         ++ hex;
@@ -218,7 +218,7 @@ void HpCharactorXmlParser::textHandler(void *ctx, const char *s, int len){
         char *str;
         unsigned int value = (unsigned int)strtoll(hex, &str, 16);//十六进制
         
-        m_cur_keyfrm->setColorEx(ccc4f(((value >> 16) & 0xff) / 255.f,
+        m_cur_keyfrm->setLight(ccc4f(((value >> 16) & 0xff) / 255.f,
                                      ((value >> 8) & 0xff) / 255.f,
                                      (value & 0xff) / 255.f,
                                      ((value >> 24) & 0xff) / 255.f));

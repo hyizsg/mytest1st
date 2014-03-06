@@ -24,7 +24,7 @@ HpKeyframe::HpKeyframe(){
     this->m_pContent = NULL;
     this->m_pInterps = NULL;
     this->m_pEvent = NULL;
-    setColorEx(ccClear4F);
+    setLight(ccClear4F);
 }
 
 HpKeyframe::~HpKeyframe(){
@@ -81,11 +81,11 @@ ccColor4F HpKeyframe::getColorAt(float p_t){
     return this->m_cColor;
 }
 
-ccColor4F HpKeyframe::getColorExAt(float p_t){
+ccColor4F HpKeyframe::getLightAt(float p_t){
     if(this->m_pInterps){
-        return this->m_pInterps->getColorExAt(p_t, this);
+        return this->m_pInterps->getLightAt(p_t, this);
     }
-    return this->m_cColorEx;
+    return this->m_cLight;
 }
 
 HpInterpHolder* HpKeyframe::getInterps(){

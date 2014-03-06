@@ -42,7 +42,7 @@ public:
     CC_SYNTHESIZE(CCPoint, m_cSkew, Skew)
     CC_SYNTHESIZE(CCPoint, m_cScale, Scale)
     CC_SYNTHESIZE(ccColor4F, m_cColor, Color)
-    CC_SYNTHESIZE(ccColor4F, m_cColorEx, ColorEx)
+    CC_SYNTHESIZE(ccColor4F, m_cLight, Light)
     CC_SYNTHESIZE_RETAIN(CCString*, m_pContent, Content)
     CC_SYNTHESIZE(HpContentType, m_eContentType, ContentType)
     CC_SYNTHESIZE_RETAIN(CCString*, m_pEvent, Event)
@@ -62,7 +62,7 @@ public:
     CCPoint getScaleAt(float p_t);
 
     ccColor4F getColorAt(float p_t);
-    ccColor4F getColorExAt(float p_t);
+    ccColor4F getLightAt(float p_t);
 };
 
 class HpContentKeyframe : public CCObject{

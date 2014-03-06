@@ -172,9 +172,9 @@ void HpCharactorBinParser::readCommon(HpBinaryReader *reader, char *buffer)
     m_cur_keyfrm->setColor(ReadColor(reader));
     
     if (ChrReadingVersion >= 0x05) {
-        m_cur_keyfrm->setColorEx(ReadColor(reader));
+        m_cur_keyfrm->setLight(ReadColor(reader));
     }else{
-        m_cur_keyfrm->setColorEx(ccClear4F);
+        m_cur_keyfrm->setLight(ccClear4F);
     }
     
     reader->ReadString(buffer);

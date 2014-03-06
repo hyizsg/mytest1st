@@ -40,7 +40,7 @@ public:
     CCPoint getScaleAt(float time, HpKeyframe* p_self);
     float getRotAt(float time, HpKeyframe* p_self);
     ccColor4F getColorAt(float time, HpKeyframe* p_self);
-    ccColor4F getColorExAt(float time, HpKeyframe* p_self);
+    ccColor4F getLightAt(float time, HpKeyframe* p_self);
     
     void setTarget(HpKeyframe* p_fm);
 
