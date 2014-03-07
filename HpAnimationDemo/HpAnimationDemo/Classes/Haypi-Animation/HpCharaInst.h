@@ -61,6 +61,9 @@ public:
     void draw();
     
 public:
+    float getDuration();
+    
+public:
     void replaceContent(CCString* p_content, CCString* p_layer, CCString* p_ani, CCString* p_image);
     void replaceContent(CCString *p_content, CCString *p_layer, CCString *p_ani, CCSpriteFrame* p_sprite);
     void replaceContent(CCString *p_content, CCString *p_layer, CCString *p_ani, CCString* p_anima, CCString* p_char);

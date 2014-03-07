@@ -271,6 +271,13 @@ void HpCharaInst::draw(){
     }
 }
 
+
+float HpCharaInst::getDuration()
+{
+    HpAnimation* anim = HpCharactorManager::sharedManager()->charaAnimaByName(getCurrentAnimationName()->getCString(), NULL);
+    return anim ? anim->getLength() / m_fps : 0.f;
+}
+
 void HpCharaInst::appendLayer(CCString* p_src_layer, CCString* p_src_ani, CCString* p_char, CCString* p_dst_ani){
     HpLayer* src_layer = this->getlayerWhile(false, NULL, p_dst_ani, p_src_layer, p_src_ani, p_char);
     
