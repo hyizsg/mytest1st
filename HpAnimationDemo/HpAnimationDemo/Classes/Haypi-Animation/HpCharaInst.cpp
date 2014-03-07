@@ -230,7 +230,21 @@ void HpCharaInst::playAniByName(const char *p_ani_name, bool forever_repeat)
 
 void HpCharaInst::playAniByName(const char *p_ani_name, float frm)
 {
-    this->playAniByName(p_ani_name, frm, s_default_fps, false);
+    HpAnimation* anim = HpCharactorManager::sharedManager()->charaAnimaByName(p_ani_name, &m_charator);
+    if(anim == NULL){
+        return;
+    }
+    
+    this->m_cur_anima = NULL;
+    this->setCurrentAnimationName(CCString::create(p_ani_name));
+    this->setFirstAnimationFrame(true);
+    this->stopActionByTag(HPANIMATION_ACTION_TAG);
+    this->updateAttaches();
+    
+    setFps(s_default_fps);
+    setDeltaTime(0);
+    
+    this->setAni(anim, frm);
 }
 
 void HpCharaInst::playEffectByName(const char *p_ani_name)

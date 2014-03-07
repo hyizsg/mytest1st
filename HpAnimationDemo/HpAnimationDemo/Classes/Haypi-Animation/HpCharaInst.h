@@ -46,8 +46,8 @@ public:
     /** Show an Animation as repeat forever or not */
     void playAniByName(const char *p_ani_name, bool forever_repeat);
     
-    /** Show an Animation start from a frame */
-    void playAniByName(const char *p_ani_name, float start_frm);
+    /** Show an Animation stop at a frame */
+    void playAniByName(const char *p_ani_name, float frm);
     
     /** Show an Animation once and autodestroy as an effect */
     void playEffectByName(const char * p_ani_name);
