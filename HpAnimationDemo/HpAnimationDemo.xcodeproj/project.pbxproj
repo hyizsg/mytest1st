@@ -308,6 +308,7 @@
 		D8809EB318C43417003B9E80 /* HpSplineInterpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9118C43417003B9E80 /* HpSplineInterpolator.cpp */; };
 		D8809EB418C43417003B9E80 /* HpStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9318C43417003B9E80 /* HpStack.cpp */; };
 		D8809EB518C43417003B9E80 /* HpTextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8809E9518C43417003B9E80 /* HpTextureAtlas.cpp */; };
+		D880E5C018C9AE5C0046B8EB /* HpPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D880E5BE18C9AE5C0046B8EB /* HpPlay.cpp */; };
 		D8A85AA718C566F8005EEB81 /* HpTextureAtlasShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8A85AA518C566F8005EEB81 /* HpTextureAtlasShader.cpp */; };
 		D8A85AD318C57917005EEB81 /* test.chr in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ACD18C57917005EEB81 /* test.chr */; };
 		D8A85AD418C57917005EEB81 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A85ACE18C57917005EEB81 /* test.plist */; };
@@ -969,6 +970,8 @@
 		D8809E9618C43417003B9E80 /* HpTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTextureAtlas.h; sourceTree = "<group>"; };
 		D8809E9918C43417003B9E80 /* HpTransformProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTransformProtocol.h; sourceTree = "<group>"; };
 		D8809E9A18C43417003B9E80 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		D880E5BE18C9AE5C0046B8EB /* HpPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpPlay.cpp; sourceTree = "<group>"; };
+		D880E5BF18C9AE5C0046B8EB /* HpPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpPlay.h; sourceTree = "<group>"; };
 		D8A85AA518C566F8005EEB81 /* HpTextureAtlasShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpTextureAtlasShader.cpp; sourceTree = "<group>"; };
 		D8A85AA618C566F8005EEB81 /* HpTextureAtlasShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpTextureAtlasShader.h; sourceTree = "<group>"; };
 		D8A85ACD18C57917005EEB81 /* test.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.chr; sourceTree = "<group>"; };
@@ -2269,6 +2272,8 @@
 				D8809E7A18C43417003B9E80 /* HpCharactorXmlParser.h */,
 				D8809E7B18C43417003B9E80 /* HpCharaInst.cpp */,
 				D8809E7C18C43417003B9E80 /* HpCharaInst.h */,
+				D880E5BE18C9AE5C0046B8EB /* HpPlay.cpp */,
+				D880E5BF18C9AE5C0046B8EB /* HpPlay.h */,
 				D8A85AEF18C5BD92005EEB81 /* HpCharaInstLoader.cpp */,
 				D8A85AF018C5BD92005EEB81 /* HpCharaInstLoader.h */,
 				D8809E7D18C43417003B9E80 /* HpCharaInstObserver.h */,
@@ -2439,6 +2444,7 @@
 				D8809C4318C433D5003B9E80 /* CCAnimation.cpp in Sources */,
 				D8809D1418C433D7003B9E80 /* CCMenuItemImageLoader.cpp in Sources */,
 				D8809DC518C433D7003B9E80 /* RegionAttachment.cpp in Sources */,
+				D880E5C018C9AE5C0046B8EB /* HpPlay.cpp in Sources */,
 				D8809B1D18C433D4003B9E80 /* CCAutoreleasePool.cpp in Sources */,
 				D8809EAC18C43417003B9E80 /* HpInterpHolder.cpp in Sources */,
 				D8809B6F18C433D4003B9E80 /* matrix.c in Sources */,

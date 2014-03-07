@@ -11,8 +11,9 @@ USING_NS_CC;
 
 NS_HPAM_BEGIN
 
-class HpAnimate : public CCActionInterval{
-private:
+class HpAnimate : public CCActionInterval
+{
+protected:
     HpAnimation* m_anima;
     float m_fps;
     float m_start;

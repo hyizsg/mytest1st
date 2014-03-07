@@ -44,7 +44,9 @@ bool HelloWorld::init()
     HpCharaInst* inst = HpCharaInst::create();
     addChild(inst);
     
-    inst->playAniByName("动画   0", true);
+//    inst->playAniByName("动画   0", true);
+    
+    inst->runAction(CCSequence::create(HpPlay::create("动画   0"), HpPlay::create("动画   0"), HpPlay::create("动画   0"), NULL));
     
     return true;
 }
