@@ -20,7 +20,10 @@ class HpPlay : public HpAnimate{
     
     
 public:
-    static HpPlay* create(const char* animName);
+    static HpPlay* createWithName(const char* animName);
+    static CCSequence* create(const char* animName, ...);
+    static CCSequence* create(CCArray *arrayOfNames);
+    static CCSequence* createWithTwo(const char* animName1, const char* animName2);
     
     HpPlay(HpAnimation* anima);
     virtual ~HpPlay();

@@ -46,7 +46,7 @@ bool HelloWorld::init()
     
 //    inst->playAniByName("动画   0", true);
     
-    inst->runAction(CCSequence::create(HpPlay::create("动画   0"), HpPlay::create("动画   0"), HpPlay::create("动画   0"), NULL));
+    inst->runAction(HpPlay::create("动画   0", "动画   0", "动画   0", NULL));
     
     return true;
 }
