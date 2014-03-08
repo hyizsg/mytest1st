@@ -34,9 +34,7 @@ protected:
     ccColor3B m_from;
 };
 
-/** @brief Tints a CCNode that implements the CCNodeRGB protocol from current tint to a custom one.
- @since v0.7.2
- */
+
 class HpShineBy : public CCActionInterval
 {
 public:

@@ -278,6 +278,15 @@ float HpCharaInst::getDuration()
     return anim ? anim->getLength() / m_fps : 0.f;
 }
 
+void HpCharaInst::setLight(const ccColor3B& Light)
+{
+    HpLightObject::setLight(Light);
+    if (getActionByTag(HPANIMATION_ACTION_TAG) == NULL) {
+        m_dirty = true;
+        setAni(m_cur_anima, m_cur_frame);
+    }
+}
+
 void HpCharaInst::appendLayer(CCString* p_src_layer, CCString* p_src_ani, CCString* p_char, CCString* p_dst_ani){
     HpLayer* src_layer = this->getlayerWhile(false, NULL, p_dst_ani, p_src_layer, p_src_ani, p_char);
     

@@ -56,7 +56,7 @@ public:
 };
 
 
-class HpLightObject : HpLightProtocol
+class HpLightObject : public HpLightProtocol
 {
 public:
     HpLightObject();

@@ -30,7 +30,8 @@ void HpLightObject::setLight(const ccColor3B &light)
 	if (_cascadeLightEnabled)
     {
 		ccColor3B parentLight = ccBLACK;
-        HpLightProtocol *parent = dynamic_cast<HpLightProtocol*>(((CCNode*)this)->getParent());
+        CCNode* pThis = dynamic_cast<CCNode*>(this);
+        HpLightProtocol *parent = dynamic_cast<HpLightProtocol*>(pThis->getParent());
 		if (parent && parent->isCascadeLightEnabled())
         {
             parentLight = parent->getDisplayedLight();
@@ -69,13 +70,14 @@ void HpLightObject::updateDisplayedLight(const ccColor3B &parentLight)
     if (_cascadeLightEnabled)
     {
         CCObject *obj = NULL;
-        CCArray* children = ((CCNode*)this)->getChildren();
+        CCNode* pThis = dynamic_cast<CCNode*>(this);
+        CCArray* children = pThis->getChildren();
         CCARRAY_FOREACH(children, obj)
         {
-            CCRGBAProtocol *item = dynamic_cast<CCRGBAProtocol*>(obj);
+            HpLightProtocol *item = dynamic_cast<HpLightProtocol*>(obj);
             if (item)
             {
-                item->updateDisplayedColor(_displayedLight);
+                item->updateDisplayedLight(_displayedLight);
             }
         }
     }

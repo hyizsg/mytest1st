@@ -23,6 +23,7 @@
 #include "HpAnimRenderVisitor.h"
 #include "HpTextureAtlas.h"
 #include "HpPlay.h"
+#include "HpShine.h"
 
 USING_NS_CC;
 
