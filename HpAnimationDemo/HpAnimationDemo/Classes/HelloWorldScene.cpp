@@ -50,6 +50,10 @@ bool HelloWorld::init()
 //    inst->playAniByName("动画   0", 0.f);
 //    inst->runAction(CCRepeatForever::create(CCSequence::create(HpShineTo::create(0.2, 255, 0, 0), HpShineTo::create(0.2, 0, 0, 0), NULL)));
     
+    inst->setContentSize(CCSizeMake(200, 200));
+//    inst->setAnchorPoint(ccp(0.5, 0.5));
+    inst->setClippingToBounds(true);
+    
     return true;
 }
 

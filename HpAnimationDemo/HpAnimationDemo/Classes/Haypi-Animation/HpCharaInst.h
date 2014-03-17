@@ -59,6 +59,7 @@ public:
     void onCustomEvent(CCString* p_event);
 
     void draw();
+    void visit();
     
 public:
     float getDuration();
@@ -81,6 +82,12 @@ public:
     void applyAttath(HpLayer* layer, const CCAffineTransform& m, const ccColor4F& color);
     
     void updateAttaches();
+    
+    /**
+     * Determines whether it clips its children or not.
+     */
+    bool isClippingToBounds() { return m_bClippingToBounds; }
+    void setClippingToBounds(bool bClippingToBounds) { m_bClippingToBounds = bClippingToBounds; }
 
 public:
     //friend void setAni(HpAnimation* p_ani, float frm);
@@ -104,13 +111,22 @@ protected:
     
     CC_SYNTHESIZE(HpCharaInstObserver*, m_delegate, Delegate);
     
+    void beforeDraw();
+    void afterDraw();
+
+    CCRect getViewRect();
     
 private:
     HpCharactor* m_charator;
     HpAnimation* m_cur_anima;
     float m_cur_frame;
+    
     bool m_dirty;
     
+    bool m_bClippingToBounds;
+    
+    CCRect m_tParentScissorRect;
+    bool m_bScissorRestored;    
     CCDictionary* m_local_anims;
     CCArray* m_attach_list;
     
