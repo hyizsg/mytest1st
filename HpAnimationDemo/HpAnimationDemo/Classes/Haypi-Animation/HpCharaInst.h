@@ -101,7 +101,6 @@ protected:
     CC_SYNTHESIZE_RETAIN(CCString*, m_cur_anima_name, CurrentAnimationName)
     CC_SYNTHESIZE(unsigned char, m_opacity, Opacity)
     CC_SYNTHESIZE(double, m_fps, Fps);
-    CC_SYNTHESIZE(double, m_deltaTime, DeltaTime);
     
     CC_SYNTHESIZE(HpCharaInstObserver*, m_delegate, Delegate);
     

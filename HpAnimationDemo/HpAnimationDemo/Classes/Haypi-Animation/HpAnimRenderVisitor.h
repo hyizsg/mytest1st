@@ -67,10 +67,8 @@ private:
     
     HpStack* m_object_stack;
     CCDictionary* m_anim_helper;
-    CCDictionary* m_cur_dic;
     
     double m_delta_time;
-    CCString* s_elapsed;
 
 protected:
     CC_SYNTHESIZE(float, m_local_scale, LocalScale)
@@ -99,12 +97,6 @@ public:
     void end();
 
     CCAffineTransform* makeTransform(CCAffineTransform* p_in, HpKeyframe* p_key, float time);
-    
-    template <class T>
-    CCDictionary* currentDictionaryOfclass();
-    
-    void setElapsed(double value);
-    double getElapsed(void);
 
 };
 

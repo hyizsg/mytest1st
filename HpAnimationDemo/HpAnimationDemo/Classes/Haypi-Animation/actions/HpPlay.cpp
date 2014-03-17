@@ -90,7 +90,7 @@ void HpPlay::step(float dt)
 
 void HpPlay::update(float time)
 {
-    HpAnimate::step(time * getDuration() - m_elapsed);
+    HpAnimate::step(CCDirector::sharedDirector()->getDeltaTime());
 }
 
 NS_HPAM_END

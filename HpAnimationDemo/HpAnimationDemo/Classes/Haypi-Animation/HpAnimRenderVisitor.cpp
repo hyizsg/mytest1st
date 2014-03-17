@@ -20,7 +20,6 @@ HpAnimRenderVisitor::HpAnimRenderVisitor(){
     
     m_anim_helper = new CCDictionary();
     m_object_stack = new HpStack();
-    s_elapsed = new CCString("s_elapsed");
 }
 
 HpAnimRenderVisitor::~HpAnimRenderVisitor(){
@@ -30,7 +29,6 @@ HpAnimRenderVisitor::~HpAnimRenderVisitor(){
     CC_SAFE_RELEASE(m_color_stack);
     CC_SAFE_RELEASE(m_light_stack);
     CC_SAFE_RELEASE(m_status_stack);
-    CC_SAFE_RELEASE(s_elapsed);
     CC_SAFE_RELEASE(m_anim_helper);
     CC_SAFE_RELEASE(m_object_stack);
 }
@@ -40,25 +38,15 @@ void HpAnimRenderVisitor::begin(CCObject *p_map){
     m_chr_instance = dynamic_cast<HpCharaInst*> (p_map);
     m_cur_atlas_id = -1;
     m_cur_atlas = NULL;
-    m_delta_time = m_chr_instance->getDeltaTime();
+    m_delta_time = CCDirector::sharedDirector()->getDeltaTime();
     
     CCAffineTransform transform;
     transform.b = transform.c = 0.f;
-
-//    CC_CONTENT_SCALE_FACTOR()
-    // check cocos2d version refer to ios code
     
-#if 1
     transform.a = m_chr_instance->getFlipX() ? -m_global_scale : m_global_scale;
     transform.d = m_global_scale;
     transform.tx = m_global_translate.x;
     transform.ty = m_global_translate.y;
-#else 
-    transform.a = (m_chr_instance->getFlipX() ? -m_global_scale : m_global_scale) * CC_CONTENT_SCALE_FACTOR();
-    transform.d = m_global_scale * CC_CONTENT_SCALE_FACTOR();
-    transform.tx = m_global_translate.x * CC_CONTENT_SCALE_FACTOR();
-    transform.ty = m_global_translate.y * CC_CONTENT_SCALE_FACTOR();
-#endif
 
 
     m_tf_stack->push((CCAffineTransform*)&transform);
@@ -95,24 +83,26 @@ void HpAnimRenderVisitor::visitAnima(HpAnimation* p_ani, bool p_first, float p_t
 //    CCLOG(" %d \tauto \t%s\t%f", p_ani->getLength(), p_inherited ? "false" : "true", p_time);
     if (!p_inherited) {
         m_object_stack->push(p_ani);
-        
-        m_cur_dic = currentDictionaryOfclass<HpAnimation>();
-        if(p_first) {setElapsed(p_time / (m_chr_instance->getFps()));}
-        double currtime = getElapsed() * (m_chr_instance->getFps());
-        
         HpAnimaStatus* status = (HpAnimaStatus*)m_status_stack->peek();
+        
+        if (p_first)
+        {
+            status->setElapsed(p_time / m_chr_instance->getFps());
+        }
+        
+        double currtime = status->getElapsed() * m_chr_instance->getFps();
+        
         for(status->setLayerIndex(0); status->getLayerIndex() < p_ani->getLayers()->count(); status->setLayerIndex(status->getLayerIndex() + 1)){
             visitLayer(dynamic_cast<HpLayer*>(p_ani->getLayers()->objectAtIndex(status->getLayerIndex())), p_first, currtime);
         }
         
-        double duration = getElapsed() + m_delta_time;
+        double duration = status->getElapsed() + m_delta_time;
         
         if (currtime >= p_ani->getLength()) {
             duration = 0;
         }
         
-        setElapsed(duration);
-        
+        status->setElapsed(duration);
         m_object_stack->pop();
         
     }else{
@@ -228,11 +218,6 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
     float dx = x1 * cr - y2 * sr2 + x;
     float dy = x1 * sr + y2 * cr2 + y;
 
-
-    //m_quad.bl.vertices = (ccVertex3F) { RENDER_IN_SUBPIXEL(ax), RENDER_IN_SUBPIXEL(ay), 0 };
-    //m_quad.br.vertices = (ccVertex3F) { RENDER_IN_SUBPIXEL(bx), RENDER_IN_SUBPIXEL(by), 0 };
-    //m_quad.tl.vertices = (ccVertex3F) { RENDER_IN_SUBPIXEL(dx), RENDER_IN_SUBPIXEL(dy), 0 };
-    //m_quad.tr.vertices = (ccVertex3F) { RENDER_IN_SUBPIXEL(cx), RENDER_IN_SUBPIXEL(cy), 0 };
     m_quad.bl.vertices = vertex3(ax, ay, 0);
     m_quad.br.vertices = vertex3(bx, by, 0);
     m_quad.tl.vertices = vertex3(dx, dy, 0);
@@ -249,8 +234,8 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
             color.a = 1.0f;
             color = cccScale(color, a);
         }
-        //设置extra的alpha值为是否预乘，供shader程序使用
-        extra.a = m_cur_atlas->getTexture()->hasPremultipliedAlpha();
+        
+        extra.a = 0;
     }
     
 //    CCLOG("hasPremultipliedAlpha: %d, extra: {%.3f, %.3f, %.3f, %.3f}", m_cur_atlas->getTexture()->hasPremultipliedAlpha(), extra.r, extra.g, extra.b, extra.a);
@@ -317,7 +302,10 @@ void HpAnimRenderVisitor::visitAnimaKey(HpAnimaKeyframe *p_akf, HpKeyframe *p_fr
 
     ccColor4F c = cccMult(p_frm->getColorAt(time), *(m_color_stack->peek()));
     m_color_stack->push(&c);
-
+    
+    ccColor4F l = cccAdd(p_frm->getLightAt(time), *m_light_stack->peek());
+    m_light_stack->push(&l);
+    
     HpAnimaStatus* _as = dynamic_cast<HpAnimaStatus*>(m_status_stack->peek());
     CCObject* obj1 = _as->getSubAS();
     if(obj1 == NULL){
@@ -347,10 +335,7 @@ CCAffineTransform* HpAnimRenderVisitor::makeTransform(CCAffineTransform* p_in, H
     CCPoint skew = p_key->getSkewAt(time);
     CCPoint scale = p_key->getScaleAt(time);
 
-    // CGAffineTransformMakeTranslation
-    // t = [ 1 0 0 1 tx ty ] 
     *p_in = CCAffineTransformMake(1.f, 0, 0, 1.f, trans.x + center.x, trans.y + center.y);
-
     *p_in = CCAffineTransformRotate(*p_in, CC_DEGREES_TO_RADIANS(rot));
 
     struct CCAffineTransform skew_tf = CCAffineTransformIdentity;
@@ -404,42 +389,6 @@ void HpAnimRenderVisitor::fireEventPassed(HpLayer* p_layer, HpKeyframe* p_last, 
         }
     }
 }
-template <class T>    
-static bool isKindOfClass(CCObject* obj) { return dynamic_cast<T*>(obj) != NULL; }
 
-template <class T>
-CCDictionary* HpAnimRenderVisitor::currentDictionaryOfclass()
-{
-    CCDictionary* retdic = NULL;
-    CCDictionary* dic = m_anim_helper;
-    CCObject* obj = NULL;
-    CCARRAY_FOREACH(m_object_stack->getArray(), obj)  {
-        if (dic->objectForKey((int)obj) == NULL) {
-            CCDictionary* newdic = new CCDictionary();
-            if (isKindOfClass<T>(obj)) {
-                newdic->setObject(CCNumber<double>::create(0), (int)s_elapsed);
-            }
-            dic->setObject(newdic, (int)obj);
-            CC_SAFE_RELEASE(newdic);
-        }
-        dic = (CCDictionary*)dic->objectForKey((int)obj);
-        if (isKindOfClass<T>(obj)) {
-            retdic = dic;
-        }
-    }
-    
-    return retdic;
-}
-
-void HpAnimRenderVisitor::setElapsed(double value)
-{
-    m_cur_dic->setObject(CCNumber<double>::create(value), (int)s_elapsed);
-}
-
-double HpAnimRenderVisitor::getElapsed(void)
-{
-    CCNumber<double> * elapsed = (CCNumber<double>*)m_cur_dic->objectForKey((int)s_elapsed);
-    return elapsed->getValue();
-}
 
 NS_HPAM_END

@@ -17,6 +17,8 @@ private:
 
 public:
     CC_SYNTHESIZE(uint, m_uLayer_index, LayerIndex)
+    CC_SYNTHESIZE(float, m_fElapsed, Elapsed);
+    
 public:
     HpAnimaStatus();
     virtual ~HpAnimaStatus();

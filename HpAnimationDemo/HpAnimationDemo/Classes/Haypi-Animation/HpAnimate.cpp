@@ -39,8 +39,6 @@ void HpAnimate::step(float dt){
     }
 
     HpCharaInst* target = dynamic_cast<HpCharaInst*> (m_pTarget);
-    target->setDeltaTime(dt);
-
     target->setAni(m_anima, m_elapsed * m_fps);
 
     HPLOG(" HpAnimate.....step isDone %d   m_elapsed %f m_fDuration %f", isDone(), m_elapsed, m_fDuration);

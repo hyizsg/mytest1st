@@ -15,6 +15,8 @@ HpLayerStatus::HpLayerStatus(){
     m_pSubani_status = NULL;
     m_pLastCKey = NULL;
     m_pLastGKey = NULL;
+    
+    CCLog("HpLayerStatus: %d", this);
 }
 
 HpLayerStatus::~HpLayerStatus(){
@@ -49,6 +51,9 @@ HpAnimaStatus* HpLayerStatus::getSubAS(){
 
 HpAnimaStatus::HpAnimaStatus(){
     m_pLayer_status_list = new CCArray;
+    m_fElapsed = 0;
+    m_uLayer_index = 0;
+    CCLog("HpAnimaStatus: %d", this);
 }
 
 HpAnimaStatus::~HpAnimaStatus(){

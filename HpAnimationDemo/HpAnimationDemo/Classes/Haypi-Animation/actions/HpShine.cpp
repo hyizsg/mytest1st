@@ -76,7 +76,7 @@ void HpShineTo::update(float time)
 }
 
 //
-// TintBy
+// ShineBy
 //
 
 HpShineBy* HpShineBy::create(float duration, GLshort deltaRed, GLshort deltaGreen, GLshort deltaBlue)

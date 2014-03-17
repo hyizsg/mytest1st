@@ -30,6 +30,7 @@ HpCharaInst::HpCharaInst()
     m_anima_status = HpCharactorManager::sharedManager()->requestAS();
     m_attach_list = new CCArray;
     m_opacity = 255;
+    m_dirty = false;
     
     // set CCNodeRGBA prop to effect its childern
     _cascadeColorEnabled = true;
@@ -187,7 +188,6 @@ void HpCharaInst::playAniByName(const char* p_ani_name, float start_time, int fp
     this->updateAttaches();
     
     setFps(fps);
-    setDeltaTime(0);
     
     HpAnimate* anim_action = new HpAnimate(anim, start_time, fps);
     
@@ -242,7 +242,6 @@ void HpCharaInst::playAniByName(const char *p_ani_name, float frm)
     this->updateAttaches();
     
     setFps(s_default_fps);
-    setDeltaTime(0);
     
     this->setAni(anim, frm);
 }
@@ -252,7 +251,15 @@ void HpCharaInst::playEffectByName(const char *p_ani_name)
     this->playAniByName(p_ani_name, 0, s_default_fps, 1, true);
 }
 
-void HpCharaInst::draw(){
+void HpCharaInst::draw()
+{
+    if(m_dirty && m_cur_anima){
+        HpAnimRenderVisitor* visitor = HpCharactorManager::sharedManager()->getRender();
+        visitor->begin(this);
+        visitor->visitAnima(m_cur_anima, this->getFirstAnimationFrame(), m_cur_frame);
+        visitor->end();
+        m_dirty = false;
+    }
     
     if(m_atlas_list->count() == 0)
         return;
@@ -278,12 +285,34 @@ float HpCharaInst::getDuration()
     return anim ? anim->getLength() / m_fps : 0.f;
 }
 
-void HpCharaInst::setLight(const ccColor3B& Light)
+void HpCharaInst::setLight(const ccColor3B& light)
 {
-    HpLightObject::setLight(Light);
-    if (getActionByTag(HPANIMATION_ACTION_TAG) == NULL) {
+    HpLightObject::setLight(light);
+    m_dirty = true;
+}
+
+void HpCharaInst::setAni(HpAnimation* p_ani, float frm)
+{
+    CCAssert(p_ani != NULL, "Null animation)");
+    if(m_cur_anima != p_ani){
+        m_cur_anima = p_ani;
         m_dirty = true;
-        setAni(m_cur_anima, m_cur_frame);
+    }
+    
+    if(m_cur_frame != frm){
+        m_cur_frame = frm;
+        m_dirty = true;
+    }
+}
+
+void HpCharaInst::applyAttath(HpLayer* layer, const CCAffineTransform& m, const ccColor4F& color)
+{
+    CCObject* arrayItem = NULL;
+    CCARRAY_FOREACH(m_attach_list, arrayItem){
+        HpAttachPoint* ap = static_cast<HpAttachPoint*>(arrayItem);
+        if (ap->getLayerInst() == layer) {
+            ap->apply(m, color);
+        }
     }
 }
 
@@ -506,40 +535,6 @@ bool HpCharaInst::hasContent(CCString *contentName){
     return hasContent;
 }
 
-void HpCharaInst::setAni(HpAnimation* p_ani, float frm){
-    CCAssert(p_ani != NULL, "Null animation)");
-    if(m_cur_anima != p_ani){
-        m_cur_anima = p_ani;
-        m_dirty = true;
-    }
-    
-    if(m_cur_frame != frm){
-        m_cur_frame = frm;
-        m_dirty = true;
-    }
-    
-    
-    if(m_dirty && m_cur_anima){
-        HpAnimRenderVisitor* visitor = HpCharactorManager::sharedManager()->getRender();
-        visitor->begin(this);
-        visitor->visitAnima(m_cur_anima, this->getFirstAnimationFrame(), m_cur_frame);
-        visitor->end();
-        m_dirty = false;
-        
-    }
-}
-
-void HpCharaInst::applyAttath(HpLayer* layer, const CCAffineTransform& m, const ccColor4F& color)
-{
-    CCObject* arrayItem = NULL;
-    CCARRAY_FOREACH(m_attach_list, arrayItem){
-        HpAttachPoint* ap = static_cast<HpAttachPoint*>(arrayItem);
-        if (ap->getLayerInst() == layer) {
-            ap->apply(m, color);
-        }
-    }
-    
-}
 
 
 NS_HPAM_END

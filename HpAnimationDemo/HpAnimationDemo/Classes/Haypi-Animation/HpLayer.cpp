@@ -202,22 +202,18 @@ HpKeyframe* HpLayer::getKeyframeAt(int index){
  */
 HpContentKeyframe* HpLayer::getContentKeyframeAt(int index){
     HPLOG("apple...m_pCkey_array->count() %d   index %d", m_pCkey_array->count(), index);
-
-    if (m_pCkey_array->count() > 0) {
-        int i = m_pCkey_array->count() - 1;
-        CCObject* _ck = m_pCkey_array->objectAtIndex(i);
-        
-        HpContentKeyframe* ck = dynamic_cast<HpContentKeyframe*>(_ck);
-        while(index < ck->getTime()){
-            if(i == 0){
-                return NULL;
-            }
-            
-            ck = dynamic_cast<HpContentKeyframe*>(m_pCkey_array->objectAtIndex(-- i));
+    
+    HpContentKeyframe* ck = NULL;
+    for (int i=0; i<m_pCkey_array->count(); i++) {
+        HpContentKeyframe* tmpk = dynamic_cast<HpContentKeyframe*>(m_pCkey_array->objectAtIndex(i));
+        if (tmpk->getTime() > index) {
+            break;
         }
-        return ck;
+        
+        ck = tmpk;
     }
-    return NULL;
+
+    return ck;
 
 }
 
