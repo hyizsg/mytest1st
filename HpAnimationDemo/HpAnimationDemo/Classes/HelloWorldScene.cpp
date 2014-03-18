@@ -48,11 +48,18 @@ bool HelloWorld::init()
     
 //    inst->runAction(HpPlay::create("动画   0", "动画   0", "动画   0", NULL));
 //    inst->playAniByName("动画   0", 0.f);
-//    inst->runAction(CCRepeatForever::create(CCSequence::create(HpShineTo::create(0.2, 255, 0, 0), HpShineTo::create(0.2, 0, 0, 0), NULL)));
+    inst->runAction(CCRepeatForever::create(CCSequence::create(HpShineTo::create(0.2, 255, 0, 0), HpShineTo::create(0.2, 0, 0, 0), NULL)));
+//
+//    inst->setContentSize(CCSizeMake(200, 200));
+////    inst->setAnchorPoint(ccp(0.5, 0.5));
+//    inst->setClippingToBounds(true);
+//    inst->setGray(255);
     
-    inst->setContentSize(CCSizeMake(200, 200));
-//    inst->setAnchorPoint(ccp(0.5, 0.5));
-    inst->setClippingToBounds(true);
+    inst->setPosition(200, 200);
+    inst->setScale(2);
+    
+    inst->runAction(CCRepeatForever::create(CCSequence::create(CCDelayTime::create(0.5), HpGrayIn::create(1), CCDelayTime::create(0.5), HpGrayOut::create(1), NULL)));
+    inst->runAction(CCRepeatForever::create(CCSequence::create(HpShineTo::create(0.2, 255, 0, 0), HpShineTo::create(0.2, 0, 0, 0), NULL)));
     
     return true;
 }

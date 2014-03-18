@@ -7,7 +7,7 @@
 //
 
 #include "HpTextureAtlas.h"
-#include "HpTextureAtlasShader.h"
+#include "HpShaderCache.h"
 
 NS_HPAM_BEGIN
 
@@ -16,7 +16,6 @@ HpTextureAtlas::HpTextureAtlas()
 ,m_bDirty(false)
 ,m_pTexture(NULL)
 ,m_pQuads(NULL)
-,m_shaderProgram(NULL)
 {}
 
 HpTextureAtlas::~HpTextureAtlas()
@@ -25,7 +24,6 @@ HpTextureAtlas::~HpTextureAtlas()
     
     CC_SAFE_FREE(m_pQuads);
     CC_SAFE_FREE(m_pIndices);
-	CC_SAFE_RELEASE_NULL(m_shaderProgram);
     
     glDeleteBuffers(2, m_pBuffersVBO);
     
@@ -164,8 +162,6 @@ void HpTextureAtlas::setTexture(CCTexture2D * var)
     CC_SAFE_RETAIN(var);
     CC_SAFE_RELEASE(m_pTexture);
     m_pTexture = var;
-    
-    setShaderProgram(HpTextureAtlasShader::shaderByTexture(var));
 }
 
 void HpTextureAtlas::listenBackToForeground(CCObject *obj)
@@ -242,7 +238,12 @@ void HpTextureAtlas::setupVBOandVAO()
     
     // extra
     glEnableVertexAttribArray(kCCVertexAttrib_Light);
-    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, extra));
+    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, lights));
+    
+    // extra
+    glEnableVertexAttribArray(kCCVertexAttrib_Gray);
+    glVertexAttribPointer(kCCVertexAttrib_Gray, 1, GL_FLOAT, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, grays));
+    
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_pIndices[0]) * m_uCapacity * 6, m_pIndices, GL_STATIC_DRAW);
@@ -569,9 +570,6 @@ void HpTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
         return;
     }
     
-    m_shaderProgram->use();
-    m_shaderProgram->setUniformsForBuiltins();
-    
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_PosColorTex);
     
     
@@ -653,8 +651,11 @@ void HpTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     // tex coords
     glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_C4B, texCoords));
     
-    // extra
-    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, extra));
+    // lights
+    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, lights));
+    
+    // gray
+    glVertexAttribPointer(kCCVertexAttrib_Gray, 1, GL_FLOAT, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B, grays));
     
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);

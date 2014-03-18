@@ -18,6 +18,7 @@ NS_HPAM_BEGIN
 
 enum {
     kCCVertexAttrib_Light = kCCVertexAttrib_MAX,
+    kCCVertexAttrib_Gray,
 };
 
 enum {
@@ -40,6 +41,7 @@ enum {
 
 // Attribute names
 #define kCCAttributeNameLight                       "a_light"
+#define kCCAttributeNameGray                        "a_gray"
 
 
 

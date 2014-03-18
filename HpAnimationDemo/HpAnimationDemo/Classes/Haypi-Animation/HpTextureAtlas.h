@@ -31,9 +31,12 @@ typedef struct _ccV3F_C4B_T2F_C4B
     // tex coords (2F)
     ccTex2F          texCoords;            // 8 bytes
     
-    //! colors (4B)
-    ccColor4B        extra;                // 4 bytes
+    //! lights (4B)
+    ccColor4B        lights;                // 4 bytes
     //    char __padding2__[4];
+    
+    //! grays (float)
+    GLfloat          grays;                 // 4 bytes
     
 } ccV3F_C4B_T2F_C4B;
 
@@ -70,8 +73,6 @@ protected:
     CC_PROPERTY(CCTexture2D *, m_pTexture, Texture)
     /** Quads that are going to be rendered */
     CC_PROPERTY(ccV3F_C4B_T2F_C4B_Quad *, m_pQuads, Quads)
-	
-	CC_SYNTHESIZE_RETAIN(HpGLProgram*, m_shaderProgram, ShaderProgram);
     
 public:
     

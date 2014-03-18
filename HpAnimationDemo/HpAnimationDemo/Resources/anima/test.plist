@@ -4,18 +4,18 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>sx_light.png</key>
+            <key>3015_b.jpg</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{334,334}}</string>
+                <string>{{2,2},{120,166}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{334,334}}</string>
+                <string>{{0,0},{120,166}}</string>
                 <key>sourceSize</key>
-                <string>{334,334}</string>
+                <string>{120,166}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -25,9 +25,9 @@
             <key>realTextureFileName</key>
             <string>test.png</string>
             <key>size</key>
-            <string>{512,512}</string>
+            <string>{128,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8c0097399298704e3f7ecbf90a623e8b$</string>
+            <string>$TexturePacker:SmartUpdate:4a513c40f2b1847330d74bf07573feda$</string>
             <key>textureFileName</key>
             <string>test.png</string>
         </dict>

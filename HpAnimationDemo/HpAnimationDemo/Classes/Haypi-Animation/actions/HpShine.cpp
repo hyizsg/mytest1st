@@ -156,4 +156,172 @@ CCActionInterval* HpShineBy::reverse(void)
 }
 
 
+//
+// GrayIn
+//
+
+HpGrayIn* HpGrayIn::create(float d)
+{
+    HpGrayIn* pAction = new HpGrayIn();
+    
+    pAction->initWithDuration(d);
+    pAction->autorelease();
+    
+    return pAction;
+}
+
+CCObject* HpGrayIn::copyWithZone(CCZone *pZone)
+{
+    CCZone* pNewZone = NULL;
+    HpGrayIn* pCopy = NULL;
+    if(pZone && pZone->m_pCopyObject)
+    {
+        //in case of being called at sub class
+        pCopy = (HpGrayIn*)(pZone->m_pCopyObject);
+    }
+    else
+    {
+        pCopy = new HpGrayIn();
+        pZone = pNewZone = new CCZone(pCopy);
+    }
+    
+    CCActionInterval::copyWithZone(pZone);
+    
+    CC_SAFE_DELETE(pNewZone);
+    
+    return pCopy;
+}
+
+void HpGrayIn::update(float time)
+{
+    HpLightProtocol *pLightProtocol = dynamic_cast<HpLightProtocol*>(m_pTarget);
+    if (pLightProtocol)
+    {
+        pLightProtocol->setGray((GLubyte)(255 * time));
+    }
+}
+
+CCActionInterval* HpGrayIn::reverse(void)
+{
+    return HpGrayOut::create(m_fDuration);
+}
+
+//
+// GrayOut
+//
+
+HpGrayOut* HpGrayOut::create(float d)
+{
+    HpGrayOut* pAction = new HpGrayOut();
+    
+    pAction->initWithDuration(d);
+    pAction->autorelease();
+    
+    return pAction;
+}
+
+CCObject* HpGrayOut::copyWithZone(CCZone *pZone)
+{
+    CCZone* pNewZone = NULL;
+    HpGrayOut* pCopy = NULL;
+    if(pZone && pZone->m_pCopyObject)
+    {
+        //in case of being called at sub class
+        pCopy = (HpGrayOut*)(pZone->m_pCopyObject);
+    }
+    else
+    {
+        pCopy = new HpGrayOut();
+        pZone = pNewZone = new CCZone(pCopy);
+    }
+    
+    CCActionInterval::copyWithZone(pZone);
+    
+    CC_SAFE_DELETE(pNewZone);
+    
+    return pCopy;
+}
+
+void HpGrayOut::update(float time)
+{
+    HpLightProtocol *pLightProtocol = dynamic_cast<HpLightProtocol*>(m_pTarget);
+    if (pLightProtocol)
+    {
+        pLightProtocol->setGray(GLubyte(255 * (1 - time)));
+    }
+}
+
+CCActionInterval* HpGrayOut::reverse(void)
+{
+    return HpGrayIn::create(m_fDuration);
+}
+
+//
+// GrayTo
+//
+
+HpGrayTo* HpGrayTo::create(float duration, GLubyte gray)
+{
+    HpGrayTo *pGrayTo = new HpGrayTo();
+    pGrayTo->initWithDuration(duration, gray);
+    pGrayTo->autorelease();
+    
+    return pGrayTo;
+}
+
+bool HpGrayTo::initWithDuration(float duration, GLubyte gray)
+{
+    if (CCActionInterval::initWithDuration(duration))
+    {
+        m_toGray = gray;
+        return true;
+    }
+    
+    return false;
+}
+
+CCObject* HpGrayTo::copyWithZone(CCZone *pZone)
+{
+    CCZone* pNewZone = NULL;
+    HpGrayTo* pCopy = NULL;
+    if(pZone && pZone->m_pCopyObject)
+    {
+        //in case of being called at sub class
+        pCopy = (HpGrayTo*)(pZone->m_pCopyObject);
+    }
+    else
+    {
+        pCopy = new HpGrayTo();
+        pZone = pNewZone = new CCZone(pCopy);
+    }
+    
+    CCActionInterval::copyWithZone(pZone);
+    
+    pCopy->initWithDuration(m_fDuration, m_toGray);
+    
+    CC_SAFE_DELETE(pNewZone);
+    return pCopy;
+}
+
+void HpGrayTo::startWithTarget(CCNode *pTarget)
+{
+    CCActionInterval::startWithTarget(pTarget);
+    
+    HpLightProtocol *pLightProtocol = dynamic_cast<HpLightProtocol*>(pTarget);
+    if (pLightProtocol)
+    {
+        m_fromGray = pLightProtocol->getGray();
+    }
+}
+
+void HpGrayTo::update(float time)
+{
+    HpLightProtocol *pLightProtocol = dynamic_cast<HpLightProtocol*>(m_pTarget);
+    if (pLightProtocol)
+    {
+        pLightProtocol->setGray((GLubyte)(m_fromGray + (m_toGray - m_fromGray) * time));
+    }
+}
+
+
 NS_HPAM_END

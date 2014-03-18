@@ -9,7 +9,7 @@
 #include "HpCharactorManager.h"
 #include "cocos-ext.h"
 #include "HpCharaInstLoader.h"
-#include "HpTextureAtlasShader.h"
+#include "HpShaderCache.h"
 
 USING_NS_CC_EXT;
 
@@ -258,13 +258,13 @@ void HpCharactorManager::removePlist(const char* p_plist_file)
 bool HpCharactorManager::loadDefaultConfig()
 {
     CCNodeLoaderLibrary::sharedCCNodeLoaderLibrary()->registerCCNodeLoader("HpCharaInst", HpCharaInstLoader::loader());
-    HpTextureAtlasShader::loadDefaultShaders();
+    HpShaderCache::loadDefaultShaders();
     return true;
 }
 
 bool HpCharactorManager::reloadDefaultConfig()
 {
-    HpTextureAtlasShader::reloadDefaultShaders();
+    HpShaderCache::reloadDefaultShaders();
     return true;
 }
 

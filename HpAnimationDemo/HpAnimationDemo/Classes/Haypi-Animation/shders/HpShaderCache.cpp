@@ -1,5 +1,5 @@
 //
-//  HpTextureAtlasShader.cpp
+//  HpShaderCache.cpp
 //  HpAnimationDemo
 //
 //  Created by 周 刚 on 14-3-1.
@@ -9,7 +9,8 @@
 #include "Hpheaders.h"
 #include "HpGLProgram.h"
 #include "hpShaders.h"
-#include "HpTextureAtlasShader.h"
+#include "HpShaderCache.h"
+#include "HpView.h"
 
 NS_HPAM_BEGIN
 
@@ -21,12 +22,12 @@ enum {
     kCCShaderType_PositionTextureColorLightAlpha_NoPremultipliedAlpha,
 };
 
-HpGLProgram* HpTextureAtlasShader::defaultShader()
+HpGLProgram* HpShaderCache::defaultShader()
 {
     return programForKey(kCCShader_PositionTextureColorLight_HasPremultipliedAlpha);
 }
 
-HpGLProgram* HpTextureAtlasShader::programForKey(const char* key)
+HpGLProgram* HpShaderCache::programForKey(const char* key)
 {
     HpGLProgram* p = (HpGLProgram*)CCShaderCache::sharedShaderCache()->programForKey(key);
     if (p == NULL) {
@@ -37,8 +38,7 @@ HpGLProgram* HpTextureAtlasShader::programForKey(const char* key)
     return p;
 }
 
-
-HpGLProgram* HpTextureAtlasShader::shaderByTexture(CCTexture2D* tex)
+HpGLProgram* HpShaderCache::shaderByView(HpView* view, CCTexture2D* tex)
 {
 #ifndef CC_PLATFORM_IOS
     if (!tex || tex->hasPremultipliedAlpha()) {
@@ -73,7 +73,7 @@ HpGLProgram* HpTextureAtlasShader::shaderByTexture(CCTexture2D* tex)
     
 }
 
-void HpTextureAtlasShader::loadDefaultShaders()
+void HpShaderCache::loadDefaultShaders()
 {
     // 1st
     HpGLProgram* p = new HpGLProgram;
@@ -105,7 +105,7 @@ void HpTextureAtlasShader::loadDefaultShaders()
 }
 
 
-void HpTextureAtlasShader::reloadDefaultShaders()
+void HpShaderCache::reloadDefaultShaders()
 {
     HpGLProgram* p = programForKey(kCCShader_PositionTextureColorLight_HasPremultipliedAlpha);
     p->reset();
@@ -124,7 +124,7 @@ void HpTextureAtlasShader::reloadDefaultShaders()
     loadDefaultShader(p, kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
 }
 
-void HpTextureAtlasShader::loadDefaultShader(HpGLProgram *p, int type)
+void HpShaderCache::loadDefaultShader(HpGLProgram *p, int type)
 {
     switch (type) {
         case kCCShaderType_PositionTextureColorLight_HasPremultipliedAlpha:
@@ -134,6 +134,7 @@ void HpTextureAtlasShader::loadDefaultShader(HpGLProgram *p, int type)
             p->addAttribute(kCCAttributeNameColor, kCCVertexAttrib_Color);
             p->addAttribute(kCCAttributeNameTexCoord, kCCVertexAttrib_TexCoords);
             p->addAttribute(kCCAttributeNameLight, kCCVertexAttrib_Light);
+            p->addAttribute(kCCAttributeNameGray, kCCVertexAttrib_Gray);
             
             break;
         case kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha:
@@ -143,6 +144,7 @@ void HpTextureAtlasShader::loadDefaultShader(HpGLProgram *p, int type)
             p->addAttribute(kCCAttributeNameColor, kCCVertexAttrib_Color);
             p->addAttribute(kCCAttributeNameTexCoord, kCCVertexAttrib_TexCoords);
             p->addAttribute(kCCAttributeNameLight, kCCVertexAttrib_Light);
+            p->addAttribute(kCCAttributeNameGray, kCCVertexAttrib_Gray);
             
             break;
             
@@ -153,6 +155,7 @@ void HpTextureAtlasShader::loadDefaultShader(HpGLProgram *p, int type)
             p->addAttribute(kCCAttributeNameColor, kCCVertexAttrib_Color);
             p->addAttribute(kCCAttributeNameTexCoord, kCCVertexAttrib_TexCoords);
             p->addAttribute(kCCAttributeNameLight, kCCVertexAttrib_Light);
+            p->addAttribute(kCCAttributeNameGray, kCCVertexAttrib_Gray);
             
             break;
         case kCCShaderType_PositionTextureColorLightAlpha_NoPremultipliedAlpha:
@@ -162,6 +165,7 @@ void HpTextureAtlasShader::loadDefaultShader(HpGLProgram *p, int type)
             p->addAttribute(kCCAttributeNameColor, kCCVertexAttrib_Color);
             p->addAttribute(kCCAttributeNameTexCoord, kCCVertexAttrib_TexCoords);
             p->addAttribute(kCCAttributeNameLight, kCCVertexAttrib_Light);
+            p->addAttribute(kCCAttributeNameGray, kCCVertexAttrib_Gray);
             
             break;
         

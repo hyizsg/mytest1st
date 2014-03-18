@@ -8,6 +8,7 @@ HpAnimRenderVisitor::HpAnimRenderVisitor(){
     m_tf_stack = new HpAffineTransformStack(100);
     m_color_stack = new HpColorStack(100);
     m_light_stack = new HpColorStack(100);
+    m_gray_stack = new HpStack(100);
     m_status_stack = new HpStack(100);
     
     m_cur_atlas = NULL;
@@ -58,6 +59,8 @@ void HpAnimRenderVisitor::begin(CCObject *p_map){
     light.a = 0;
     m_light_stack->push(&light);
     
+    m_gray_stack->push(CCFloat::create(m_chr_instance->getDisplayedGray()/255.f));
+    
     m_status_stack->push(m_chr_instance->getStatus());
     m_object_stack->push(m_chr_instance);
 }
@@ -67,6 +70,7 @@ void HpAnimRenderVisitor::end(){
     m_tf_stack->pop();
     m_color_stack->pop();
     m_light_stack->pop();
+    m_gray_stack->pop();
     m_object_stack->pop();
 
     for(int i = m_chr_instance->getAtlases()->count() - 1; i > m_cur_atlas_id; -- i){
@@ -225,7 +229,9 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
 
     // Atlas: color
     ccColor4F color = cccMult(p_frm->getColorAt(time), *m_color_stack->peek());
-    ccColor4F extra = cccAdd(p_frm->getLightAt(time), *m_light_stack->peek());
+    ccColor4F light = cccAdd(p_frm->getLightAt(time), *m_light_stack->peek());
+    float gray = ((CCFloat*)m_gray_stack->peek())->getValue();
+
     this->setLayerColor(color);
     
     if(m_cur_atlas->getTexture()) {
@@ -235,7 +241,7 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
             color = cccScale(color, a);
         }
         
-        extra.a = 0;
+        light.a = 0;
     }
     
 //    CCLOG("hasPremultipliedAlpha: %d, extra: {%.3f, %.3f, %.3f, %.3f}", m_cur_atlas->getTexture()->hasPremultipliedAlpha(), extra.r, extra.g, extra.b, extra.a);
@@ -246,12 +252,16 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
     m_quad.tl.colors = ccc;
     m_quad.tr.colors = ccc;
     
-    ccColor4B cce = ccc4(extra.r * 255, extra.g * 255, extra.b * 255, extra.a * 255);
-    m_quad.bl.extra = cce;
-    m_quad.br.extra = cce;
-    m_quad.tl.extra = cce;
-    m_quad.tr.extra = cce;
+    ccColor4B cce = ccc4(light.r * 255, light.g * 255, light.b * 255, light.a * 255);
+    m_quad.bl.lights = cce;
+    m_quad.br.lights = cce;
+    m_quad.tl.lights = cce;
+    m_quad.tr.lights = cce;
     
+    m_quad.bl.grays = gray;
+    m_quad.br.grays = gray;
+    m_quad.tl.grays = gray;
+    m_quad.tr.grays = gray;
     
     // Atlas : UV
     float atlasWidth = (float)m_cur_atlas->getTexture()->getPixelsWide();

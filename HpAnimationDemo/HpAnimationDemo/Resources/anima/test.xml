@@ -5,118 +5,17 @@
     <plist file="test.plist" />
   </plists>
   <Animations>
-    <Animation name="动画   0" length="50">
-      <Nodes>
-        <Node name="节点   4">
-          <Keys>
-            <Key type="AnimaKey">
-              <Anima>动画   2</Anima>
-              <Time>0</Time>
-              <TimeInher>false</TimeInher>
-              <Center>0.00,0.00</Center>
-              <Scale>1.00,1.00</Scale>
-              <Skew>0.00,0.00</Skew>
-              <Rot>0</Rot>
-              <Trans>0.00,0.00</Trans>
-              <Color>#FFFFFFFF</Color>
-              <Light>#00000000</Light>
-            </Key>
-            <Key type="AnimaKey">
-              <Anima>动画   2 副本</Anima>
-              <Time>24</Time>
-              <TimeInher>false</TimeInher>
-              <Center>0.00,0.00</Center>
-              <Scale>1.00,1.00</Scale>
-              <Skew>0.00,0.00</Skew>
-              <Rot>0</Rot>
-              <Trans>0.00,0.00</Trans>
-              <Color>#FFFFFFFF</Color>
-              <Light>#00FF0000</Light>
-            </Key>
-            <Key type="AnimaKey">
-              <Anima>动画   2 副本</Anima>
-              <Time>49</Time>
-              <TimeInher>false</TimeInher>
-              <Center>0.00,0.00</Center>
-              <Scale>1.00,1.00</Scale>
-              <Skew>0.00,0.00</Skew>
-              <Rot>0</Rot>
-              <Trans>0.00,0.00</Trans>
-              <Color>#FFFFFFFF</Color>
-              <Light>#00FF0000</Light>
-            </Key>
-          </Keys>
-        </Node>
-      </Nodes>
-    </Animation>
-    <Animation name="动画   2" length="60">
+    <Animation name="动画   0" length="1">
       <Nodes>
         <Node name="节点   0">
           <Keys>
             <Key type="ImageKey">
-              <Image>sx_light.png</Image>
+              <Image>3015_b.jpg</Image>
               <Time>0</Time>
-              <Center>167.00,167.00</Center>
-              <Scale>0.50,0.50</Scale>
-              <Skew>0.00,0.00</Skew>
-              <Rot>0</Rot>
-              <Trans>0.00,0.00</Trans>
-              <Color>#FFFFFFFF</Color>
-              <Light>#00000000</Light>
-              <Interps>
-                <Interp target="Center" type="linear" />
-                <Interp target="Scale" type="linear" />
-                <Interp target="Skew" type="linear" />
-                <Interp target="Rot" type="linear" />
-                <Interp target="Trans" type="linear" />
-                <Interp target="Color" type="linear" />
-              </Interps>
-            </Key>
-            <Key type="ImageKey">
-              <Image>sx_light.png</Image>
-              <Time>59</Time>
-              <Center>167.00,167.00</Center>
+              <Center>0.00,0.00</Center>
               <Scale>1.00,1.00</Scale>
               <Skew>0.00,0.00</Skew>
-              <Rot>-359</Rot>
-              <Trans>0.00,0.00</Trans>
-              <Color>#FFFFFFFF</Color>
-              <Light>#00000000</Light>
-            </Key>
-          </Keys>
-        </Node>
-      </Nodes>
-    </Animation>
-    <Animation name="动画   2 副本" length="60">
-      <Nodes>
-        <Node name="节点   0">
-          <Keys>
-            <Key type="ImageKey">
-              <Image>sx_light.png</Image>
-              <Time>0</Time>
-              <Center>167.00,167.00</Center>
-              <Scale>0.50,0.50</Scale>
-              <Skew>0.00,0.00</Skew>
               <Rot>0</Rot>
-              <Trans>0.00,0.00</Trans>
-              <Color>#FFFFFFFF</Color>
-              <Light>#00000000</Light>
-              <Interps>
-                <Interp target="Center" type="linear" />
-                <Interp target="Scale" type="linear" />
-                <Interp target="Skew" type="linear" />
-                <Interp target="Rot" type="linear" />
-                <Interp target="Trans" type="linear" />
-                <Interp target="Color" type="linear" />
-              </Interps>
-            </Key>
-            <Key type="ImageKey">
-              <Image>sx_light.png</Image>
-              <Time>59</Time>
-              <Center>167.00,167.00</Center>
-              <Scale>1.00,1.00</Scale>
-              <Skew>0.00,0.00</Skew>
-              <Rot>-359</Rot>
               <Trans>0.00,0.00</Trans>
               <Color>#FFFFFFFF</Color>
               <Light>#00000000</Light>

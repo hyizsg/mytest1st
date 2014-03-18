@@ -1,5 +1,5 @@
 //
-//  HpTextureAtlasShader.h
+//  HpShaderCache.h
 //  HpAnimationDemo
 //
 //  Created by 周 刚 on 14-3-1.
@@ -17,12 +17,13 @@ USING_NS_CC;
 NS_HPAM_BEGIN
 
 class HpGLProgram;
+class HpView;
 
-class HpTextureAtlasShader : CCObject
+class HpShaderCache : CCObject
 {
     
 public:
-    static HpGLProgram* shaderByTexture(CCTexture2D* tex);
+    static HpGLProgram* shaderByView(HpView* view, CCTexture2D* tex);
     
     static HpGLProgram* defaultShader();
     static HpGLProgram* programForKey(const char* key);

@@ -59,6 +59,58 @@ protected:
     GLshort m_fromB;
 };
 
+/** @brief Grays In an object that implements the HpLightProtocol protocol. It modifies the Gray from 0 to 255.
+ The "reverse" of this action is GrayOut
+ */
+class CC_DLL HpGrayIn : public CCActionInterval
+{
+public:
+    virtual void update(float time);
+    virtual CCActionInterval* reverse(void);
+    virtual CCObject* copyWithZone(CCZone* pZone);
+    
+public:
+    /** creates the action */
+    static HpGrayIn* create(float d);
+};
+
+/** @brief Grays Out an object that implements the HpLightProtocol protocol. It modifies the Gray from 255 to 0.
+ The "reverse" of this action is GrayIn
+ */
+class CC_DLL HpGrayOut : public CCActionInterval
+{
+public:
+    virtual void update(float time);
+    virtual CCActionInterval* reverse(void);
+    virtual CCObject* copyWithZone(CCZone* pZone);
+    
+public:
+    
+    /** creates the action */
+    static HpGrayOut* create(float d);
+};
+
+/** @brief Grays an object that implements the HpLightProtocol protocol. It modifies the Gray from the current value to a custom one.
+ @warning This action doesn't support "reverse"
+ */
+class CC_DLL HpGrayTo : public CCActionInterval
+{
+public:
+    /** initializes the action with duration and Gray */
+    bool initWithDuration(float duration, GLubyte gray);
+    
+    virtual CCObject* copyWithZone(CCZone* pZone);
+    virtual void startWithTarget(CCNode *pTarget);
+    virtual void update(float time);
+    
+public:
+    /** creates an action with duration and Gray */
+    static HpGrayTo* create(float duration, GLubyte gray);
+protected:
+    GLubyte m_toGray;
+    GLubyte m_fromGray;
+};
+
 
 NS_HPAM_END
 
