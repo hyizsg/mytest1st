@@ -99,14 +99,14 @@ public:
     virtual ~HpLightObject();
     
     // Light
-    virtual void setLight(const ccColor3B& Light);
+    virtual void setLight(const ccColor3B& light);
     virtual const ccColor3B& getLight(void);
     virtual const ccColor3B& getDisplayedLight(void);
     
     virtual bool isCascadeLightEnabled(void);
     virtual void setCascadeLightEnabled(bool cascadeLightEnabled);
     
-    virtual void updateDisplayedLight(const ccColor3B& Light);
+    virtual void updateDisplayedLight(const ccColor3B& parentLight);
     
     // Gray
     virtual GLubyte getDisplayedGray(void);
@@ -116,7 +116,7 @@ public:
     virtual bool isCascadeGrayEnabled(void);
     virtual void setCascadeGrayEnabled(bool cascadeGrayEnabled);
     
-    virtual void updateDisplayedGray(GLubyte gray);
+    virtual void updateDisplayedGray(GLubyte parentGray);
 
 
 protected:

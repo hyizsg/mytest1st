@@ -44,11 +44,11 @@ bool HelloWorld::init()
     HpCharaInst* inst = HpCharaInst::create();
     addChild(inst);
     
-    inst->playAniByName("动画   0", true);
+    inst->playAniByName("动画   0", false);
     
 //    inst->runAction(HpPlay::create("动画   0", "动画   0", "动画   0", NULL));
 //    inst->playAniByName("动画   0", 0.f);
-    inst->runAction(CCRepeatForever::create(CCSequence::create(HpShineTo::create(0.2, 255, 0, 0), HpShineTo::create(0.2, 0, 0, 0), NULL)));
+//    inst->runAction(CCRepeatForever::create(CCSequence::create(HpShineTo::create(0.2, 255, 0, 0), HpShineTo::create(0.2, 0, 0, 0), NULL)));
 //
 //    inst->setContentSize(CCSizeMake(200, 200));
 ////    inst->setAnchorPoint(ccp(0.5, 0.5));

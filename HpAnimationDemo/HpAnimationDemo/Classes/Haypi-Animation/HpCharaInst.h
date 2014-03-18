@@ -62,7 +62,8 @@ public:
     
 public:
     float getDuration();
-    virtual void setLight(const ccColor3B& Light);
+    virtual void setLight(const ccColor3B& light);
+    virtual void setGray(GLubyte gray);
     
 public:
     void replaceContent(CCString* p_content, CCString* p_layer, CCString* p_ani, CCString* p_image);

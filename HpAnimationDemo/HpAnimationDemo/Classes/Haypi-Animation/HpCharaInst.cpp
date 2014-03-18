@@ -291,6 +291,12 @@ void HpCharaInst::setLight(const ccColor3B& light)
     m_dirty = true;
 }
 
+void HpCharaInst::setGray(GLubyte gray)
+{
+    HpLightObject::setGray(gray);
+    m_dirty = true;
+}
+
 void HpCharaInst::setAni(HpAnimation* p_ani, float frm)
 {
     CCAssert(p_ani != NULL, "Null animation)");
