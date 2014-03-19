@@ -27,12 +27,12 @@ enum {
 
 
 
-#define kCCShader_PositionTextureColorLight_HasPremultipliedAlpha           "UserShader_PositionTextureColorLight_HasPremultipliedAlpha"
-#define kCCShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha      "UserShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLightGray_HasPremultipliedAlpha           "UserShader_PositionTextureColorLightGray_HasPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha      "UserShader_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha"
 
 
-#define kCCShader_PositionTextureColorLight_NoPremultipliedAlpha            "UserShader_PositionTextureColorLight_NoPremultipliedAlpha"
-#define kCCShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha       "UserShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLightGray_NoPremultipliedAlpha            "UserShader_PositionTextureColorLightGray_NoPremultipliedAlpha"
+#define kCCShader_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha       "UserShader_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha"
 
 // uniform names
 #define kCCUniformSampler_Alpha                     "CC_TexAlpha"

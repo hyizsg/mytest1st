@@ -15,16 +15,16 @@
 NS_HPAM_BEGIN
 
 enum {
-    kCCShaderType_PositionTextureColorLight_HasPremultipliedAlpha =  10,
-    kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha,
+    kCCShaderType_PositionTextureColorLightGray_HasPremultipliedAlpha =  10,
+    kCCShaderType_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha,
     
-    kCCShaderType_PositionTextureColorLight_NoPremultipliedAlpha,
-    kCCShaderType_PositionTextureColorLightAlpha_NoPremultipliedAlpha,
+    kCCShaderType_PositionTextureColorLightGray_NoPremultipliedAlpha,
+    kCCShaderType_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha,
 };
 
 HpGLProgram* HpShaderCache::defaultShader()
 {
-    return programForKey(kCCShader_PositionTextureColorLight_HasPremultipliedAlpha);
+    return programForKey(kCCShader_PositionTextureColorLightGray_HasPremultipliedAlpha);
 }
 
 HpGLProgram* HpShaderCache::programForKey(const char* key)
@@ -62,10 +62,10 @@ HpGLProgram* HpShaderCache::shaderByView(HpView* view, CCTexture2D* tex)
     
     int type = (tex->hasPremultipliedAlpha() << 1) | (getAlphaTexture(tex) != NULL);
     switch (type) {
-        case 0b00: return programForKey(kCCShader_PositionTextureColorLight_NoPremultipliedAlpha);
-        case 0b10: return programForKey(kCCShader_PositionTextureColorLight_HasPremultipliedAlpha);
-        case 0b01: return programForKey(kCCShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha);
-        case 0b11: return programForKey(kCCShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
+        case 0b00: return programForKey(kCCShader_PositionTextureColorLightGray_NoPremultipliedAlpha);
+        case 0b10: return programForKey(kCCShader_PositionTextureColorLightGray_HasPremultipliedAlpha);
+        case 0b01: return programForKey(kCCShader_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha);
+        case 0b11: return programForKey(kCCShader_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha);
         default: return defaultShader();
     }
     
@@ -77,57 +77,57 @@ void HpShaderCache::loadDefaultShaders()
 {
     // 1st
     HpGLProgram* p = new HpGLProgram;
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLight_HasPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGray_HasPremultipliedAlpha);
     
-    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLight_HasPremultipliedAlpha);
+    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLightGray_HasPremultipliedAlpha);
     p->release();
     
     // 2nd
     p = new HpGLProgram;
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha);
     
-    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
+    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha);
     p->release();
     
     // 3rd
     p = new HpGLProgram;
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLight_NoPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGray_NoPremultipliedAlpha);
     
-    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLight_NoPremultipliedAlpha);
+    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLightGray_NoPremultipliedAlpha);
     p->release();
     
     // 4th
     p = new HpGLProgram;
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightAlpha_NoPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha);
     
-    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha);
+    CCShaderCache::sharedShaderCache()->addProgram(p, kCCShader_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha);
     p->release();
 }
 
 
 void HpShaderCache::reloadDefaultShaders()
 {
-    HpGLProgram* p = programForKey(kCCShader_PositionTextureColorLight_HasPremultipliedAlpha);
+    HpGLProgram* p = programForKey(kCCShader_PositionTextureColorLightGray_HasPremultipliedAlpha);
     p->reset();
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLight_HasPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGray_HasPremultipliedAlpha);
     
-    p = programForKey(kCCShader_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
+    p = programForKey(kCCShader_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha);
     p->reset();
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha);
     
-    p = programForKey(kCCShader_PositionTextureColorLight_NoPremultipliedAlpha);
+    p = programForKey(kCCShader_PositionTextureColorLightGray_NoPremultipliedAlpha);
     p->reset();
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLight_HasPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGray_HasPremultipliedAlpha);
     
-    p = programForKey(kCCShader_PositionTextureColorLightAlpha_NoPremultipliedAlpha);
+    p = programForKey(kCCShader_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha);
     p->reset();
-    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha);
+    loadDefaultShader(p, kCCShaderType_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha);
 }
 
 void HpShaderCache::loadDefaultShader(HpGLProgram *p, int type)
 {
     switch (type) {
-        case kCCShaderType_PositionTextureColorLight_HasPremultipliedAlpha:
+        case kCCShaderType_PositionTextureColorLightGray_HasPremultipliedAlpha:
             p->initWithVertexShaderByteArray(ccPositionTextureColorLight_vert, ccPositionTextureColorLight_HasPremultipliedAlpha_frag);
             
             p->addAttribute(kCCAttributeNamePosition, kCCVertexAttrib_Position);
@@ -137,7 +137,7 @@ void HpShaderCache::loadDefaultShader(HpGLProgram *p, int type)
             p->addAttribute(kCCAttributeNameGray, kCCVertexAttrib_Gray);
             
             break;
-        case kCCShaderType_PositionTextureColorLightAlpha_HasPremultipliedAlpha:
+        case kCCShaderType_PositionTextureColorLightGrayAlpha_HasPremultipliedAlpha:
             p->initWithVertexShaderByteArray(ccPositionTextureColorLight_vert, ccPositionTextureColorLightAlpha_HasPremultipliedAlpha_frag);
             
             p->addAttribute(kCCAttributeNamePosition, kCCVertexAttrib_Position);
@@ -148,7 +148,7 @@ void HpShaderCache::loadDefaultShader(HpGLProgram *p, int type)
             
             break;
             
-        case kCCShaderType_PositionTextureColorLight_NoPremultipliedAlpha:
+        case kCCShaderType_PositionTextureColorLightGray_NoPremultipliedAlpha:
             p->initWithVertexShaderByteArray(ccPositionTextureColorLight_vert, ccPositionTextureColorLight_NoPremultipliedAlpha_frag);
             
             p->addAttribute(kCCAttributeNamePosition, kCCVertexAttrib_Position);
@@ -158,7 +158,7 @@ void HpShaderCache::loadDefaultShader(HpGLProgram *p, int type)
             p->addAttribute(kCCAttributeNameGray, kCCVertexAttrib_Gray);
             
             break;
-        case kCCShaderType_PositionTextureColorLightAlpha_NoPremultipliedAlpha:
+        case kCCShaderType_PositionTextureColorLightGrayAlpha_NoPremultipliedAlpha:
             p->initWithVertexShaderByteArray(ccPositionTextureColorLight_vert, ccPositionTextureColorLightAlpha_NoPremultipliedAlpha_frag);
             
             p->addAttribute(kCCAttributeNamePosition, kCCVertexAttrib_Position);
