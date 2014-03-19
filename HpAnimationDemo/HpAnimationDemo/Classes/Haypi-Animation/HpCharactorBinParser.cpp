@@ -177,6 +177,12 @@ void HpCharactorBinParser::readCommon(HpBinaryReader *reader, char *buffer)
         m_cur_keyfrm->setLight(ccClear4F);
     }
     
+    if (ChrReadingVersion >= 0x06) {
+        m_cur_keyfrm->setGray(reader->ReadByte());
+    }else{
+        m_cur_keyfrm->setGray(0);
+    }
+    
     reader->ReadString(buffer);
     CCString* event = buffer[0] ? new CCString(buffer) : NULL;
     m_cur_keyfrm->setEvent(event);

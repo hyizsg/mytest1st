@@ -67,6 +67,11 @@ ccColor4F HpInterpHolder::getLightAt(float time, HpKeyframe* p_self){
     return cccLerp(p_self->getLight(), m_pTarget->getLight(), f);
 }
 
+float HpInterpHolder::getGrayAt(float time, HpKeyframe* p_self){
+    float f = m_pColorInterp->getFactorWithStart(p_self->getTime(), m_pTarget->getTime(), time);
+    return (p_self->getGray()*(1.f-f) +  m_pTarget->getGray() * f) / 255.f;
+}
+
 void HpInterpHolder::setTarget(HpKeyframe* p_fm){
     m_pTarget = p_fm;
 }

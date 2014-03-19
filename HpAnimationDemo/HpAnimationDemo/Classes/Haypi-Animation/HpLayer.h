@@ -32,8 +32,6 @@ private:
     CC_SYNTHESIZE_READONLY(CCArray*, m_pGkey_indexer, Indexer)
     CC_SYNTHESIZE_READONLY(int, m_iGkey_offset, IndexOffset)
 
-    CC_SYNTHESIZE(CCAffineTransform, m_cTransform, Transform)
-
 public:
     HpLayer(CCString* p_name);
     HpLayer(HpLayer* p_layer);

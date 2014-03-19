@@ -26,5 +26,9 @@ ccColor4F cccScale(ccColor4F p_a, float p_s){
     return ccc4f(p_a.r * p_s, p_a.g * p_s, p_a.b * p_s, p_a.a * p_s);
 }
 
+float grayMult(float g1, float g2)
+{
+    return 1.f - (1.f-g1) * (1.f-g2);
+}
 
 NS_HPAM_END

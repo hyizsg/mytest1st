@@ -22,33 +22,6 @@
 USING_NS_CC;
 
 NS_HPAM_BEGIN
-    
-template<typename T>
-class CCNumber : public CCObject
-{
-public:
-    template< typename Y>
-    CCNumber(Y v)
-    : m_nValue(v) {}
-    T getValue() const {return m_nValue;}
-    
-    virtual bool isEqual(const CCObject* pObject)
-    {
-        CCNumber* p = (CCNumber*)pObject;
-        return fabs(m_nValue - p->m_nValue) < 1e-6;
-    }
-    
-    template< typename Y>
-    static CCNumber<T>* create(Y v)
-    {
-        CCNumber<T>* pRet = new CCNumber<T>(v);
-//        pRet->autorelease();
-        HP_AUTO_RELEASE(pRet);
-        return pRet;
-    }
-private:
-    T m_nValue;
-};
 
 class HpCharaInst;
 class HpKeyframe;
@@ -60,22 +33,17 @@ private:
     HpCharaInst* m_chr_instance;
 
     ccV3F_C4B_T2F_C4B_Quad m_quad;
-    HpAffineTransformStack* m_tf_stack;
-    HpColorStack* m_color_stack;
-    HpColorStack* m_light_stack;
-    HpStack* m_gray_stack;
+    HpRenderStack* m_render_stack;
+    
     HpStack* m_status_stack;
-    
-    HpStack* m_object_stack;
-    CCDictionary* m_anim_helper;
-    
-    double m_delta_time;
 
+    float m_delta_time;
+    
 protected:
     CC_SYNTHESIZE(float, m_local_scale, LocalScale)
     CC_SYNTHESIZE(float, m_global_scale, GlobalScale)
     CC_SYNTHESIZE(CCPoint, m_global_translate, GlobalTranslate)
-    CC_SYNTHESIZE(CCAffineTransform, m_layer_transform, LayerTransform)
+    CC_SYNTHESIZE(HpRenderInfo, m_layer_render, LayerRender);
     CC_SYNTHESIZE(ccColor4F, m_layer_color, LayerColor);
 
 private:

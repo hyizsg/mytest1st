@@ -11,7 +11,7 @@
 #include "HpTextureAtlas.h"
 #include "Hpheaders.h"
 #include "HpView.h"
-
+#include "HpRenderVisitorStack.h"
 
 USING_NS_CC;
 
@@ -79,7 +79,7 @@ public:
 public:
     void attach(CCNode* p_child, CCString* p_layer);
     void unattach(CCNode* p_child);
-    void applyAttath(HpLayer* layer, const CCAffineTransform& m, const ccColor4F& color);
+    void applyAttath(HpLayer* layer, const HpRenderInfo& m);
     
     void updateAttaches();
 

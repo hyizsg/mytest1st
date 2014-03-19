@@ -36,7 +36,7 @@ void HpAttachPoint::remove(CCNode *p_obj){
 }
 
 
-void HpAttachPoint::apply(const CCAffineTransform& m, const ccColor4F& color)
+void HpAttachPoint::apply(const HpRenderInfo& m)
 {
     if(getLayerInst()) {
         
@@ -45,15 +45,15 @@ void HpAttachPoint::apply(const CCAffineTransform& m, const ccColor4F& color)
             CCNode* obj = static_cast<CCNode*>(item);
             HpTransformProtocol* node = dynamic_cast<HpTransformProtocol*>(obj);
             if (node != NULL) {
-                node->setTransform(m);
+                node->setTransform(m.tf);
 //                CCLOG("{%.3f, %.3f, %.3f, %.3f, %.3f, %.3f}",
 //                      m.a, m.b, m.c, m.d, m.tx, m.ty);
             }else{
-                obj->setScaleX(m.a);
-                obj->setScaleY(m.d);
-                obj->setSkewX(CC_RADIANS_TO_DEGREES(atan(m.c/m.a)));
-                obj->setSkewY(CC_RADIANS_TO_DEGREES(atan(m.b/m.d)));
-                obj->setPosition(m.tx, m.ty);
+                obj->setScaleX(m.tf.a);
+                obj->setScaleY(m.tf.d);
+                obj->setSkewX(CC_RADIANS_TO_DEGREES(atan(m.tf.c/m.tf.a)));
+                obj->setSkewY(CC_RADIANS_TO_DEGREES(atan(m.tf.b/m.tf.d)));
+                obj->setPosition(m.tf.tx, m.tf.ty);
 ////                
 //                CCAffineTransform mm = obj->nodeToParentTransform();
 //                
@@ -63,8 +63,8 @@ void HpAttachPoint::apply(const CCAffineTransform& m, const ccColor4F& color)
             
             CCRGBAProtocol* node2 = dynamic_cast<CCRGBAProtocol*>(obj);
             if (node2 != NULL) {
-                node2->setColor(ccc3(color.r*255, color.g*255, color.b*255));
-                node2->setOpacity(color.a*255);
+                node2->setColor(ccc3(m.color.r*255, m.color.g*255, m.color.b*255));
+                node2->setOpacity(m.color.a*255);
             }
         }
     }

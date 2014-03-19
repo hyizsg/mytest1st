@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 
 #include "HpLayer.h"
+#include "HpRenderVisitorStack.h"
 
 USING_NS_CC;
 
@@ -27,7 +28,7 @@ public:
     void attach(CCNode* p_obj);
     void remove(CCNode* p_obj);
 
-    void apply(const CCAffineTransform& m, const ccColor4F& color);
+    void apply(const HpRenderInfo& m);
     
 protected:
 //    void apply(); 

@@ -311,13 +311,13 @@ void HpCharaInst::setAni(HpAnimation* p_ani, float frm)
     }
 }
 
-void HpCharaInst::applyAttath(HpLayer* layer, const CCAffineTransform& m, const ccColor4F& color)
+void HpCharaInst::applyAttath(HpLayer* layer, const HpRenderInfo& m)
 {
     CCObject* arrayItem = NULL;
     CCARRAY_FOREACH(m_attach_list, arrayItem){
         HpAttachPoint* ap = static_cast<HpAttachPoint*>(arrayItem);
         if (ap->getLayerInst() == layer) {
-            ap->apply(m, color);
+            ap->apply(m);
         }
     }
 }

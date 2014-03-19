@@ -5,10 +5,7 @@
 NS_HPAM_BEGIN
 
 HpAnimRenderVisitor::HpAnimRenderVisitor(){
-    m_tf_stack = new HpAffineTransformStack(100);
-    m_color_stack = new HpColorStack(100);
-    m_light_stack = new HpColorStack(100);
-    m_gray_stack = new HpStack(100);
+    m_render_stack = new HpRenderStack(100);
     m_status_stack = new HpStack(100);
     
     m_cur_atlas = NULL;
@@ -18,20 +15,13 @@ HpAnimRenderVisitor::HpAnimRenderVisitor(){
     m_local_scale = 1.0f;
     m_global_scale = ((int)(size.width/480.f)) * 480.f / 960.0;
     m_global_translate = CCPointZero;
-    
-    m_anim_helper = new CCDictionary();
-    m_object_stack = new HpStack();
 }
 
 HpAnimRenderVisitor::~HpAnimRenderVisitor(){
     CC_SAFE_RELEASE(m_cur_atlas);
     CC_SAFE_RELEASE(m_chr_instance);
-    CC_SAFE_RELEASE(m_tf_stack);
-    CC_SAFE_RELEASE(m_color_stack);
-    CC_SAFE_RELEASE(m_light_stack);
+    CC_SAFE_RELEASE(m_render_stack);
     CC_SAFE_RELEASE(m_status_stack);
-    CC_SAFE_RELEASE(m_anim_helper);
-    CC_SAFE_RELEASE(m_object_stack);
 }
 
 void HpAnimRenderVisitor::begin(CCObject *p_map){
@@ -49,29 +39,23 @@ void HpAnimRenderVisitor::begin(CCObject *p_map){
     transform.tx = m_global_translate.x;
     transform.ty = m_global_translate.y;
 
-
-    m_tf_stack->push((CCAffineTransform*)&transform);
     ccColor4F color = ccc4FFromccc3B(m_chr_instance->getDisplayedColor());
     color.a = m_chr_instance->getOpacity() / 255.f;
-    m_color_stack->push(&color);
     
     ccColor4F light = ccc4FFromccc3B(m_chr_instance->getDisplayedLight());
     light.a = 0;
-    m_light_stack->push(&light);
     
-    m_gray_stack->push(CCFloat::create(m_chr_instance->getDisplayedGray()/255.f));
+    float gray = m_chr_instance->getDisplayedGray()/255.f;
+    
+    HpRenderInfo info = {transform, color, light, gray};
+    m_render_stack->push(&info);
     
     m_status_stack->push(m_chr_instance->getStatus());
-    m_object_stack->push(m_chr_instance);
 }
 
 void HpAnimRenderVisitor::end(){
     m_status_stack->pop();
-    m_tf_stack->pop();
-    m_color_stack->pop();
-    m_light_stack->pop();
-    m_gray_stack->pop();
-    m_object_stack->pop();
+    m_render_stack->pop();
 
     for(int i = m_chr_instance->getAtlases()->count() - 1; i > m_cur_atlas_id; -- i){
         HpTextureAtlas* atlas = dynamic_cast<HpTextureAtlas*> (m_chr_instance->getAtlases()->objectAtIndex(i));
@@ -86,7 +70,6 @@ void HpAnimRenderVisitor::visitAnima(HpAnimation* p_ani, bool p_first, float p_t
 {
 //    CCLOG(" %d \tauto \t%s\t%f", p_ani->getLength(), p_inherited ? "false" : "true", p_time);
     if (!p_inherited) {
-        m_object_stack->push(p_ani);
         HpAnimaStatus* status = (HpAnimaStatus*)m_status_stack->peek();
         
         if (p_first)
@@ -107,7 +90,6 @@ void HpAnimRenderVisitor::visitAnima(HpAnimation* p_ani, bool p_first, float p_t
         }
         
         status->setElapsed(duration);
-        m_object_stack->pop();
         
     }else{
         visitAnima(p_ani, p_first, p_time);
@@ -115,19 +97,17 @@ void HpAnimRenderVisitor::visitAnima(HpAnimation* p_ani, bool p_first, float p_t
 }
 
 void HpAnimRenderVisitor::visitAnima(HpAnimation *p_ani, bool p_first, float p_frm){
-    m_object_stack->push(p_ani);
     HpAnimaStatus* status = dynamic_cast<HpAnimaStatus*>(m_status_stack->peek());
     for(status->setLayerIndex(0); status->getLayerIndex() < p_ani->getLayers()->count(); status->setLayerIndex(status->getLayerIndex() + 1)){
         visitLayer(dynamic_cast<HpLayer*>(p_ani->getLayers()->objectAtIndex(status->getLayerIndex())), p_first, p_frm);
     }
-    m_object_stack->pop();
 }
     
 const CCAffineTransform CCAffineTransformZero = CCAffineTransformMake(0.f, 0.f, 0.f, 0.f, 0.f, 0.f);
+const HpRenderInfo HpRenderInfoDefault = {CCAffineTransformZero, ccWhite4F, ccClear4F, 0};
 
-void HpAnimRenderVisitor::visitLayer(HpLayer *p_layer, bool p_first, float p_frm){
-    m_object_stack->push(p_layer);
-    
+void HpAnimRenderVisitor::visitLayer(HpLayer *p_layer, bool p_first, float p_frm)
+{
     HpAnimaStatus* status = dynamic_cast<HpAnimaStatus*>(m_status_stack->peek());
     HpKeyframe* gfrm = p_layer->getKeyframeAt(p_frm);
     HpContentKeyframe* cfrm = p_layer->getContentKeyframeAt(p_frm);
@@ -152,27 +132,22 @@ void HpAnimRenderVisitor::visitLayer(HpLayer *p_layer, bool p_first, float p_frm
         HPLOG("HpAnimRenderVisitor::visitLayer1    ");
         cfrm->visitBy(this, gfrm, p_frm);
         HPLOG("HpAnimRenderVisitor::visitLayer2    ");
-        p_layer->setTransform(this->getLayerTransform());
     }
     
     // applyAttath
-    if (m_object_stack->getCount() == 3) {
-        if (gfrm && cfrm) {
-            if (gfrm->getContentType() != HPCONTENTTYPE_NULL) {
-                m_chr_instance->applyAttath(p_layer,
-                                            CCAffineTransformScale(getLayerTransform(), 1/m_global_scale, 1/m_global_scale),
-                                            this->getLayerColor());
-            }
-        }else{
-            m_chr_instance->applyAttath(p_layer, CCAffineTransformZero, ccWhite4F);
+    if (gfrm && cfrm) {
+        if (gfrm->getContentType() != HPCONTENTTYPE_NULL) {
+            HpRenderInfo info = getLayerRender();
+            info.tf = CCAffineTransformScale(info.tf, 1/m_global_scale, 1/m_global_scale),
+            m_chr_instance->applyAttath(p_layer, info);
         }
+    }else{
+        m_chr_instance->applyAttath(p_layer, HpRenderInfoDefault);
     }
-    
-    m_object_stack->pop();
 }
 
-void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_frm, float time){
-
+void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_frm, float time)
+{
     HpAnimaStatus* _as = static_cast<HpAnimaStatus*>(m_status_stack->peek());
     _as->clearSubAS();
 
@@ -192,8 +167,7 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
         m_cur_atlas->resizeCapacity((m_cur_atlas->getCapacity() + 1) * 4 / 3);
 
 
-    CCAffineTransform matrix = CCAffineTransformConcat(*(makeTransform(&matrix, p_frm, time)), *(m_tf_stack->peek()));
-    this->setLayerTransform(matrix);
+    CCAffineTransform matrix = CCAffineTransformConcat(*(makeTransform(&matrix, p_frm, time)), m_render_stack->peek()->tf);
 
     CCSpriteFrame* cur_frame = p_ikf->getSpriteFrame();
     CCSize cur_size = cur_frame->getRectInPixels().size;
@@ -228,11 +202,9 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
     m_quad.tr.vertices = vertex3(cx, cy, 0);
 
     // Atlas: color
-    ccColor4F color = cccMult(p_frm->getColorAt(time), *m_color_stack->peek());
-    ccColor4F light = cccAdd(p_frm->getLightAt(time), *m_light_stack->peek());
-    float gray = ((CCFloat*)m_gray_stack->peek())->getValue();
-
-    this->setLayerColor(color);
+    ccColor4F color = cccMult(p_frm->getColorAt(time), m_render_stack->peek()->color);
+    ccColor4F light = cccAdd(p_frm->getLightAt(time), m_render_stack->peek()->light);
+    float gray = grayMult(p_frm->getGrayAt(time), m_render_stack->peek()->gray);
     
     if(m_cur_atlas->getTexture()) {
         if (m_cur_atlas->getTexture()->hasPremultipliedAlpha() && color.a != 1.0f) {
@@ -243,6 +215,8 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
         
         light.a = 0;
     }
+    
+    setLayerRender((HpRenderInfo){matrix, color, light, gray});
     
 //    CCLOG("hasPremultipliedAlpha: %d, extra: {%.3f, %.3f, %.3f, %.3f}", m_cur_atlas->getTexture()->hasPremultipliedAlpha(), extra.r, extra.g, extra.b, extra.a);
     
@@ -306,39 +280,32 @@ void HpAnimRenderVisitor::visitImageKey(HpImageKeyframe *p_ikf, HpKeyframe *p_fr
 
 }
 
-void HpAnimRenderVisitor::visitAnimaKey(HpAnimaKeyframe *p_akf, HpKeyframe *p_frm, float time){
-    CCAffineTransform m = CCAffineTransformConcat(*(this->makeTransform(&m, p_frm, time)), *(m_tf_stack->peek()));
-    m_tf_stack->push(&m);
-
-    ccColor4F c = cccMult(p_frm->getColorAt(time), *(m_color_stack->peek()));
-    m_color_stack->push(&c);
+void HpAnimRenderVisitor::visitAnimaKey(HpAnimaKeyframe *p_akf, HpKeyframe *p_frm, float time)
+{
+    CCAffineTransform m = CCAffineTransformConcat(*(this->makeTransform(&m, p_frm, time)), m_render_stack->peek()->tf);
+    ccColor4F c = cccMult(p_frm->getColorAt(time), m_render_stack->peek()->color);
+    ccColor4F l = cccAdd(p_frm->getLightAt(time), m_render_stack->peek()->light);
+    float gray = grayMult(p_frm->getGrayAt(time), m_render_stack->peek()->gray);
     
-    ccColor4F l = cccAdd(p_frm->getLightAt(time), *m_light_stack->peek());
-    m_light_stack->push(&l);
+    HpRenderInfo info = {m, c, l, gray};
+    m_render_stack->push(&info);
     
     HpAnimaStatus* _as = dynamic_cast<HpAnimaStatus*>(m_status_stack->peek());
-    CCObject* obj1 = _as->getSubAS();
-    if(obj1 == NULL){
-        HPLOG("");
-    }
-    m_status_stack->push(obj1);
+    m_status_stack->push(_as->getSubAS());
 
     this->visitAnima(p_akf->getAnima(), p_akf->getFirstVisitFlag(), time - p_akf->getTime(), p_akf->getIsTimeInherited());
 
     m_status_stack->pop();
-    this->setLayerTransform(*(m_tf_stack->pop()));
-    this->setLayerColor(*m_color_stack->pop());
-
+    this->setLayerRender(*m_render_stack->pop());
 }
     
 void HpAnimRenderVisitor::visitNullKey(HpNullKeyframe *p_nkf, HpKeyframe *p_frm, float time)
 {
-    this->setLayerTransform(*(m_tf_stack->peek()));
-    this->setLayerColor(ccWhite4F);
+    this->setLayerRender(*(m_render_stack->peek()));
 }
 
-
-CCAffineTransform* HpAnimRenderVisitor::makeTransform(CCAffineTransform* p_in, HpKeyframe* p_key, float time){
+CCAffineTransform* HpAnimRenderVisitor::makeTransform(CCAffineTransform* p_in, HpKeyframe* p_key, float time)
+{
     CCPoint center = p_key->getCenterAt(time);
     CCPoint trans = p_key->getTransAt(time);
     float rot = p_key->getRotAt(time);
@@ -361,7 +328,8 @@ CCAffineTransform* HpAnimRenderVisitor::makeTransform(CCAffineTransform* p_in, H
 
 }
 
-void HpAnimRenderVisitor::fireEventPassed(HpLayer* p_layer, HpKeyframe* p_last, HpKeyframe* p_kf){
+void HpAnimRenderVisitor::fireEventPassed(HpLayer* p_layer, HpKeyframe* p_last, HpKeyframe* p_kf)
+{
     CCAssert(p_kf == p_layer->getKeys()->objectAtIndex(p_kf->getArrayIndex()), "p_kf is not belong to the layer");
 
     if(p_last == NULL){
