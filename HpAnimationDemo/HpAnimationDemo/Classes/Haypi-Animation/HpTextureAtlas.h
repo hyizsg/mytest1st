@@ -18,7 +18,7 @@ using namespace cocos2d;
 NS_HPAM_BEGIN
 
 //! a Point with a vertex point, a tex coord point and a color 4B
-typedef struct _ccV3F_C4B_T2F_C4B_G1F
+typedef struct _ccV3F_C4B_T2F_L4B_G1F
 {
     //! vertices (3F)
     ccVertex3F        vertices;            // 12 bytes
@@ -38,20 +38,20 @@ typedef struct _ccV3F_C4B_T2F_C4B_G1F
     //! grays (float)
     GLfloat          grays;                 // 4 bytes
     
-} ccV3F_C4B_T2F_C4B_G1F;
+} ccV3F_C4B_T2F_L4B_G1F;
 
 //! 4 ccVertex3FTex2FColor4B
-typedef struct _ccV3F_C4B_T2F_C4B_Quad
+typedef struct _ccV3F_C4B_T2F_L4B_G1F_Quad
 {
     //! top left
-    _ccV3F_C4B_T2F_C4B_G1F    tl;
+    _ccV3F_C4B_T2F_L4B_G1F    tl;
     //! bottom left
-    _ccV3F_C4B_T2F_C4B_G1F    bl;
+    _ccV3F_C4B_T2F_L4B_G1F    bl;
     //! top right
-    _ccV3F_C4B_T2F_C4B_G1F    tr;
+    _ccV3F_C4B_T2F_L4B_G1F    tr;
     //! bottom right
-    _ccV3F_C4B_T2F_C4B_G1F    br;
-} ccV3F_C4B_T2F_C4B_G1F_Quad;
+    _ccV3F_C4B_T2F_L4B_G1F    br;
+} ccV3F_C4B_T2F_L4B_G1F_Quad;
 
 
 class CC_DLL HpTextureAtlas : public CCObject
@@ -72,7 +72,7 @@ protected:
     /** Texture of the texture atlas */
     CC_PROPERTY(CCTexture2D *, m_pTexture, Texture)
     /** Quads that are going to be rendered */
-    CC_PROPERTY(ccV3F_C4B_T2F_C4B_G1F_Quad *, m_pQuads, Quads)
+    CC_PROPERTY(ccV3F_C4B_T2F_L4B_G1F_Quad *, m_pQuads, Quads)
     
 public:
     
@@ -115,20 +115,20 @@ public:
      * index must be between 0 and the atlas capacity - 1
      @since v0.8
      */
-    void updateQuad(ccV3F_C4B_T2F_C4B_G1F_Quad* quad, unsigned int index);
+    void updateQuad(ccV3F_C4B_T2F_L4B_G1F_Quad* quad, unsigned int index);
     
     /** Inserts a Quad (texture, vertex and color) at a certain index
      index must be between 0 and the atlas capacity - 1
      @since v0.8
      */
-    void insertQuad(ccV3F_C4B_T2F_C4B_G1F_Quad* quad, unsigned int index);
+    void insertQuad(ccV3F_C4B_T2F_L4B_G1F_Quad* quad, unsigned int index);
     
     /** Inserts a c array of quads at a given index
      index must be between 0 and the atlas capacity - 1
      this method doesn't enlarge the array when amount + index > totalQuads
      @since v1.1
      */
-    void insertQuads(ccV3F_C4B_T2F_C4B_G1F_Quad* quads, unsigned int index, unsigned int amount);
+    void insertQuads(ccV3F_C4B_T2F_L4B_G1F_Quad* quads, unsigned int index, unsigned int amount);
     
     /** Removes the quad that is located at a certain index and inserts it at a new index
      This operation is faster than removing and inserting in a quad in 2 different steps

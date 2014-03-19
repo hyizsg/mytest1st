@@ -52,14 +52,14 @@ CCTexture2D* HpTextureAtlas::getTexture()
     return m_pTexture;
 }
 
-ccV3F_C4B_T2F_C4B_G1F_Quad* HpTextureAtlas::getQuads()
+ccV3F_C4B_T2F_L4B_G1F_Quad* HpTextureAtlas::getQuads()
 {
     //if someone accesses the quads directly, presume that changes will be made
     m_bDirty = true;
     return m_pQuads;
 }
 
-void HpTextureAtlas::setQuads(ccV3F_C4B_T2F_C4B_G1F_Quad *var)
+void HpTextureAtlas::setQuads(ccV3F_C4B_T2F_L4B_G1F_Quad *var)
 {
     m_pQuads = var;
 }
@@ -118,7 +118,7 @@ bool HpTextureAtlas::initWithTexture(CCTexture2D *texture, unsigned int capacity
     // Re-initialization is not allowed
     CCAssert(m_pQuads == NULL && m_pIndices == NULL, "");
     
-    m_pQuads = (ccV3F_C4B_T2F_C4B_G1F_Quad*)malloc( m_uCapacity * sizeof(ccV3F_C4B_T2F_C4B_G1F_Quad) );
+    m_pQuads = (ccV3F_C4B_T2F_L4B_G1F_Quad*)malloc( m_uCapacity * sizeof(ccV3F_C4B_T2F_L4B_G1F_Quad) );
     m_pIndices = (GLushort *)malloc( m_uCapacity * 6 * sizeof(GLushort) );
     
     if( ! ( m_pQuads && m_pIndices) && m_uCapacity > 0)
@@ -133,7 +133,7 @@ bool HpTextureAtlas::initWithTexture(CCTexture2D *texture, unsigned int capacity
         return false;
     }
     
-    memset( m_pQuads, 0, m_uCapacity * sizeof(ccV3F_C4B_T2F_C4B_G1F_Quad) );
+    memset( m_pQuads, 0, m_uCapacity * sizeof(ccV3F_C4B_T2F_L4B_G1F_Quad) );
     memset( m_pIndices, 0, m_uCapacity * 6 * sizeof(GLushort) );
     
 #if CC_ENABLE_CACHE_TEXTURE_DATA
@@ -226,23 +226,23 @@ void HpTextureAtlas::setupVBOandVAO()
     
     // vertices
     glEnableVertexAttribArray(kCCVertexAttrib_Position);
-    glVertexAttribPointer(kCCVertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, vertices));
+    glVertexAttribPointer(kCCVertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, vertices));
     
     // colors
     glEnableVertexAttribArray(kCCVertexAttrib_Color);
-    glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, colors));
+    glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, colors));
     
     // tex coords
     glEnableVertexAttribArray(kCCVertexAttrib_TexCoords);
-    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, texCoords));
+    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, texCoords));
     
     // extra
     glEnableVertexAttribArray(kCCVertexAttrib_Light);
-    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, lights));
+    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, lights));
     
     // extra
     glEnableVertexAttribArray(kCCVertexAttrib_Gray);
-    glVertexAttribPointer(kCCVertexAttrib_Gray, 1, GL_FLOAT, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, grays));
+    glVertexAttribPointer(kCCVertexAttrib_Gray, 1, GL_FLOAT, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, grays));
     
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);
@@ -282,7 +282,7 @@ void HpTextureAtlas::mapBuffers()
 
 // TextureAtlas - Update, Insert, Move & Remove
 
-void HpTextureAtlas::updateQuad(ccV3F_C4B_T2F_C4B_G1F_Quad *quad, unsigned int index)
+void HpTextureAtlas::updateQuad(ccV3F_C4B_T2F_L4B_G1F_Quad *quad, unsigned int index)
 {
     CCAssert( index >= 0 && index < m_uCapacity, "updateQuadWithTexture: Invalid index");
     
@@ -295,7 +295,7 @@ void HpTextureAtlas::updateQuad(ccV3F_C4B_T2F_C4B_G1F_Quad *quad, unsigned int i
     
 }
 
-void HpTextureAtlas::insertQuad(ccV3F_C4B_T2F_C4B_G1F_Quad *quad, unsigned int index)
+void HpTextureAtlas::insertQuad(ccV3F_C4B_T2F_L4B_G1F_Quad *quad, unsigned int index)
 {
     CCAssert( index < m_uCapacity, "insertQuadWithTexture: Invalid index");
     
@@ -319,7 +319,7 @@ void HpTextureAtlas::insertQuad(ccV3F_C4B_T2F_C4B_G1F_Quad *quad, unsigned int i
     
 }
 
-void HpTextureAtlas::insertQuads(ccV3F_C4B_T2F_C4B_G1F_Quad* quads, unsigned int index, unsigned int amount)
+void HpTextureAtlas::insertQuads(ccV3F_C4B_T2F_L4B_G1F_Quad* quads, unsigned int index, unsigned int amount)
 {
     CCAssert(index + amount <= m_uCapacity, "insertQuadWithTexture: Invalid index + amount");
     
@@ -371,7 +371,7 @@ void HpTextureAtlas::insertQuadFromIndex(unsigned int oldIndex, unsigned int new
     }
     
     // texture coordinates
-    ccV3F_C4B_T2F_C4B_G1F_Quad quadsBackup = m_pQuads[oldIndex];
+    ccV3F_C4B_T2F_L4B_G1F_Quad quadsBackup = m_pQuads[oldIndex];
     memmove( &m_pQuads[dst],&m_pQuads[src], sizeof(m_pQuads[0]) * howMany );
     m_pQuads[newIndex] = quadsBackup;
     
@@ -434,14 +434,14 @@ bool HpTextureAtlas::resizeCapacity(unsigned int newCapacity)
     m_uTotalQuads = MIN(m_uTotalQuads, newCapacity);
     m_uCapacity = newCapacity;
     
-    ccV3F_C4B_T2F_C4B_G1F_Quad* tmpQuads = NULL;
+    ccV3F_C4B_T2F_L4B_G1F_Quad* tmpQuads = NULL;
     GLushort* tmpIndices = NULL;
     
     // when calling initWithTexture(fileName, 0) on bada device, calloc(0, 1) will fail and return NULL,
     // so here must judge whether m_pQuads and m_pIndices is NULL.
     if (m_pQuads == NULL)
     {
-        tmpQuads = (ccV3F_C4B_T2F_C4B_G1F_Quad*)malloc( m_uCapacity * sizeof(m_pQuads[0]) );
+        tmpQuads = (ccV3F_C4B_T2F_L4B_G1F_Quad*)malloc( m_uCapacity * sizeof(m_pQuads[0]) );
         if (tmpQuads != NULL)
         {
             memset(tmpQuads, 0, m_uCapacity * sizeof(m_pQuads[0]) );
@@ -449,7 +449,7 @@ bool HpTextureAtlas::resizeCapacity(unsigned int newCapacity)
     }
     else
     {
-        tmpQuads = (ccV3F_C4B_T2F_C4B_G1F_Quad*)realloc( m_pQuads, sizeof(m_pQuads[0]) * m_uCapacity );
+        tmpQuads = (ccV3F_C4B_T2F_L4B_G1F_Quad*)realloc( m_pQuads, sizeof(m_pQuads[0]) * m_uCapacity );
         if (tmpQuads != NULL && m_uCapacity > uOldCapactiy)
         {
             memset(tmpQuads+uOldCapactiy, 0, (m_uCapacity - uOldCapactiy)*sizeof(m_pQuads[0]) );
@@ -511,8 +511,8 @@ void HpTextureAtlas::moveQuadsFromIndex(unsigned int oldIndex, unsigned int amou
         return;
     }
     //create buffer
-    size_t quadSize = sizeof(ccV3F_C4B_T2F_C4B_G1F_Quad);
-    ccV3F_C4B_T2F_C4B_G1F_Quad* tempQuads = (ccV3F_C4B_T2F_C4B_G1F_Quad*)malloc( quadSize * amount);
+    size_t quadSize = sizeof(ccV3F_C4B_T2F_L4B_G1F_Quad);
+    ccV3F_C4B_T2F_L4B_G1F_Quad* tempQuads = (ccV3F_C4B_T2F_L4B_G1F_Quad*)malloc( quadSize * amount);
     memcpy( tempQuads, &m_pQuads[oldIndex], quadSize * amount );
     
     if (newIndex < oldIndex)
@@ -541,7 +541,7 @@ void HpTextureAtlas::moveQuadsFromIndex(unsigned int index, unsigned int newInde
 
 void HpTextureAtlas::fillWithEmptyQuadsFromIndex(unsigned int index, unsigned int amount)
 {
-    ccV3F_C4B_T2F_C4B_G1F_Quad quad;
+    ccV3F_C4B_T2F_L4B_G1F_Quad quad;
     memset(&quad, 0, sizeof(quad));
     
     unsigned int to = index + amount;
@@ -643,19 +643,19 @@ void HpTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_PosColorTex);
     
     // vertices
-    glVertexAttribPointer(kCCVertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_C4B_G1F, vertices));
+    glVertexAttribPointer(kCCVertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_L4B_G1F, vertices));
     
     // colors
-    glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_C4B_G1F, colors));
+    glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_L4B_G1F, colors));
     
     // tex coords
-    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_C4B_G1F, texCoords));
+    glVertexAttribPointer(kCCVertexAttrib_TexCoords, 2, GL_FLOAT, GL_FALSE, kQuadSize, (GLvoid*) offsetof(ccV3F_C4B_T2F_L4B_G1F, texCoords));
     
     // lights
-    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, lights));
+    glVertexAttribPointer(kCCVertexAttrib_Light, 4, GL_UNSIGNED_BYTE, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, lights));
     
     // gray
-    glVertexAttribPointer(kCCVertexAttrib_Gray, 1, GL_FLOAT, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_C4B_G1F, grays));
+    glVertexAttribPointer(kCCVertexAttrib_Gray, 1, GL_FLOAT, GL_TRUE, kQuadSize, (GLvoid*) offsetof( ccV3F_C4B_T2F_L4B_G1F, grays));
     
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);
