@@ -32,7 +32,7 @@ private:
     HpTextureAtlas* m_cur_atlas;
     HpCharaInst* m_chr_instance;
 
-    ccV3F_C4B_T2F_C4B_Quad m_quad;
+    ccV3F_C4B_T2F_C4B_G1F_Quad m_quad;
     HpRenderStack* m_render_stack;
     
     HpStack* m_status_stack;
