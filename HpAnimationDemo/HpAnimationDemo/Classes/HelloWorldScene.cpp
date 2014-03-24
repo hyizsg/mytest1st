@@ -39,12 +39,14 @@ bool HelloWorld::init()
      * 请保持各个chr文件中的动画名称唯一，加前缀以区分。<参考CCSpriteFrame类>
      * 可以把HpCharaInstLoader与CCB结合使用，在CCBuilder中使用HpCharaInst自定义类
      */
-    HpCharactorManager::sharedManager()->addCharactorsWithFile("test.chr");
+//    HpCharactorManager::sharedManager()->addCharactorsWithFile("test.chr");
+    HpCharactorManager::sharedManager()->addCharactorsWithFile("effects_fire.chr");
     
     HpCharaInst* inst = HpCharaInst::create();
     addChild(inst);
     
-    inst->playAniByName("动画   1", false);
+//    inst->playAniByName("动画   1", false);
+    inst->playAniByName("红色火把火焰", false);
     
 //    inst->runAction(HpPlay::create("动画   0", "动画   0", "动画   0", NULL));
 //    inst->playAniByName("动画   0", 0.f);

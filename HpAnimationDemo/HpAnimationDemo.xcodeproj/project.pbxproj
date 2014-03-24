@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		D8017CC518CAEEA600BC5C9D /* HpPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8017CC318CAEEA600BC5C9D /* HpPlay.cpp */; };
 		D8017CC818CAEFF100BC5C9D /* HpShine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8017CC618CAEFF100BC5C9D /* HpShine.cpp */; };
+		D802B48A18DFD02700A1D5D9 /* effects_fire.chr in Resources */ = {isa = PBXBuildFile; fileRef = D802B48218DFD02700A1D5D9 /* effects_fire.chr */; };
+		D802B48B18DFD02700A1D5D9 /* effects_fire.xml in Resources */ = {isa = PBXBuildFile; fileRef = D802B48318DFD02700A1D5D9 /* effects_fire.xml */; };
+		D802B48C18DFD02700A1D5D9 /* effects_huoba.chr in Resources */ = {isa = PBXBuildFile; fileRef = D802B48418DFD02700A1D5D9 /* effects_huoba.chr */; };
+		D802B48D18DFD02700A1D5D9 /* effects_huoba.xml in Resources */ = {isa = PBXBuildFile; fileRef = D802B48518DFD02700A1D5D9 /* effects_huoba.xml */; };
+		D802B48E18DFD02700A1D5D9 /* effects_light.chr in Resources */ = {isa = PBXBuildFile; fileRef = D802B48618DFD02700A1D5D9 /* effects_light.chr */; };
+		D802B48F18DFD02700A1D5D9 /* effects_light.xml in Resources */ = {isa = PBXBuildFile; fileRef = D802B48718DFD02700A1D5D9 /* effects_light.xml */; };
+		D802B49018DFD02700A1D5D9 /* effects_mapfire.plist in Resources */ = {isa = PBXBuildFile; fileRef = D802B48818DFD02700A1D5D9 /* effects_mapfire.plist */; };
+		D802B49118DFD02700A1D5D9 /* effects_mapfire.png in Resources */ = {isa = PBXBuildFile; fileRef = D802B48918DFD02700A1D5D9 /* effects_mapfire.png */; };
 		D804AD5318C47F0000B0CB16 /* HpGLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D804AD5118C47F0000B0CB16 /* HpGLProgram.cpp */; };
 		D80CB84718C83D1E0085FBF7 /* HpLightProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D80CB84518C83D1E0085FBF7 /* HpLightProtocol.cpp */; };
 		D82E517118C47CFC0053ADB1 /* hpShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D82E516F18C47CFC0053ADB1 /* hpShaders.cpp */; };
@@ -325,6 +333,14 @@
 		D8017CC418CAEEA600BC5C9D /* HpPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpPlay.h; sourceTree = "<group>"; };
 		D8017CC618CAEFF100BC5C9D /* HpShine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpShine.cpp; sourceTree = "<group>"; };
 		D8017CC718CAEFF100BC5C9D /* HpShine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpShine.h; sourceTree = "<group>"; };
+		D802B48218DFD02700A1D5D9 /* effects_fire.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_fire.chr; sourceTree = "<group>"; };
+		D802B48318DFD02700A1D5D9 /* effects_fire.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effects_fire.xml; sourceTree = "<group>"; };
+		D802B48418DFD02700A1D5D9 /* effects_huoba.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_huoba.chr; sourceTree = "<group>"; };
+		D802B48518DFD02700A1D5D9 /* effects_huoba.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effects_huoba.xml; sourceTree = "<group>"; };
+		D802B48618DFD02700A1D5D9 /* effects_light.chr */ = {isa = PBXFileReference; lastKnownFileType = file; path = effects_light.chr; sourceTree = "<group>"; };
+		D802B48718DFD02700A1D5D9 /* effects_light.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effects_light.xml; sourceTree = "<group>"; };
+		D802B48818DFD02700A1D5D9 /* effects_mapfire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = effects_mapfire.plist; sourceTree = "<group>"; };
+		D802B48918DFD02700A1D5D9 /* effects_mapfire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = effects_mapfire.png; sourceTree = "<group>"; };
 		D804AD5118C47F0000B0CB16 /* HpGLProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpGLProgram.cpp; sourceTree = "<group>"; };
 		D804AD5218C47F0000B0CB16 /* HpGLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpGLProgram.h; sourceTree = "<group>"; };
 		D80CB84518C83D1E0085FBF7 /* HpLightProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpLightProtocol.cpp; sourceTree = "<group>"; };
@@ -1021,6 +1037,21 @@
 				D8017CC718CAEFF100BC5C9D /* HpShine.h */,
 			);
 			path = actions;
+			sourceTree = "<group>";
+		};
+		D802B48118DFD02700A1D5D9 /* mapfire_red */ = {
+			isa = PBXGroup;
+			children = (
+				D802B48218DFD02700A1D5D9 /* effects_fire.chr */,
+				D802B48318DFD02700A1D5D9 /* effects_fire.xml */,
+				D802B48418DFD02700A1D5D9 /* effects_huoba.chr */,
+				D802B48518DFD02700A1D5D9 /* effects_huoba.xml */,
+				D802B48618DFD02700A1D5D9 /* effects_light.chr */,
+				D802B48718DFD02700A1D5D9 /* effects_light.xml */,
+				D802B48818DFD02700A1D5D9 /* effects_mapfire.plist */,
+				D802B48918DFD02700A1D5D9 /* effects_mapfire.png */,
+			);
+			path = mapfire_red;
 			sourceTree = "<group>";
 		};
 		D82E516E18C47CCC0053ADB1 /* shders */ = {
@@ -2245,6 +2276,7 @@
 		D8809E5018C4340D003B9E80 /* anima */ = {
 			isa = PBXGroup;
 			children = (
+				D802B48118DFD02700A1D5D9 /* mapfire_red */,
 				D8A85ACD18C57917005EEB81 /* test.chr */,
 				D8A85ADD18C57A61005EEB81 /* test.xml */,
 				D8A85ACE18C57917005EEB81 /* test.plist */,
@@ -2378,9 +2410,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8809AC618C433D3003B9E80 /* Icon.png in Resources */,
+				D802B48D18DFD02700A1D5D9 /* effects_huoba.xml in Resources */,
 				D8809B6918C433D4003B9E80 /* ChangeLog in Resources */,
+				D802B48A18DFD02700A1D5D9 /* effects_fire.chr in Resources */,
 				D8809AB618C433D3003B9E80 /* CloseNormal.png in Resources */,
+				D802B48E18DFD02700A1D5D9 /* effects_light.chr in Resources */,
 				D8809AC218C433D3003B9E80 /* Icon-Small.png in Resources */,
+				D802B48B18DFD02700A1D5D9 /* effects_fire.xml in Resources */,
 				D8A85AD518C57917005EEB81 /* test.png in Resources */,
 				D8A85ADE18C57A61005EEB81 /* test.xml in Resources */,
 				D8A85AD418C57917005EEB81 /* test.plist in Resources */,
@@ -2391,8 +2427,12 @@
 				D8809AC418C433D3003B9E80 /* Icon-Small@2x.png in Resources */,
 				D8A85AD318C57917005EEB81 /* test.chr in Resources */,
 				D8809ABA18C433D3003B9E80 /* Default.png in Resources */,
+				D802B49018DFD02700A1D5D9 /* effects_mapfire.plist in Resources */,
 				D8809AB818C433D3003B9E80 /* CloseSelected.png in Resources */,
+				D802B49118DFD02700A1D5D9 /* effects_mapfire.png in Resources */,
 				D8809AC818C433D3003B9E80 /* Icon@2x.png in Resources */,
+				D802B48C18DFD02700A1D5D9 /* effects_huoba.chr in Resources */,
+				D802B48F18DFD02700A1D5D9 /* effects_light.xml in Resources */,
 				D8809CDD18C433D6003B9E80 /* project.pbxproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

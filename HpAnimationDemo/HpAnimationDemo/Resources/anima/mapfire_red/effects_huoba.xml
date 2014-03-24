@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Haypi Animation File-->
+<Charactor version="1.0">
+  <plists>
+    <plist file="effects_mapfire.plist" />
+  </plists>
+  <Animations>
+    <Animation name="红色光效" length="18">
+      <Nodes>
+        <Node name="节点   5">
+          <Keys>
+            <Key type="AnimaKey">
+              <Anima>红色光效_1</Anima>
+              <Time>0</Time>
+              <TimeInher>true</TimeInher>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>112.78,72.30</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="AnimaKey">
+              <Anima>红色光效_1</Anima>
+              <Time>17</Time>
+              <TimeInher>true</TimeInher>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>112.78,72.30</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+    <Animation name="红色光效_1" length="18">
+      <Nodes>
+        <Node name="节点   4">
+          <Keys>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>0</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>3</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#8EFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>5</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>6</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>7</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>11</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#8EFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>13</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>14</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light2.png</Image>
+              <Time>17</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-109.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+        <Node name="节点   3">
+          <Keys>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>0</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>3</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#8EFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>5</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>6</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>7</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>11</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#8EFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>13</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>14</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_light1.png</Image>
+              <Time>17</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-75.00,-78.46</Trans>
+              <Color>#87FFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+    <Animation name="红色火把动画" length="18">
+      <Nodes>
+        <Node name="节点   0">
+          <Keys>
+            <Key type="AnimaKey">
+              <Anima>红色火把动画_1</Anima>
+              <Time>0</Time>
+              <TimeInher>true</TimeInher>
+              <Center>117.00,-23.16</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-77.02,0.43</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="AnimaKey">
+              <Anima>红色火把动画_1</Anima>
+              <Time>17</Time>
+              <TimeInher>true</TimeInher>
+              <Center>118.00,53.84</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-77.02,0.43</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+    <Animation name="红色火把动画_1" length="18">
+      <Nodes>
+        <Node name="节点   0">
+          <Keys>
+            <Key type="AnimaKey">
+              <Anima>火把棍</Anima>
+              <Time>0</Time>
+              <TimeInher>true</TimeInher>
+              <Center>-1.25,-5.21</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>121.93,61.36</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="AnimaKey">
+              <Anima>火把棍</Anima>
+              <Time>17</Time>
+              <TimeInher>true</TimeInher>
+              <Center>-1.25,-5.21</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>121.93,61.36</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+        <Node name="节点   1">
+          <Keys>
+            <Key type="AnimaKey">
+              <Anima>红色火把火焰</Anima>
+              <Time>0</Time>
+              <TimeInher>true</TimeInher>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>115.07,71.09</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="AnimaKey">
+              <Anima>红色火把火焰</Anima>
+              <Time>17</Time>
+              <TimeInher>true</TimeInher>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>115.07,71.09</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+        <Node name="节点   2">
+          <Keys>
+            <Key type="AnimaKey">
+              <Anima>红色光效</Anima>
+              <Time>0</Time>
+              <TimeInher>true</TimeInher>
+              <Center>123.57,55.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>4.15,3.76</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="AnimaKey">
+              <Anima>红色光效</Anima>
+              <Time>17</Time>
+              <TimeInher>true</TimeInher>
+              <Center>123.57,55.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>4.15,3.76</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+    <Animation name="红色火把火焰" length="18">
+      <Nodes>
+        <Node name="节点   1">
+          <Keys>
+            <Key type="ImageKey">
+              <Image>effect_fire1.png</Image>
+              <Time>0</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,2.02</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire2.png</Image>
+              <Time>2</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,2.02</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire3.png</Image>
+              <Time>4</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire4.png</Image>
+              <Time>6</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire5.png</Image>
+              <Time>7</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire6.png</Image>
+              <Time>9</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire6.png</Image>
+              <Time>11</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire7.png</Image>
+              <Time>12</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire8.png</Image>
+              <Time>13</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire9.png</Image>
+              <Time>14</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire10.png</Image>
+              <Time>15</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,1.52</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire11.png</Image>
+              <Time>16</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,2.02</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>effect_fire12.png</Image>
+              <Time>17</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-3.00,2.02</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+    <Animation name="火把棍" length="18">
+      <Nodes>
+        <Node name="节点   0">
+          <Keys>
+            <Key type="ImageKey">
+              <Image>item_wood.png</Image>
+              <Time>0</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-15.83,-37.00</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+            <Key type="ImageKey">
+              <Image>item_wood.png</Image>
+              <Time>17</Time>
+              <Center>0.00,0.00</Center>
+              <Scale>1.00,1.00</Scale>
+              <Skew>0.00,0.00</Skew>
+              <Rot>0</Rot>
+              <Trans>-15.83,-37.00</Trans>
+              <Color>#FFFFFFFF</Color>
+              <Light>#00000000</Light>
+            </Key>
+          </Keys>
+        </Node>
+      </Nodes>
+    </Animation>
+  </Animations>
+</Charactor>
