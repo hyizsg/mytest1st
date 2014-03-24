@@ -25,7 +25,7 @@ NS_HPAM_BEGIN
     
     typedef unsigned char  Byte;
     
-static Byte ChrReadingVersionMax = 0x5;
+static Byte ChrReadingVersionMax = 0x6;
 static Byte ChrReadingVersion = 0x00;
 static float Byte2Double = 1/255.f;
 

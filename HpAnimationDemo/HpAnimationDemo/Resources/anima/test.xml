@@ -5,20 +5,21 @@
     <plist file="test.plist" />
   </plists>
   <Animations>
-    <Animation name="动画   0" length="1">
+    <Animation name="动画   1" length="1">
       <Nodes>
         <Node name="节点   0">
           <Keys>
             <Key type="ImageKey">
               <Image>3015_b.jpg</Image>
               <Time>0</Time>
-              <Center>0.00,0.00</Center>
+              <Center>40.00,38.00</Center>
               <Scale>1.00,1.00</Scale>
               <Skew>0.00,0.00</Skew>
               <Rot>0</Rot>
               <Trans>0.00,0.00</Trans>
               <Color>#FFFFFFFF</Color>
               <Light>#00000000</Light>
+              <Gray>0</Gray>
             </Key>
           </Keys>
         </Node>
