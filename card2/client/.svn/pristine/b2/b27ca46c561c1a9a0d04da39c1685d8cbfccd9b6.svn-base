@@ -1,7 +1,0 @@
-
-TexturePacker ./game.tps
-TexturePacker ./game_hd.tps
-plist2binary ./game.plist 
-plist2binary ./game_hd.plist 
-cp -f ./game.plistb $OUT/public_res/game/
-cp -f ./game_hd.plistb $OUT/public_res/game/
