@@ -62,6 +62,7 @@ public:
     
 public:
     float getDuration();
+    int getLength();
     virtual void setLight(const ccColor3B& light);
     virtual void setGray(GLubyte gray);
     

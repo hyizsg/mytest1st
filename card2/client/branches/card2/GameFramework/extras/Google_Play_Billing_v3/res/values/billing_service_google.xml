@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="GOOGLE_BILLING_MESSAGE_0">Purchase Success!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_1">User Canceled!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_2">Unknown Error!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_3">Billing Unavailable!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_4">Item unavailable!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_5">Developer Error!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_6">Error!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_7">Item Already Owned!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_8">Item not owned!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1001">Remote exception during initialization!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1002">Bad response received!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1003">Purchase signature verification failed!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1004">Send intent failed!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1005">User cancelled!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1006">Unknown purchase response!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1007">Missing token!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1008">Unknown error!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1009">Subscriptions not available!</string>
+    <string name="GOOGLE_BILLING_MESSAGE__1010">Invalid consumption attempt!</string>
+    <string name="GOOGLE_BILLING_MESSAGE_UNKNOW">%d:Unknown!</string>
+
+</resources>

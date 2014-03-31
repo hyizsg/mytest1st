@@ -285,6 +285,13 @@ float HpCharaInst::getDuration()
     return anim ? anim->getLength() / m_fps : 0.f;
 }
 
+int HpCharaInst::getLength()
+{
+    HpAnimation* anim = HpCharactorManager::sharedManager()->charaAnimaByName(getCurrentAnimationName()->getCString(), NULL);
+    return anim ? anim->getLength() : 0;
+}
+
+
 void HpCharaInst::setLight(const ccColor3B& light)
 {
     HpLightObject::setLight(light);
